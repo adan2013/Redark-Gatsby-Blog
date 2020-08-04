@@ -1,14 +1,5 @@
 import { createGlobalStyle, css } from "styled-components"
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    background-color: ${props => props.theme.general.background};
-    font-family: "Helvetica Neue", "Helvetica", "sans-serif";
-    font-size: 14px;
-  }
-`
-
 const HoverFillLinkStyle = css`
   a {
     color: #000;
@@ -50,6 +41,54 @@ const HoverBottomLineLinkStyle = css`
       visibility: visible;
       transform: scaleX(1);
     }
+  }
+`
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    background-color: ${props => props.theme.general.background};
+    font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+    font-size: 14px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    ${HoverFillLinkStyle}
+  }
+
+  h1 {
+    font-family: 'Anton', 'sans-serif';
+    font-size: 38px;
+    color: #000;
+    border-bottom: 3px #d40000 solid;
+    padding: 5px;
+    margin: 0;
+    @media (max-width: ${props => props.theme.mobileBreakpoint}) { font-size: 26px; }
+  }
+  
+  h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 2px;
+    text-align: left;
+  }
+  
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    text-align: left;
   }
 `
 
