@@ -43,19 +43,19 @@
     {
       "name": "Facebook (redarkpl)",
       "link": "https://www.facebook.com/redarkpl",
-      "icon": "fab fa-facebook-square",
+      "icon": "fb",
       "color": "#3b5999"
     },
     {
       "name": "Twitter (REDARKpl)",
       "link": "https://twitter.com/REDARKpl",
-      "icon": "fab fa-twitter-square",
+      "icon": "tt",
       "color": "#55acee"
     },
     {
       "name": "Instagram (redark.pl)",
       "link": "https://www.instagram.com/redark.pl/",
-      "icon": "fab fa-instagram-square",
+      "icon": "ig",
       "color": "#e44459"
     }
   ],

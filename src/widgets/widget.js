@@ -21,7 +21,7 @@ const WidgetTitle = styled.div`
 `
 
 const WidgetBody = styled.div`
-  padding: 8px 4px;
+  padding: 8px 6px;
   color: ${props => props.theme.widget.bodyText};
 `
 

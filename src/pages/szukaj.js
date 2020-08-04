@@ -4,8 +4,8 @@ import SEO from "../components/seo"
 
 const Page = () => (
   <Layout>
-    <SEO title={"Aktualności"}/>
-    <h1>Aktualności</h1>
+    <SEO title={"Szukaj"}/>
+    <h1>Szukaj</h1>
   </Layout>
 )
 
