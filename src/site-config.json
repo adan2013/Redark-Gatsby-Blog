@@ -1,0 +1,81 @@
+{
+  "mainMenu": [
+    {
+      "text": "Aktualności",
+      "link": "/"
+    },
+    {
+      "text": "Komputery",
+      "link": "/skladanie-pc",
+      "dropdown": [
+        {
+          "text": "Składanie PC",
+          "link": "/skladanie-pc"
+        },
+        {
+          "text": "Diagnostyka",
+          "link": "/category/diagnostyka"
+        }
+      ]
+    },
+    {
+      "text": "Podzespoły i urządzenia",
+      "link": "/podzespoly-i-urzadzenia"
+    },
+    {
+      "text": "Serie",
+      "link": "/serie"
+    },
+    {
+      "text": "Blog",
+      "link": "/blog"
+    },
+    {
+      "text": "Kontakt",
+      "link": "/kontakt"
+    },
+    {
+      "text": "Szukaj",
+      "link": "/szukaj"
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook (redarkpl)",
+      "link": "https://www.facebook.com/redarkpl",
+      "icon": "fab fa-facebook-square",
+      "color": "#3b5999"
+    },
+    {
+      "name": "Twitter (REDARKpl)",
+      "link": "https://twitter.com/REDARKpl",
+      "icon": "fab fa-twitter-square",
+      "color": "#55acee"
+    },
+    {
+      "name": "Instagram (redark.pl)",
+      "link": "https://www.instagram.com/redark.pl/",
+      "icon": "fab fa-instagram-square",
+      "color": "#e44459"
+    }
+  ],
+  "footer": [
+    {
+      "title": "O serwisie",
+      "content": [
+        {"name": "Regulamin witryny", "link": "/regulamin-witryny"},
+        {"name": "Polityka prywatności", "link": "/polityka-prywatnosci"},
+        {"name": "Kontakt", "link": "/kontakt"}
+      ]
+    },
+    {
+      "title": "Na skróty",
+      "content": [
+        {"name": "Poradnik składania PC", "link": "/skladanie-pc"},
+        {"name": "Dobieranie podzespołów", "link": "/podzespoly-i-urzadzenia"},
+        {"name": "Lista aktywnych serii artykułów", "link": "/serie"},
+        {"name": "Wszystkie artykuły", "link": "/blog"}
+      ]
+    }
+  ]
+}

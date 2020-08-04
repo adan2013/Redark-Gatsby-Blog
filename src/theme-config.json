@@ -1,0 +1,26 @@
+{
+  "light": {
+    "mobileBreakpoint": "880px",
+    "compactMenuBreakpoint": "720px",
+    "menuHeight": "45px",
+    "mainColor": "#d40000",
+    "menu": {
+      "menuBarBg": "#fff",
+      "menuBarBorder": "#575757",
+      "mobileMenuButton": "#d40000",
+      "normalText": "#000",
+      "normalBg": "#e0e0e0",
+      "hoverText": "#fff",
+      "hoverBg": "#d40000",
+      "darkenBorder": "#c4c4c4"
+    },
+    "footer": {
+      "background": "#e5e5e5",
+      "border": "#d40000",
+      "text": "#000"
+    }
+  },
+  "dark": {
+
+  }
+}
