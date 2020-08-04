@@ -21,6 +21,13 @@
       "hoverBg": "#d40000",
       "darkenBorder": "#c4c4c4"
     },
+    "widget": {
+      "background": "#e0e0e0",
+      "border": "92",
+      "titleBg": "#d40000",
+      "titleText": "#fff",
+      "bodyText": "#000"
+    },
     "footer": {
       "background": "#e5e5e5",
       "border": "#d40000",

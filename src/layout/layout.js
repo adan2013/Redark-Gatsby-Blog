@@ -21,7 +21,7 @@ const PageContainer = styled.div`
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: row;
-    padding: 20px 40px;
+    padding: 25px 40px;
     @media (max-width: ${props => props.theme.mobileBreakpoint}) {
       flex-direction: column;
       padding: 20px;
