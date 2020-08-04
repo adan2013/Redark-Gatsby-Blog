@@ -3,7 +3,7 @@ import { createGlobalStyle, css } from "styled-components"
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    background-color: #f2f2f2;
+    background-color: ${props => props.theme.general.background};
     font-family: "Helvetica Neue", "Helvetica", "sans-serif";
     font-size: 14px;
   }

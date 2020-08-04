@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
 import Navigation from "./navigation"
+import ThemeSwitch from "./themeSwitch"
 
 const headerImageQuery = graphql`
   {
@@ -14,6 +15,10 @@ const headerImageQuery = graphql`
       }
     }
   }
+`
+
+const RelativeBlock = styled.div`
+  position: relative;
 `
 
 const HeaderContainer = styled.header`
@@ -35,11 +40,11 @@ const HeaderImageWrapper = styled.div`
   }
 `
 
-const Header = () => {
+const Header = (props) => {
   const data = useStaticQuery(headerImageQuery)
 
   return (
-    <>
+    <RelativeBlock>
       <HeaderContainer>
         <Link to={'/'}>
           <HeaderImageWrapper>
@@ -47,8 +52,9 @@ const Header = () => {
           </HeaderImageWrapper>
         </Link>
       </HeaderContainer>
+      <ThemeSwitch themeChanged={props.themeChanged} />
       <Navigation/>
-    </>
+    </RelativeBlock>
   )
 }
 
