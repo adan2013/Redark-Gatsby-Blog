@@ -9,8 +9,13 @@ const Page = ({data}) => (
     <SEO title={'Blog'}/>
     <h1>Blog</h1>
     {
-      data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date } }) => (
-        <PostBlock key={slug} slug={slug} image={image.childImageSharp.fluid} title={title} date={date} />
+      data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }) => (
+        <PostBlock key={slug}
+                   slug={slug}
+                   image={image.childImageSharp.fluid}
+                   title={title}
+                   date={date}
+                   categories={categories} />
       ))
     }
   </Layout>
@@ -24,6 +29,7 @@ export const query = graphql`
           title
           slug
           date
+          categories
           image {
             childImageSharp {
               fluid(maxWidth: 800, maxHeight: 370) {

@@ -1,43 +1,17 @@
 {
   "mainMenu": [
-    {
-      "text": "Aktualności",
-      "link": "/"
-    },
-    {
-      "text": "Komputery",
-      "link": "/skladanie-pc",
+    { "text": "Aktualności", "link": "/" },
+    { "text": "Komputery", "link": "/skladanie-pc",
       "dropdown": [
-        {
-          "text": "Składanie PC",
-          "link": "/skladanie-pc"
-        },
-        {
-          "text": "Diagnostyka",
-          "link": "/category/diagnostyka"
-        }
+        { "text": "Składanie PC", "link": "/skladanie-pc" },
+        { "text": "Diagnostyka", "link": "/category/diagnostyka" }
       ]
     },
-    {
-      "text": "Podzespoły i urządzenia",
-      "link": "/podzespoly-i-urzadzenia"
-    },
-    {
-      "text": "Serie",
-      "link": "/serie"
-    },
-    {
-      "text": "Blog",
-      "link": "/blog"
-    },
-    {
-      "text": "Kontakt",
-      "link": "/kontakt"
-    },
-    {
-      "text": "Szukaj",
-      "link": "/szukaj"
-    }
+    { "text": "Podzespoły i urządzenia", "link": "/podzespoly-i-urzadzenia" },
+    { "text": "Serie", "link": "/serie" },
+    { "text": "Blog", "link": "/blog" },
+    { "text": "Kontakt", "link": "/kontakt" },
+    { "text": "Szukaj", "link": "/szukaj" }
   ],
   "social": [
     {

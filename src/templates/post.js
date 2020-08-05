@@ -8,6 +8,8 @@ import Layout from '../layout/layout'
 import SEO from '../components/seo'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import dateFormatter from "../utils/dateFormatter"
+import categoryFormatter from "../utils/categoryFormatter"
+import tagFormatter from "../utils/tagFormatter"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -32,10 +34,11 @@ const Post = ({data}) => {
       <SubTitle>
         <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date)}
         <FontAwesomeIcon icon={faComment} />0
-        <FontAwesomeIcon icon={faFolder} /> none
+        <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
       </SubTitle>
       <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      Tagi: {tagFormatter(data.mdx.frontmatter.tags, true)}
     </Layout>
   )
 }
@@ -47,6 +50,8 @@ export const result = graphql`
           title
           slug
           date
+          categories
+          tags
           image {
             childImageSharp {
               fluid(maxWidth: 800, maxHeight: 370) {

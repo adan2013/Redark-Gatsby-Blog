@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faComment, faFolder } from '@fortawesome/free-solid-svg-icons'
 import dateFormatter from "../utils/dateFormatter"
+import categoryFormatter from "../utils/categoryFormatter"
 
 const Container = styled.div`
   position: relative;
@@ -60,9 +61,15 @@ const Footer = styled.div`
   svg:first-child {
     margin-left: 0;
   }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 4px;
+  }
 `
 
-const PostBlock = ({slug, image, title, date}) => {
+const PostBlock = ({ slug, image, title, date, categories }) => {
 
   return(
     <Container>
@@ -75,7 +82,7 @@ const PostBlock = ({slug, image, title, date}) => {
       <Footer>
         <FontAwesomeIcon icon={faCalendar} />{dateFormatter(date)}
         <FontAwesomeIcon icon={faComment} />0
-        <FontAwesomeIcon icon={faFolder} /> none
+        <FontAwesomeIcon icon={faFolder} />{categoryFormatter(categories, true)}
       </Footer>
     </Container>
   )
