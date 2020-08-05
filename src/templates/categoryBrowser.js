@@ -8,8 +8,8 @@ import PostBlock from '../components/postBlock'
 const PostBrowser = ({data, pageContext}) => {
   return(
     <Layout>
-      <SEO title={`Wszystkie wpisy`}/>
-      <h1>{`Wszystkie wpisy`}</h1>
+      <SEO title={pageContext.category}/>
+      <h1>{pageContext.category}</h1>
       {
         data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }) => (
           <PostBlock key={slug}
@@ -28,11 +28,16 @@ const PostBrowser = ({data, pageContext}) => {
 }
 
 export const blogListQuery = graphql`
-  query postListQuery($skip: Int!, $limit: Int!) {
+  query postListByCategoryQuery($skip: Int!, $limit: Int!, $category: String) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: {
+        frontmatter: {
+          categories: { in: [$category] }
+        }
+      }
     ) {
       nodes {
         frontmatter {
