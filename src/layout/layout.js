@@ -8,6 +8,7 @@ import { GlobalStyle } from "./globalStyles"
 import Header from "./header"
 import Sidebar from "./sidebar"
 import Footer from "./footer"
+import CookiePopup from "../components/cookiesPopup"
 
 const PageContainer = styled.div`
     background-color: #fff;
@@ -73,6 +74,7 @@ const Layout = ({ children }) => {
         </ContentContainer>
         <Footer/>
       </PageContainer>
+      <CookiePopup/>
     </ThemeProvider>
   )
 }
