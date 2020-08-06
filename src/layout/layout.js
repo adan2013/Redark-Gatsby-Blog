@@ -56,7 +56,7 @@ const getTheme = (darkMode) => {
   return theme
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hideSidebar, hideNewPosts }) => {
   const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const Layout = ({ children }) => {
         <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
         <ContentContainer>
           <ContentColumn>{children}</ContentColumn>
-          <SidebarColumn><Sidebar/></SidebarColumn>
+          {!hideSidebar && <SidebarColumn><Sidebar hideNewPosts={hideNewPosts}/></SidebarColumn>}
         </ContentContainer>
         <Footer/>
       </PageContainer>
@@ -81,6 +81,8 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  hideSidebar: PropTypes.bool,
+  hideNewPosts: PropTypes.bool
 }
 
 export default Layout
