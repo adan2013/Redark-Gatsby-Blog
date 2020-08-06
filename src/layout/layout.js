@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
 import styled, { ThemeProvider } from "styled-components"
@@ -49,22 +49,24 @@ const SidebarColumn = styled.div`
     }
   `
 
-const getTheme = () => {
+const getTheme = (darkMode) => {
   let theme = themeConfig.light
-  if(window.localStorage.getItem("dark-mode") === '1') {
-    theme = { ...theme, ...themeConfig.dark }
-  }
+  if(darkMode) theme = { ...theme, ...themeConfig.dark }
   return theme
 }
 
 const Layout = ({ children }) => {
-  const [value, setValue] = useState(0);
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    setDarkMode(window.localStorage.getItem("dark-mode") === '1')
+  }, [])
 
   return (
-    <ThemeProvider theme={getTheme()}>
+    <ThemeProvider theme={getTheme(darkMode)}>
       <PageContainer>
         <GlobalStyle/>
-        <Header themeChanged={() => setValue(value + 1)}/>
+        <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
         <ContentContainer>
           <ContentColumn>{children}</ContentColumn>
           <SidebarColumn><Sidebar/></SidebarColumn>

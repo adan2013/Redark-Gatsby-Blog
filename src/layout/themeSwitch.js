@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
@@ -36,13 +36,17 @@ const ThemeSwitchContainer = styled.div`
 `
 
 const ThemeSwitch = (props) => {
-  const [darkMode, setDarkMode] = useState(window.localStorage.getItem('dark-mode') === '1');
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    setDarkMode(window.localStorage.getItem("dark-mode") === '1')
+  }, [])
 
   const changeTheme = () => {
     const newState = !darkMode
     setDarkMode(newState)
+    props.themeChanged(newState)
     window.localStorage.setItem("dark-mode", newState ? '1' : '0')
-    props.themeChanged();
   }
 
   return (
