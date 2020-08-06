@@ -10,6 +10,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import dateFormatter from "../utils/dateFormatter"
 import categoryFormatter from "../utils/categoryFormatter"
 import tagFormatter from "../utils/tagFormatter"
+import PageContent from "../typography"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -37,7 +38,9 @@ const Post = ({data}) => {
         <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
       </SubTitle>
       <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <PageContent>
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </PageContent>
       Tagi: {tagFormatter(data.mdx.frontmatter.tags, true)}
     </Layout>
   )

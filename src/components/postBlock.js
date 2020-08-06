@@ -73,7 +73,7 @@ const PostBlock = ({ slug, image, title, date, categories }) => {
 
   return(
     <Container>
-      <Body to={`/blog/${slug}`}>
+      <Body to={`/${slug}`}>
         <ImageWrapper>
           <Image fluid={image} />
           <Title>{title}</Title>
