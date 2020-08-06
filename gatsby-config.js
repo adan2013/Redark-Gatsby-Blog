@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://redark.pl`,
     title: `REDARK - Poradniki, Testy, Recenzje`,
     description: `Redark.pl`,
     author: `adan2013`,
@@ -46,5 +47,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`
   ],
 }
