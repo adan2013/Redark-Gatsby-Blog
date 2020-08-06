@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
@@ -86,6 +87,14 @@ const PostBlock = ({ slug, image, title, date, categories }) => {
       </Footer>
     </Container>
   )
+}
+
+PostBlock.propTypes = {
+  slug: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  categories: PropTypes.array.isRequired,
 }
 
 export default PostBlock
