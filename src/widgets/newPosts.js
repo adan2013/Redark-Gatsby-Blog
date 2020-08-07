@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Widget from "./widget"
+import Widget from './widget'
 import WidgetPostBlock from '../components/widgetPostBlock'
 
 const query = graphql`

@@ -1,4 +1,10 @@
 {
+  "recommended": [
+    "article-3",
+    "article-4",
+    "article-5",
+    "welcome-to-gatsby"
+  ],
   "categories": [
     "Diagnostyka",
     "Gaming",
