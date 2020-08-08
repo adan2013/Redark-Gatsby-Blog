@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HoverBottomLineLinkStyle } from "../layout/globalStyles"
+import { HoverFillLinkStyle } from '../layout/globalStyles'
 
 const Content = styled.div`
   padding: 10px 0;
   font-size: 16px;
   line-height: 1.65;
-  ${HoverBottomLineLinkStyle}
+  ${HoverFillLinkStyle}
   
   p {
     margin: 0 0 10px 0;
@@ -21,6 +21,10 @@ const Content = styled.div`
     border: 10px #f0f0f0 solid;
   }
 `
+
+const components = {
+  img: Image
+}
 
 const PageContent = ({children}) => (<Content>{children}</Content>)
 
