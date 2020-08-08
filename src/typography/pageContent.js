@@ -12,7 +12,7 @@ const Content = styled.div`
     margin: 0 0 10px 0;
   }
   
-  img {
+  .gatsby-resp-image-wrapper {
     max-width: 90%;
     height: auto;
     max-height: 500px;
@@ -21,10 +21,6 @@ const Content = styled.div`
     border: 10px #f0f0f0 solid;
   }
 `
-
-const components = {
-  img: Image
-}
 
 const PageContent = ({children}) => (<Content>{children}</Content>)
 
