@@ -9,7 +9,7 @@ import slugify from "slugify"
 const List = styled.ul`
   list-style: none;
   text-align: center;
-  padding: 0;
+  padding: 0 10px;
   ${HoverBottomLineLinkStyle}
 `
 

@@ -1,30 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from 'styled-components'
+import { graphql } from "gatsby"
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import PostBlock from "../components/postBlock"
-
-const GoToBlogButton = styled(Link)`
-  display: block;
-  margin: 20px auto 0 auto;
-  padding: 10px;
-  background-color: #d40000;
-  border: 3px #d40000 solid;
-  border-radius: 10px;
-  text-decoration: none;
-  width: 200px;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #fff;
-  transition: .3s;
-  
-  &:hover {
-    background-color: #fff;
-    color: #d40000;
-  }
-`
+import ActionButton from "../typography/actionButton"
+import PageContent from "../typography"
 
 const Page = ({data}) => {
 
@@ -42,7 +22,9 @@ const Page = ({data}) => {
                      categories={categories} />
         ))
       }
-      <GoToBlogButton to={`/blog/2`}>Zobacz więcej</GoToBlogButton>
+      <PageContent>
+        <ActionButton to={`/blog/2`}>Zobacz więcej</ActionButton>
+      </PageContent>
     </Layout>
   )
 }

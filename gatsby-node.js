@@ -1,6 +1,6 @@
 const path = require(`path`)
 const slugify = require('slugify')
-const postsPerPage = 3;
+const postsPerPage = 10;
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions

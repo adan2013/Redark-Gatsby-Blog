@@ -7,10 +7,11 @@ import { faCalendar, faComment, faFolder } from '@fortawesome/free-solid-svg-ico
 import Layout from '../layout/layout'
 import SEO from '../components/seo'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import dateFormatter from "../utils/dateFormatter"
-import categoryFormatter from "../utils/categoryFormatter"
-import tagFormatter from "../utils/tagFormatter"
-import PageContent from "../typography"
+import dateFormatter from '../utils/dateFormatter'
+import categoryFormatter from '../utils/categoryFormatter'
+import tagFormatter from '../utils/tagFormatter'
+import PageContent from '../typography/pageContent'
+import ComponentProvider from "../typography/componentProvider"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -39,7 +40,9 @@ const Post = ({data}) => {
       </SubTitle>
       <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
       <PageContent>
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        <ComponentProvider>
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        </ComponentProvider>
       </PageContent>
       Tagi: {tagFormatter(data.mdx.frontmatter.tags, true)}
     </Layout>

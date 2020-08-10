@@ -12,13 +12,22 @@ const Content = styled.div`
     margin: 0 0 10px 0;
   }
   
-  .gatsby-resp-image-wrapper {
-    max-width: 90%;
+  .gatsby-image-wrapper, .gatsby-resp-image-wrapper {
+    max-width: min(90%, 500px);
+    /*width: auto;
     height: auto;
-    max-height: 500px;
+    max-height: 500px;*/
     display: block;
-    margin: 15px auto 5px auto;
+    margin: 15px auto;
     border: 10px #f0f0f0 solid;
+    
+    a {
+      border-bottom: none !important;
+    }
+    
+    a:hover {
+      background-position: 0 0 !important;
+    }
   }
 `
 
