@@ -5,6 +5,7 @@ import Image from 'gatsby-image'
 
 const GalleryWrapper = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
   a { border-bottom: none; display: block }
   a:hover { background-position: 0 0; }

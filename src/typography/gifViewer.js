@@ -28,7 +28,9 @@ const GifViewer = ({children}) => {
   }
   return(
     <div className={'gatsby-image-wrapper'}>
-      <img src={computedData.url} alt={computedData.alt} style={{width: '100%'}}/>
+      <a href={computedData.url} target={'_blank'} rel="noopener noreferrer">
+        <img src={computedData.url} alt={computedData.alt} style={{width: '100%'}}/>
+      </a>
     </div>
   )
 }

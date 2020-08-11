@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const ActionButtonWrapper = styled.div`
   a {
     display: block;
-    margin: 20px auto 0 auto;
+    margin: 15px auto;
     padding: 5px 10px !important;
     background-color: #d40000;
     border: 3px #d40000 solid !important;
