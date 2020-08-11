@@ -1,14 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 
 const GalleryWrapper = styled.div`
-  display: flex;
-  align-items: center;
   margin-bottom: 10px;
   a { border-bottom: none; display: block }
   a:hover { background-position: 0 0; }
+`
+
+const RowWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 const ImageWrapper = styled.div`
@@ -39,7 +43,7 @@ const query = graphql`
 }
 `
 
-const Gallery = ({children}) => {
+const Gallery = ({children, width}) => {
   const data = useStaticQuery(query)
   const rawData = children.split('!')
   rawData.shift()
@@ -60,19 +64,40 @@ const Gallery = ({children}) => {
       data: object
     }
   })
+
+  const maxInRow = width ? width : 99
+  const chunk = (arrayObject, size) => {
+    return [].concat.apply([],
+      arrayObject.map((elem, i) => {
+        return i % size ? [] : [arrayObject.slice(i, i + size)];
+      })
+    );
+  }
+  const rowsWithImages = chunk(images, maxInRow)
+
   return(
     <GalleryWrapper>
       {
-        images.map(img => (
-          <ImageWrapper key={img.link}>
-            <a href={img.data.publicURL} target={'_blank'} rel="noopener noreferrer">
-              <Image fluid={img.data.childImageSharp.fluid} alt={img.alt}/>
-            </a>
-          </ImageWrapper>
+        rowsWithImages.map(row => (
+          <RowWrapper>
+            {
+              row.map(img => (
+                <ImageWrapper key={img.link}>
+                  <a href={img.data.publicURL} target={'_blank'} rel="noopener noreferrer">
+                    <Image fluid={img.data.childImageSharp.fluid} alt={img.alt}/>
+                  </a>
+                </ImageWrapper>
+              ))
+            }
+          </RowWrapper>
         ))
       }
     </GalleryWrapper>
   )
+}
+
+Gallery.propTypes = {
+  width: PropTypes.number
 }
 
 export default Gallery
