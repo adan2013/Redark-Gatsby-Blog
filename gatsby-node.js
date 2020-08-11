@@ -2,6 +2,18 @@ const path = require(`path`)
 const slugify = require('slugify')
 const postsPerPage = 10;
 
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if(stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const postTemplate = path.resolve(`src/templates/post.js`)
