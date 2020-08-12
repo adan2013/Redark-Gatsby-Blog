@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
@@ -65,7 +64,7 @@ const Gallery = ({children, width}) => {
     }
   })
 
-  const maxInRow = width ? width : 99
+  const maxInRow = width ? parseInt(width) : 99
   const chunk = (arrayObject, size) => {
     return [].concat.apply([],
       arrayObject.map((elem, i) => {
@@ -78,8 +77,8 @@ const Gallery = ({children, width}) => {
   return(
     <GalleryWrapper>
       {
-        rowsWithImages.map(row => (
-          <RowWrapper>
+        rowsWithImages.map((row, rowId) => (
+          <RowWrapper key={rowId}>
             {
               row.map(img => (
                 <ImageWrapper key={img.link}>
@@ -94,10 +93,6 @@ const Gallery = ({children, width}) => {
       }
     </GalleryWrapper>
   )
-}
-
-Gallery.propTypes = {
-  width: PropTypes.number
 }
 
 export default Gallery
