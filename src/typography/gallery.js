@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
+import GifViewer from './gifViewer'
 
 const GalleryWrapper = styled.div`
   margin-bottom: 10px;
@@ -82,9 +83,15 @@ const Gallery = ({children, width}) => {
             {
               row.map(img => (
                 <ImageWrapper key={img.link}>
-                  <a href={img.data.publicURL} target={'_blank'} rel="noopener noreferrer">
-                    <Image fluid={img.data.childImageSharp.fluid} alt={img.alt}/>
-                  </a>
+                  {
+                    img.data.publicURL.indexOf('.gif') < 0
+                    ?
+                      <a href={img.data.publicURL} target={'_blank'} rel="noopener noreferrer">
+                        <Image fluid={img.data.childImageSharp.fluid} alt={img.alt}/>
+                      </a>
+                      :
+                      <GifViewer>{`![${img.alt}](${img.link})`}</GifViewer>
+                  }
                 </ImageWrapper>
               ))
             }
