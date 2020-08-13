@@ -22,6 +22,7 @@ const VideoWrapper = styled.div`
 const VideoViewer = ({file}) => {
   const data = useStaticQuery(query)
   const videoUrl = data.allFile.nodes.find(node => node.relativePath.indexOf(file) >= 0).publicURL
+  /* eslint-disable */
   return(
     <VideoWrapper>
       <video controls={true} style={{width: '100%'}}>
@@ -29,6 +30,7 @@ const VideoViewer = ({file}) => {
       </video>
     </VideoWrapper>
   )
+  /* eslint-enable */
 }
 
 export default VideoViewer
