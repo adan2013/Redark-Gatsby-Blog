@@ -8,9 +8,13 @@ const AssemblingPcFooter = ({nextPost}) => (
     <LayoutColumn>
       <ActionButton to={'/skladanie-pc'}>Spis treści poradnika</ActionButton>
     </LayoutColumn>
-    <LayoutColumn>
-      <ActionButton to={nextPost}>Następny artykuł</ActionButton>
-    </LayoutColumn>
+    {
+      nextPost !== ''
+      &&
+      <LayoutColumn>
+        <ActionButton to={nextPost}>Następny artykuł</ActionButton>
+      </LayoutColumn>
+    }
   </LayoutContainer>
 )
 

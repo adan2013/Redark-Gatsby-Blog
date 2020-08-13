@@ -1,0 +1,302 @@
+---
+title: "Instalacja systemów Windows oraz Linux krok po kroku"
+slug: "instalacja-systemow-windows-oraz-linux-krok-po-kroku"
+date: "2019-10-25"
+image: "./images/059.jpg"
+categories: ["Oprogramowanie", "Składanie PC"]
+tags: ["komputer", "microsoft", "nośniki danych", "oprogramowanie"]
+relatedPosts: []
+---
+import AssemblingPcFooter from '../../typography/assemblingPcFooter'
+
+Czas wykonać ostatnie czynności wchodzące w zakres [poradnika składania PC](/skladanie-pc/), czyli skonfigurować BIOS oraz zainstalować system operacyjny. W artykule skupię się na instalacji systemów Microsoft Windows 10 oraz Linux z dystrybucji Mint, ponieważ uważam, że jest to idealny system dla osób niezaznajomionych z Linuxami. Mint wywodzi się z również popularnego Ubuntu i proces instalacji obu systemów wygląda niemalże identycznie.
+
+Jeśli nadal nie wiesz, jaki system wybrać, wróć do [poprzedniego artykułu z poradnika](/windows-konta-linux-jaki-system-operacyjny-wybrac/). Przedstawiłem tam, jakie zalety posiadają systemy z rodziny Linux i dlaczego nie zawsze Windows jest dobrym rozwiązaniem.
+
+## Przygotowywanie nośnika instalacyjnego
+
+### Windows
+
+Aby móc łatwo przygotowywać nośniki służące do instalacji systemu Windows 10, Microsoft przygotował dla użytkowników specjalne darmowe narządzie o nazwie "Media Creation Tool". [Można pobrać je ze strony Microsoftu](https://www.microsoft.com/pl-pl/software-download/windows10) poprzez naciśnięcie przycisku "Pobierz narzędzie". Po pobraniu i uruchomieniu aplikacji zostaniemy poproszeni o akceptację umowy licencyjnej.
+
+<Gallery>
+![media creation tool start](images/Zrzut-ekranu-145_redark.jpg)
+![media creation tool licencja](images/Zrzut-ekranu-146_redark.jpg)
+</Gallery>
+
+Następnie zostaniemy zapytani, czy chcemy uaktualnić dany komputer, czy przygotować jedynie nośnik dla innej jednostki. Wybieramy tę drugą opcję. W kolejnym kroku musimy wybrać typ systemu, który chcemy pobrać. Zmiana opcji będzie możliwa dopiero po odznaczeniu opcji "zalecanych ustawień dla tego komputera" u dołu formularza. Architekturę wybieramy 64-bitową, chyba że chcemy zainstalować system na starej maszynie wspierającej jedynie 32 bity.
+
+<Gallery>
+![media creation tool typ](images/Zrzut-ekranu-147_redark.jpg)
+![media creation tool wybór systemu](images/Zrzut-ekranu-148_redark.jpg)
+</Gallery>
+
+Ostatnim krokiem jest wybór nośnika instalacyjnego. W przypadku pamięci flash zostaniemy poproszeni o wskazanie pamięci docelowej podłączonej do komputera. Jeśli wybierzemy plik ISO, zostaniemy poproszeni o wskazanie miejsca na dysku, gdzie ma on zostać zapisany. Taki plik może później posłużyć do wypalenia płyty DVD lub do postawienia maszyny wirtualnej.
+
+<WarningBlock>Pamiętaj! Proces ten wymazuje wszystkie pliki znajdujące się obecnie na nośniku USB! Upewnij się, że nie posiadasz na nim ważnych danych!</WarningBlock>
+
+<Gallery>
+![media creation tool wybór nośnika](images/Zrzut-ekranu-149_redark.jpg)
+![media creation tool wybór nośnika](images/Zrzut-ekranu-150_redark.jpg)
+</Gallery>
+
+Jeśli przejdziemy pomyślnie przez wszystkie ekrany kreatora, aplikacja rozpocznie pobieranie systemu Windows 10. Po jej zakończeniu nasz nośnik USB jest gotowy do przeprowadzenia instalacji.
+
+### Linux
+
+Aby pobrać Linuxa Mint, przechodzimy do [sekcji "Download" na stronie internetowej dystrybucji](https://www.linuxmint.com/download.php). Wybieramy interesujące nas środowisko graficzne i architekturę systemu. Ja wybiorę 64-bitową wersję środowiska Cinnamon. Na następnej stronie musimy wybrać lokalizację, z której chcemy pobrać obraz systemu. Aby zapewnić dobrą szybkość pobierania, wybieramy którąś z polskich, ewentualnie niemieckich lokalizacji.
+
+![linux mint download page](images/Zrzut-ekranu-153_redark.jpg)
+
+Pobrany plik ISO, tak samo, jak w przypadku Windowsa możemy wykorzystać do wypalenia płyty DVD lub do postawienia maszyny wirtualnej. Jeśli chcemy użyć szybszego nośnika USB, będziemy potrzebowali dodatkowej aplikacji, która stworzy nam bootowalny nośnik na podstawie zawartości pobranego pliku ISO. Ja użyję do tego bardzo popularnej aplikacji o nazwie Rufus, która [może zostać pobrana z tej witryny](https://rufus.ie/). Do naszego zadania wystarcza wersja Portable niewymagająca instalacji na naszym komputerze.
+
+<Gallery>
+![rufus tworzenie bootowalnego pendrive'a](images/Zrzut-ekranu-154_redark.jpg)
+![rufus tworzenie bootowalnego pendrive'a](images/Zrzut-ekranu-155_redark.jpg)
+</Gallery>
+
+Uruchamiamy aplikację i z dostępnej u góry listy rozwijanej wybieramy naszego pendrive'a. Następnie za pomocą przycisku "WYBIERZ" wskazujemy pobrany przed chwilą plik ISO. Pozostałe parametry możemy pozostawić bez zmian. Na koniec klikamy przycisk "START" i czekamy, aż proces dobiegnie końca. Nasz pendrive jest gotowy.
+
+<WarningBlock>Pamiętaj! Proces ten wymazuje wszystkie pliki aktualnie znajdujące się na nośniku USB! Upewnij się, że nie posiadasz na nim ważnych danych!</WarningBlock>
+
+## Konfiguracja BIOS/UEFI
+
+Aby móc uruchomić nośnik instalacyjny któregoś z systemów, musimy najpierw wejść do ustawień oprogramowania układowego BIOS bądź UEFI w przypadku nowszych płyt głównych. Wspominałem już o nim trochę podczas [pierwszego uruchomiania nowej jednostki](/pierwsze-uruchomienie-komputera-diagnostyka-awarii/).
+
+Problemem z pokazaniem tego procesu jest taki, że każdy producent stosuje swoje własne skróty klawiszowe, które pozwalają wejść do menu. Mogą być one podane na pierwszym ekranie wyświetlanym przez komputer lub w instrukcji obsługi dołączonej do płyty. Do najczęstszych klawiszy pozwalających wejść do menu są: "F1", "F2" oraz "Delete". Aby mieć pewność, że klawisz został zarejestrowany, należy przyciskać go szybko wiele razy podczas całej procedury startu komputera.
+
+<InfoBlock>Niektóre układy po nieudanej próbie zbootowania systemu same otworzą menu konfiguracyjne BIOS/UEFI.</InfoBlock>
+
+### Sekwencja bootowania
+
+Najważniejszym ustawieniem teraz będzie dla nas sekwencja bootowania, czyli lista urządzeń, z jakich komputer ma próbować uruchomić system operacyjny. Zazwyczaj ma on w menu osobną kartę o nazwie "Boot", ale może się on również kryć pod nazwą "Advanced BIOS Features" w przypadku BIOSu od firmy Award.
+
+![bios boot menu](images/P1000432_redark-1024x768.jpg)
+
+W powyższym ekranie interesować nas będą 4 pozycje:
+
+- First Boot Device - pierwsze uruchamiane urządzenie,
+- Second Boot Device - drugie uruchamiane urządzenie,
+- Third Boot Device - trzecie uruchamiane urządzenie,
+- Hard Disk Boot Priority - piorytet dysków w przypadku, gdy zamontowane jest ich kilka.
+
+Ja ustawiłem kolejność na USB-HDD oraz Hard Disk. Pierwszy wybór pozwoli mi na uruchomienie instalatora systemu z pamięci USB, a drugi na uruchomienie właściwego systemu, który będzie znajdować się już na dysku.
+
+Po wprowadzeniu zmian należy wyjść z menu konfiguracyjnego z opcją ZAPISU DANYCH. U mnie (wg informacji u dołu ekranu) służy do tego klawisz "F10".
+
+### Boot Menu
+
+Inną metodą na uruchomienie instalatora z pamięci USB jest też ręczne wybranie dysku podczas uruchamiania komputera. Służy do tego tzw. "Boot Menu". Pozwala ono jednorazowo zmienić sposób bootwania systemu, przykładowo właśnie w celu uruchomienia instalatora. Menu wywoływane jest najczęściej przyciskiem "F11" lub "F12". Jeśli dane przyciski nie zadziałają, należy poszukać informacji w instrukcji płyty głównej lub na pierwszym wyświetlanym ekranie.
+
+### Dodatkowe opcje bootowania
+
+Zanim przejdziemy do instalacji systemu operacyjnego, podam jeszcze kilka dodatkowych ustawień bootowania, które możemy znaleźć w menu BIOSu:
+
+**Fast Boot / Quick Boot:** Opcja pozwalająca przyspieszyć proces uruchomienia systemu poprzez ukrycie ekranów pokazujących skróty do menu konfiguracyjnych oraz [wyniki procedury POST](https://pl.wikipedia.org/wiki/POST). Po uruchomieniu tej opcji wejście do omawianego wcześniej menu jest utrudnione. Czas, w którym możliwe jest wciśnięcie klawisza, jest mocno skrócony lub nawet całkowicie pominięty. W takim przypadku dostęp do BIOS/UEFI jest dostępny tylko z poziomu systemu operacyjnego.
+
+<InfoBlock>W systemie Windows, aby wejść do BIOSu/UEFI przy włączonej opcji Fast Boot należy wcisnąć przycisk "Uruchom ponownie" wraz ze wciśniętym klawiszem Shift na klawiaturze.</InfoBlock>
+
+**Boot Mode / Launch CSM:** Obecność tej opcji ma na celu zapewnienie kompatybilności ze starszymi systemami operacyjnymi, które nie wspierają technologii UEFI. Do wyboru są zazwyczaj dwie opcje: **UEFI** - płyta pracuje tylko w tym trybie i nie obsługuje starszych systemów; **Legacy** - płyta pracuje w trybie zgodności i zachowuje się tak, jakby była dawnym czystym BIOSem. W przypadku najnowszych Windowsów zaleca się stosowanie trybu UEFI.
+
+**Secure Boot:** Ta opcja może znajdować się na osobnej karcie menu o nazwie "Security". Odpowiada ona za ochronę przed wstrzykiwaniem złośliwego kodu do systemu podczas jego rozruchu. Domyślnie powinna być ona włączona, ale niektóre systemy operacyjne mogą nie radzić sobie poprawnie z jej obsługą. Jeśli system, który chcesz zainstalować, nie chce się w pełni załadować, spróbuj dla testów wyłączyć tę opcję.
+
+## Instalacja systemu Windows
+
+Po poprawnym zbootowaniu nośnika instalacyjnego naszym oczom powinno ukazać się logo systemu Microsoft Windows. Pierwsze okno poprosi nas o wybór ustawień regionalnych. Wybieramy język "Polski (Polska)", a jako układ klawiatury "Polski (programisty)". **Ważne jest wybranie układu typu programisty**, ponieważ tylko on zawiera nasze polskie znaki diakrytyczne.
+
+<Gallery>
+![instalacja windows język](images/Zrzut-ekranu-65_redark-1024x768.jpg)
+![instalacja windows zainstaluj teraz](images/Zrzut-ekranu-66_redark-1024x768.jpg)
+</Gallery>
+
+Po zatwierdzeniu opcji regionalnych należy kliknąć duży przycisk "Zainstaluj teraz". W następnym kroku zostaniemy poproszeni o podanie klucza licencyjnego. Znajduje się on na opakowaniu z zakupioną płytą lub w mailu w przypadku zakupu [licencji ESD](https://pl.wikipedia.org/wiki/Dystrybucja_cyfrowa). Jeśli na komputerze była już zainstalowana inna wersja systemu Windows, możemy kliknąć opcję "Nie mam klucza produktu". Tyczy się to sytuacji, w których chcemy skorzystać z darmowej aktualizacji starszego Windowsa do "10-tki" lub gdy chcemy wyczyścić system poprzez jego ponowną instalację. Po ukończeniu instalacji Windows sam odczyta klucz poprzedniego systemu z pamięci CMOS płyty głównej i dokona aktywacji.
+
+<Gallery>
+![instalacja windows klucz licencja](images/Zrzut-ekranu-67_redark-1024x768.jpg)
+![instalacja windows wersja home pro](images/Zrzut-ekranu-68_redark-1024x768.jpg)
+</Gallery>
+
+Na następnym ekranie zostaniemy poproszeni o wybór wersji systemu Windows 10. Wybór tej opcji zależy od licencji, jaką posiadamy. W przypadku utworzenia nośnika z obiema architekturami systemu (32 i 64-bitowymi) **należy zwrócić baczną uwagę, którą architekturę wybieramy**!
+
+<Gallery>
+![instalacja windows umowa licencyjna](images/Zrzut-ekranu-69_redark-1024x768.jpg)
+![instalacja windows typ instalacji](images/Zrzut-ekranu-70_redark-1024x768.jpg)
+</Gallery>
+
+Później instalator przedstawi postanowienia licencyjne, które musimy zaakceptować, a następnie zapyta się, jaki typ instalacji chcemy przeprowadzić. Do wyboru mamy dwie opcje:
+
+- **Uaktualnienie** - zachowuje wszystkie dane osobiste oraz aplikacje i dokonuje jedynie podmiany plików systemowych.
+- **Niestandardowa** - pozwala przeprowadzić czystą instalację systemu Windows.
+
+Aby uniknąć problemów z plikowym bałaganem i kompatybilnością aplikacji zalecam czystą "niestandardową" instalację, którą zaraz przeprowadzimy.
+
+### Automatyczne dzielenie dysku
+
+<Gallery>
+![instalacja windows pusty kreator partycji](images/Zrzut-ekranu-71_redark-1024x768.jpg)
+![instalacja windows kopiowanie plików](images/Zrzut-ekranu-78_redark-1024x768.jpg)
+</Gallery>
+
+Po wybraniu opcji czystej instalacji naszym oczom ukaże się kreator partycjonowania dysku. Służy on do podziału dysku na partycje i wskazania tej, na której ma zostać zainstalowany system. Jak widać, nasz dysk nie posiada żadnych partycji. Jeśli nie chcesz bawić się w podział swojego dysku, możesz kliknąć od razu przycisk "Dalej", a instalator sam utworzy pojedynczą partycję na całej powierzchni dysku i rozpocznie instalację.
+
+### Ręczne partycjonowanie
+
+Załóżmy jednak, że chcesz zainstalować na swoim dysku Windowsa 10, a następnie dołożyć jeszcze partycje na dane użytkownika lub pliki Linuxa Mint, którego będziemy instalować później. W tym celu najlepiej od razu podczas instalacji Windowsa wyznaczyć mu mniejszą partycję.
+
+<Gallery width='2'>
+![instalacja windows kreator partycji](images/Zrzut-ekranu-71_redark-1-1024x768.jpg)
+![instalacja windows kreator partycji wybór rozmiaru](images/Zrzut-ekranu-73_redark-1024x768.jpg)
+![instalacja windows kreator partycji ostrzeżenie](images/Zrzut-ekranu-74_redark-1024x768.jpg)
+![instalacja windows kreator partycji gotowa lista](images/Zrzut-ekranu-75_redark-1024x768.jpg)
+</Gallery>
+
+W tym celu kliknij przycisk "Nowa" i podaj rozmiar partycji w megabajtach, jaką chcesz utworzyć. Moja maszyna wirtualna, na której prezentuję tę instalację, ma zdefiniowany dysk 50 GB. Postanowiłem, że przydzielę 30 GB Windowsowi oraz 20 GB Linuxowi. W tym celu w polu wpisałem wartość "30 720", ponieważ muszę przeliczyć jednostkę gigabajtów na megabajty (30 \* 1024 = 30 720). Po zatwierdzeniu rozmiaru kreator wyświetla komunikat o utworzeniu dodatkowej partycji wymaganej do działania Windowsa, który akceptujemy.
+
+Teraz na naszej liście widnieje zastrzeżona przez system partycja o rozmiarze około 600 MB, utworzona przez nas partycja 29,4 GB oraz 20 GB wolnej przestrzeni dyskowej, którą zostawimy na Linuxa. Upewniamy się na koniec, że wybrana jest odpowiednia partycja na liście i klikamy "Dalej". Instalacja rozpocznie się dokładnie tak samo, jak w przypadku automatycznego partycjonowania. Operacja nie była trudna, co nie? :)
+
+<InfoBlock>Kreator partycji umożliwia również usuwanie oraz formatowanie istniejących już partycji. Pamiętaj jednak, że te operacje doprowadzą do trwałego usunięcia danych z dysku, więc wybieraj partycje ostrożnie!</InfoBlock>
+
+### Konfiguracja wstępna
+
+Po ukończeniu kopiowania plików komputer wykona restart i uruchomi się ponownie z dysku HDD/SSD. Jeśli tak się nie stało, a ekran pokazał ponownie ten sam instalator Windowsa co na początku, zmień ustawienia rozruchu w menu konfiguracyjnym BIOSu/UEFI.
+
+<Gallery>
+![instalacja windows restart](images/Zrzut-ekranu-81_redark-1024x768.jpg)
+![instalacja windows przygotowywanie urządzeń](images/Zrzut-ekranu-83_redark-1024x768.jpg)
+</Gallery>
+
+Na tym instalacja systemu jednak się nie kończy. Na razie skopiowaliśmy jedynie pliki potrzebne do rozruchu Windowsa. Teraz należy przeprowadzić jeszcze jego wstępną konfigurację.
+
+<Gallery width='2'>
+![instalacja windows język](images/Zrzut-ekranu-85_redark-1024x768.jpg)
+![instalacja windows układ klawiatury](images/Zrzut-ekranu-86_redark-1024x768.jpg)
+![instalacja windows układ klawiatury](images/Zrzut-ekranu-87_redark-1024x768.jpg)
+![instalacja windows konto microsoft](images/Zrzut-ekranu-88_redark-1024x768.jpg)
+</Gallery>
+
+Na początku użytkownik zostanie poproszony o ustawienie regionu, układu klawiatury, a także dodatkowych układów np. angielskich (klikamy Pomiń, jeśli nie potrzeba). Następnie zostaniemy poproszeni o zalogowanie się lub utworzenie konta w witrynie Microsoft. Dawniej ten krok dało się pominąć, ale Microsoft bardzo lubi nasze dane i zaczął wymuszać te operacje, jeśli tylko wykryje połączenie internetowe. Jeśli chcesz wymusić utworzenie konta lokalnego, wyciągnij wtyczkę od Internetu przed rozpoczęciem tej procedury :) . Następnie konfigurator zapyta nas o zgody na usługi telemetryczne. Zalecam oczywiście odmówić wszystkiego, co tylko się da.
+
+<Gallery width='3'>
+![instalacja windows historia działań](images/Zrzut-ekranu-89_redark-1024x768.jpg)
+![instalacja windows numer telefonu](images/Zrzut-ekranu-90_redark-1024x768.jpg)
+![instalacja windows rozpoznawanie mowy](images/Zrzut-ekranu-91_redark-1024x768.jpg)
+![instalacja windows lokalizacja](images/Zrzut-ekranu-92_redark-1024x768.jpg)
+![instalacja windows znajdowanie urządzenia](images/Zrzut-ekranu-93_redark-1024x768.jpg)
+![instalacja windows informacje diagnostyczne](images/Zrzut-ekranu-94_redark-1024x768.jpg)
+![instalacja windows pismo odręczne](images/Zrzut-ekranu-95_redark-1024x768.jpg)
+![instalacja windows personalizowane reklamy](images/Zrzut-ekranu-96_redark-1024x768.jpg)
+![instalacja windows treści reklamowe](images/Zrzut-ekranu-97_redark-1024x768.jpg)
+</Gallery>
+
+Po przebrnięciu przez całą listę usług giganta system dokona ostatniego ładowania, a naszym oczom ukaże się już pulpit użytkownika.
+
+<Gallery width='3'>
+![instalacja windows witaj](images/Zrzut-ekranu-98_redark-1024x768.jpg)
+![instalacja windows ładowanie systemu](images/Zrzut-ekranu-101_redark-1024x768.jpg)
+![instalacja windows prawie gotowe](images/Zrzut-ekranu-102_redark-1024x768.jpg)
+![instalacja windows czysty system](images/Zrzut-ekranu-103_redark-1024x768.jpg)
+</Gallery>
+
+Obraz może być zniekształcony lub mniejszy od przekątnej ekranu, ponieważ w systemie nie ma jeszcze wymaganych sterowników. Windows 10 umożliwia automatyczne znalezienie sterowników do wykrytego sprzętu. Aby rozpocząć ich instalację, należy otworzyć menu Start, kliknąć ikonkę zębatki (ustawień), przejść do sekcji "Aktualizację i zabezpieczenia", a następnie wcisnąć "Sprawdź aktualizacje".
+
+Ten sposób zapewni zainstalowanie najpotrzebniejszych sterowników w systemie. W przypadku bardziej nietypowych sprzętów i podzespołów zalecam jednak ręczną instalację sterowników dostępnych na stronie producenta. Windows Update nie zawsze pobiera odpowiednie dla nich sterowniki.
+
+## Instalacja systemu Linux
+
+Teraz zajmiemy się instalacją drugiego z naszych systemów. Pokażę tutaj dwa równe sposoby: instalację obok Windowsa 10 oraz instalację na czystym dysku. Na początek zbootujmy nośnik instalacyjny tak samo, jak zrobiliśmy to w przypadku Windowsa. Naszym oczom powinno ukazać się takie oto menu:
+
+![instalacja linux boot menu](images/Zrzut-ekranu-104_redark.jpg)
+
+Po wybraniu opcji "Start Linux Mint" musimy zaczekać na załadowanie systemu operacyjnego. Gdy operacja dobiegnie końca, na ekranie komputera pojawi się pulpit bardzo podobny do tego znanego z Windowsa. Czy to oznacza, że system jest już zainstalowany? Absolutnie nie. Linux ma to do siebie, że może zostać uruchomiony bezpośrednio z pamięci RAM bez kopiowania plików na dysk twardy. My jednak chcemy mieć Linuxa na dysku, aby móc go łatwo i szybko uruchamiać oraz odblokować wszystkie jego możliwości. Wybierzmy zatem ikonkę "Install Linux Mint" znajdującą się na pulpicie użytkownika.
+
+![instalacja linux live cd pulpit](images/Zrzut-ekranu-105_redark-1366x701.jpg)
+
+Pierwsze pytania instalatora będą dotyczyły języka i układu klawiatury. Wybieramy Polski oraz układ Polski, ale bez słowa "programisty" (w przeciwieństwie do systemu Windows). Następnie, jeśli będzie to możliwe, instalator zaproponuje zainstalowanie oprogramowania oraz sterowniki firm trzecich. Oczywiście zgadzamy się.
+
+<Gallery>
+![instalacja linux język](images/Zrzut-ekranu-106_redark-1366x701.jpg)
+![instalacja linux układ klawiatury](images/Zrzut-ekranu-107_redark-1366x701.jpg)
+![instalacja linux dodatkowe oprogramowanie](images/Zrzut-ekranu-108_redark-1366x701.jpg)
+</Gallery>
+
+### Instalacja obok Windowsa 10
+
+Teraz instalator zapyta nas o typ instalacji, jaki chcemy przeprowadzić. Ja wykonuję tę operację na maszynie z zainstalowanym przed chwilą systemem Windows 10 i chcę, aby oba systemy były później dostępne podczas rozruchu jednostki (czystą instalację zaprezentuję jeszcze w tym artykule). W tym celu zaznaczamy pierwszą opcję i potwierdzamy wygenerowaną przez system listę zmian na dysku:
+
+<Gallery>
+![instalacja linux typ instalacji](images/Zrzut-ekranu-110_redark-1366x701.jpg)
+![instalacja linux zmiany na dysku](images/Zrzut-ekranu-111_redark-1366x701.jpg)
+</Gallery>
+
+Później wybieramy odpowiednią strefę czasową, a następnie podajemy podstawowe informacje takie jak nazwa komputera, użytkownika oraz hasło dostępu. Po ich zatwierdzeniu instalator rozpocznie proces kopiowania plików.
+
+<Gallery>
+![instalacja linux strefa czasowa](images/Zrzut-ekranu-112_redark-1366x701.jpg)
+![instalacja linux dane użytkownika](images/Zrzut-ekranu-114_redark-1366x701.jpg)
+</Gallery>
+
+Gdy proces instalacji dobiegnie końca, zostaniemy zapytani, czy nadal chcemy pracować na testowym systemie uruchomionym z nośnika instalacyjnego, czy też chcemy dokończyć proces instalacji i uruchomić ponownie komputer.
+
+<Gallery>
+![instalacja linux kopiowanie plików](images/Zrzut-ekranu-115_redark-1366x701.jpg)
+![instalacja linux restart](images/Zrzut-ekranu-116_redark-1366x701.jpg)
+</Gallery>
+
+Po wybraniu ponownego uruchomienia system zostanie zamknięty, ale zanim to nastąpi, zostaniemy poproszeni o odłączenie nośnika instalacyjnego i wciśnięcie klawisza ENTER. Po uruchomieniu komputera, przed załadowaniem systemu operacyjnego, ekran pokaże [menu GRUB](https://pl.wikipedia.org/wiki/GNU_GRUB). Jest to domyślny program rozruchowy dla systemów Linux, na którego liście powinniśmy już mieć do wyboru oba zainstalowane przez nas systemy operacyjne.
+
+<Gallery>
+![instalacja linux wyjęcie nośnika instalacyjnego](images/Zrzut-ekranu-117_redark.jpg)
+![instalacja linux grub menu](images/Zrzut-ekranu-118_redark.jpg)
+</Gallery>
+
+Jeśli wybierzemy system Linux Mint, ujrzymy ponownie ten sam pulpit użytkownika co na początku, ale uruchomiony już bezpośrednio z dysku komputera. Teraz tak samo, jak w przypadku Windowsa 10 warto sprawdzić listę dostępnych aktualizacji. W tym celu należy wyszukać aplikację o nazwie "Menadżer aktualizacji" i zainstalować wszystkie dostępne pakiety.
+
+<Gallery>
+![instalacja linux powitanie](images/Zrzut-ekranu-121_redark-1366x701.jpg)
+![instalacja linux menadżer aktualizacji](images/Zrzut-ekranu-156_redark-1366x701.jpg)
+</Gallery>
+
+### Czysta instalacja oraz ręczne partycjonowanie
+
+Tak samo, jak w przypadku Windowsa, zaprezentuję teraz proces ręcznego wyznaczania partycji pod system. Tutaj proces ten jest odrobinę bardziej skomplikowany, ponieważ system Linux umożliwia "rozrzucenie" swoich plików pomiędzy kilka partycji a Windows nie.
+
+Po wybraniu "innego rozwiązania" z menu typów instalacji Linuxa Mint instalator ukaże kreator partycji bardzo podobny do tego, jakiego widzieliśmy w Windowsie 10.
+
+![kreator partycji linux czysty dysk](images/Zrzut-ekranu-125_redark-1366x701.jpg)
+
+Naszym zadaniem będzie zdefiniowanie trzech partycji:
+
+- 30 GB na system operacyjny.
+- 10 GB na pliki użytkownika.
+- Około 12 pozostałych gigabajtów jako przestrzeń wymiany.
+
+Na początek obowiązkowa partycja dla systemu operacyjnego. Klikamy "plus" pod listą i podajemy rozmiar 30 720 MB. Oprócz tego zaznaczamy, że jest to partycja podstawowa, której systemem plików ma być ext4 z funkcją księgowania. Ostatnia opcja zawierająca tzw. punkt montowania ma być ustawiona na "/", co oznacza, że będzie ona przechowywać katalog główny systemu (w terminologii linuxowej nazywany root-em).
+
+![kreator partycji linux pliki systemu](images/Zrzut-ekranu-126_redark-1366x701.jpg)
+
+Następna partycja będzie przeznaczona tylko na pliki użytkownika, które w systemach Linux mieszczą się w katalogu "/home" (w Windowsie jest to "C:\\Users"). Ponownie klikamy na "plusik", wprowadzamy rozmiar 10 240 MB, system plików ext4 z księgowaniem, a jako punkt montowania wspomniany już "/home".
+
+Osobna partycja na dane użytkownika nie jest obowiązkowa. Dane te mogą być przechowywane tak samo, jak w przypadku Windowsa na partycji systemowej. Dlatego Linux daje możliwość takiej separacji? Aby zapewnić bezpieczeństwo danych, powinno oddzielać się dane użytkowników od plików systemowych. Zapewnia to ich bezpieczeństwo np. w przypadku uszkodzenia systemu operacyjnego czy partycji.
+
+![kreator partycji linux dane użytkownika](images/Zrzut-ekranu-127_redark-1366x701.jpg)
+
+<InfoBlock>Nawet jeśli wybierzemy osobną partycję na dane użytkownika, katalog domowy home nadal będzie dostępny z poziomu partycji systemowej. Dzieje się tak, ponieważ Linux wykona sprytne dowiązanie partycji do katalogu. Tak więc, jeśli przejdziesz do katalogu "/home" zobaczysz tak naprawdę zawartość osobnej partycji, a nie rzeczywistego katalogu o tej nazwie.</InfoBlock>
+
+Ostatnią partycją będzie również opcjonalna przestrzeń wymiany, czyli wg terminologii linuxowej tzw. swap. Jest to specjalnie wydzielony obszar na dysku, który przejmuje rolę pamięci RAM, gdy ta rzeczywista, znajdująca się na płycie głównej, zostanie zapełniona. Windows również posiada podobny mechanizm, ale funkcjonuje on na zasadzie pojedynczego pliku znajdującego się na partycji systemowej. W przypadku Linuxa jest to osobna partycja.
+
+Tak jak już wspomniałem, partycja wymiany nie jest obowiązkowa. Jeśli komputer posiada małą ilość pamięci RAM, zaleca się, aby partycja wymiany była dwa razy większa niż fizyczny bank pamięci komputera. Jeśli natomiast komputer posiada wystarczającą ilość pamięci RAM, partycji tej może nie być lub może mieć ona symboliczny rozmiar. Niemniej jednak zaleca się definiowanie takiej partycji, ponieważ jest ona używana w procesie usypiania oraz hibernacji systemu operacyjnego.
+
+![kreator partycji linux swap](images/Zrzut-ekranu-128_redark-1366x701.jpg)
+
+Po zdefiniowaniu partycji wymiany zgodnie z powyższym screenem możemy zaakceptować wprowadzoną konfigurację i rozpocząć instalację systemu.
+
+<Gallery>
+![kreator partycji linux gotowa lista](images/Zrzut-ekranu-129_redark-1366x701.jpg)
+![kreator partycji linux ostrzeżenie](images/Zrzut-ekranu-132_redark-1366x701.jpg)
+</Gallery>
+
+## Podsumowanie
+
+Choć proces instalacji system operacyjnego może wydawać się trudny i skomplikowany, ale wcale taki nie jest. Jeśli masz jakiś problem z instalacją, zapraszam do sekcji komentarzy pod tym artykułem. Możesz również napisać, który system wg Ciebie jest prostszy w instalacji :) .
+
+<AssemblingPcFooter nextPost=''/>
