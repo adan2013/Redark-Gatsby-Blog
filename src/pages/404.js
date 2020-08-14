@@ -11,10 +11,10 @@ const Margin = styled.div`
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
-    <h1>Strona nie została znaleziona</h1>
+    <SEO title="404" />
+    <h1>404: Nie znaleziono</h1>
     <PageContent>
-      <Margin>Strona, którą próbujesz odwiedzić, nie istnieje! :(</Margin>
+      <Margin>Strona, którą próbujesz odwiedzić, nie istnieje!</Margin>
     </PageContent>
   </Layout>
 )
