@@ -9,11 +9,11 @@ import SEO from '../components/seo'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import dateFormatter from '../utils/dateFormatter'
 import categoryFormatter from '../utils/categoryFormatter'
-import tagFormatter from '../utils/tagFormatter'
 import PageContent from '../typography/pageContent'
 import ComponentProvider from "../typography/componentProvider"
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 import siteConfig from '../site-config.json'
+import TagExplorer from "../components/tagExplorer"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -48,8 +48,8 @@ const Post = ({data}) => {
         <ComponentProvider>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </ComponentProvider>
+        <TagExplorer tags={data.mdx.frontmatter.tags} />
       </PageContent>
-      Tagi: {tagFormatter(data.mdx.frontmatter.tags, true)}
       <Disqus config={disqusConfig} />
     </Layout>
   )

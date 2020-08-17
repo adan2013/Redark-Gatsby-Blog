@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 
 export default (tags, addLinks) => {
   if(addLinks) {
-    return tags.map((tag, index) => (
+    return tags.map(tag => (
       <Link to={`/tag/${slugify(tag, {lower: true})}`} key={tag}>
-        {tag}{index + 1 < tags.length && ', '}
+        {tag}
       </Link>
     ))
   }else{
