@@ -14,6 +14,7 @@ import ComponentProvider from "../typography/componentProvider"
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 import siteConfig from '../site-config.json'
 import TagExplorer from "../components/tagExplorer"
+import ShareThisPost from "../components/shareThisPost"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -50,6 +51,7 @@ const Post = ({data}) => {
         </ComponentProvider>
         <TagExplorer tags={data.mdx.frontmatter.tags} />
       </PageContent>
+      <ShareThisPost slug={data.mdx.frontmatter.slug} />
       <Disqus config={disqusConfig} />
     </Layout>
   )

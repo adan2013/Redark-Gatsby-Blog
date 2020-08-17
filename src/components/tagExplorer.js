@@ -5,7 +5,8 @@ import tagFormatter from '../utils/tagFormatter'
 
 const TagWrapper = styled.div`
   a {
-    margin-left: 6px;
+    display: inline-block;
+    margin-right: 6px;
     border-bottom: none !important;  
   }
   
@@ -26,7 +27,8 @@ const TagExplorer = ({tags}) => {
   if(tags.length > 0) {
     return(
       <TagWrapper>
-        Tagi: {tagFormatter(tags, true)}
+        Tagi:<br/>
+        {tagFormatter(tags, true)}
       </TagWrapper>
     )
   }else{
