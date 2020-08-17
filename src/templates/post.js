@@ -12,6 +12,8 @@ import categoryFormatter from '../utils/categoryFormatter'
 import tagFormatter from '../utils/tagFormatter'
 import PageContent from '../typography/pageContent'
 import ComponentProvider from "../typography/componentProvider"
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
+import siteConfig from '../site-config.json'
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -28,6 +30,9 @@ const SubTitle = styled.div`
 `
 
 const Post = ({data}) => {
+  const disqusConfig = {
+    url: `${siteConfig.disqusUrl}/${data.mdx.frontmatter.slug}`
+  }
 
   return(
     <Layout>
@@ -35,7 +40,7 @@ const Post = ({data}) => {
       <h1>{data.mdx.frontmatter.title}</h1>
       <SubTitle>
         <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date, true)}
-        <FontAwesomeIcon icon={faComment} />0
+        <FontAwesomeIcon icon={faComment} /><CommentCount config={disqusConfig} placeholder={'...'} />
         <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
       </SubTitle>
       <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
@@ -45,6 +50,7 @@ const Post = ({data}) => {
         </ComponentProvider>
       </PageContent>
       Tagi: {tagFormatter(data.mdx.frontmatter.tags, true)}
+      <Disqus config={disqusConfig} />
     </Layout>
   )
 }

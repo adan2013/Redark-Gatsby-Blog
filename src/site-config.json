@@ -1,4 +1,5 @@
 {
+  "disqusUrl": "https://redark.pl",
   "mainMenu": [
     { "text": "Aktualności", "link": "/" },
     { "text": "Komputery", "link": "/skladanie-pc",

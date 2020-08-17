@@ -25,6 +25,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `redark`
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,

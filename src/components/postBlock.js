@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faComment, faFolder } from '@fortawesome/free-solid-svg-icons'
 import dateFormatter from "../utils/dateFormatter"
 import categoryFormatter from "../utils/categoryFormatter"
+import { CommentCount } from 'gatsby-plugin-disqus'
+import siteConfig from '../site-config.json'
 
 const Container = styled.div`
   position: relative;
@@ -71,6 +73,9 @@ const Footer = styled.div`
 `
 
 const PostBlock = ({ slug, image, title, date, categories }) => {
+  const disqusConfig = {
+    url: `${siteConfig.disqusUrl}/${slug}`
+  }
 
   return(
     <Container>
@@ -82,7 +87,7 @@ const PostBlock = ({ slug, image, title, date, categories }) => {
       </Body>
       <Footer>
         <FontAwesomeIcon icon={faCalendar} />{dateFormatter(date)}
-        <FontAwesomeIcon icon={faComment} />0
+        <FontAwesomeIcon icon={faComment} /><CommentCount config={disqusConfig} placeholder={'...'} />
         <FontAwesomeIcon icon={faFolder} />{categoryFormatter(categories, true)}
       </Footer>
     </Container>
