@@ -1,17 +1,6 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-
-const query = graphql`
-{
-  allFile(filter: {extension: {eq: "svg"}}) {
-    nodes {
-      publicURL
-      relativePath
-    }
-  }
-}
-`
+import DataContext from '../components/dataContext'
 
 const ListWrapper = styled.ul`
   list-style: none;
@@ -45,7 +34,7 @@ const OkList = (props) => (<List type={'ok-list.svg'} badList {...props}/>)
 const List = ({children, type}) => {
   const items = children.split('- ')
   items.shift()
-  const data = useStaticQuery(query)
+  const data = useContext(DataContext)
   const iconPath = data.allFile.nodes.find(node => node.relativePath.indexOf(type) >= 0).publicURL
   return(
     <ListWrapper path={iconPath}>

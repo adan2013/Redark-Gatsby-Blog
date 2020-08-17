@@ -11,6 +11,7 @@ import InfoBlock from "./InfoBlock"
 import WarningBlock from "./WarningBlock"
 import Quote from "./quote"
 import YouTube from "./youTube"
+import DownloadButton from "./downloadButton"
 import { GoodList, BadList, StarList, OkList } from "./list"
 
 const components = {
@@ -25,6 +26,7 @@ const components = {
   WarningBlock,
   Quote,
   YouTube,
+  DownloadButton,
   GoodList, BadList, StarList, OkList
 }
 

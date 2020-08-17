@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DataContext from '../components/dataContext'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 import GifViewer from './gifViewer'
 
@@ -27,24 +27,8 @@ const ImageWrapper = styled.div`
   }
 `
 
-const query = graphql`
-{
-  allFile {
-    nodes {
-      publicURL
-      relativePath
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-}
-`
-
 const Gallery = ({children, width}) => {
-  const data = useStaticQuery(query)
+  const data = useContext(DataContext)
   const rawData = children.split('!')
   rawData.shift()
   const computedData = rawData.map(img => {

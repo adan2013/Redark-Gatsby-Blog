@@ -27,12 +27,12 @@ const ActionButtonWrapper = styled.div`
   }
 `
 
-const ActionButton = ({children, to}) => (
+const ActionButton = ({children, to, download}) => (
   <ActionButtonWrapper>
     {
-      to.substring(0, 4) === 'http'
+      to.substring(0, 4) === 'http' || download
       ?
-        <a href={to} target={'_blank'} rel={'noopener noreferrer'}>{children}</a>
+        <a href={to} target={'_blank'} rel={'noopener noreferrer'} download={download}>{children}</a>
         :
         <Link to={to}>{children}</Link>
     }
@@ -40,7 +40,8 @@ const ActionButton = ({children, to}) => (
 )
 
 ActionButton.propTypes = {
-  to: PropTypes.string.isRequired
+  to: PropTypes.string.isRequired,
+  download: PropTypes.bool
 }
 
 export default ActionButton

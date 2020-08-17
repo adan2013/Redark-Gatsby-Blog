@@ -1,19 +1,8 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-
-const query = graphql`
-{
-  allFile(filter: {extension: {eq: "gif"}}) {
-    nodes {
-      publicURL
-      relativePath
-    }
-  }
-}
-`
+import React, { useContext } from 'react'
+import DataContext from "../components/dataContext"
 
 const GifViewer = ({children}) => {
-  const data = useStaticQuery(query)
+  const data = useContext(DataContext)
   const altStart = children.indexOf('[')
   const altEnd = children.indexOf(']')
   const linkStart = children.indexOf('(')

@@ -1,17 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-
-const query = graphql`
-{
-  allFile(filter: {extension: {eq: "mp4"}}) {
-    nodes {
-      publicURL
-      relativePath
-    }
-  }
-}
-`
+import DataContext from '../components/dataContext'
 
 const VideoWrapper = styled.div`
   max-width: min(90%, 450px);
@@ -20,7 +9,7 @@ const VideoWrapper = styled.div`
 `
 
 const VideoViewer = ({file}) => {
-  const data = useStaticQuery(query)
+  const data = useContext(DataContext)
   const videoUrl = data.allFile.nodes.find(node => node.relativePath.indexOf(file) >= 0).publicURL
   /* eslint-disable */
   return(
