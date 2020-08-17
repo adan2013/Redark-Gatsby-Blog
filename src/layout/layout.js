@@ -5,6 +5,8 @@ import styled, { ThemeProvider } from "styled-components"
 import themeConfig from "../theme-config.json"
 import { GlobalStyle } from "./globalStyles"
 
+import { DataProvider } from "../components/dataContext"
+
 import Header from "./header"
 import Sidebar from "./sidebar"
 import Footer from "./footer"
@@ -64,18 +66,20 @@ const Layout = ({ children, hideSidebar, hideNewPosts }) => {
   }, [])
 
   return (
-    <ThemeProvider theme={getTheme(darkMode)}>
-      <PageContainer>
-        <GlobalStyle/>
-        <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
-        <ContentContainer>
-          <ContentColumn>{children}</ContentColumn>
-          {!hideSidebar && <SidebarColumn><Sidebar hideNewPosts={hideNewPosts}/></SidebarColumn>}
-        </ContentContainer>
-        <Footer/>
-      </PageContainer>
-      <CookiePopup/>
-    </ThemeProvider>
+    <DataProvider>
+      <ThemeProvider theme={getTheme(darkMode)}>
+        <PageContainer>
+          <GlobalStyle/>
+          <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
+          <ContentContainer>
+            <ContentColumn>{children}</ContentColumn>
+            {!hideSidebar && <SidebarColumn><Sidebar hideNewPosts={hideNewPosts}/></SidebarColumn>}
+          </ContentContainer>
+          <Footer/>
+        </PageContainer>
+        <CookiePopup/>
+      </ThemeProvider>
+    </DataProvider>
   )
 }
 

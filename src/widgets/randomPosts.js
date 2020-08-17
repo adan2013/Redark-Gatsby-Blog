@@ -2,25 +2,24 @@ import React, { useContext } from 'react'
 import DataContext from '../components/dataContext'
 import Widget from './widget'
 import WidgetPostBlock from '../components/widgetPostBlock'
-import postConfig from '../post-config.json'
 
-const RecommendedPostsWidget = () => {
+const RandomPostsWidget = () => {
   const data = useContext(DataContext)
-  const allPosts = data.allMdx.nodes.filter(post => postConfig.recommendedPosts.indexOf(post.frontmatter.slug) >= 0)
-  const recommended = []
-  for(let i = 0; i < postConfig.recommendationLimit; i++) {
+  const allPosts = [...data.allMdx.nodes]
+  const randomPosts = []
+  for(let i = 0; i < 3; i++) {
     if(allPosts.length > 0){
       const random = Math.floor(Math.random() * allPosts.length)
-      recommended.push(allPosts.splice(random, 1)[0])
+      randomPosts.push(allPosts.splice(random, 1)[0])
     }else{
       break;
     }
   }
-  if(recommended.length > 0) {
+  if(randomPosts.length > 0) {
     return(
-      <Widget title={postConfig.recommendationLimit > 1 ? `Polecane wpisy` : `Polecany wpis`}>
+      <Widget title={`Losowe wpisy`}>
         {
-          recommended.map(({ frontmatter: { slug, image, title, categories } }) => (
+          randomPosts.map(({ frontmatter: { slug, image, title, categories } }) => (
             <WidgetPostBlock key={slug}
                              slug={slug}
                              image={image.childImageSharp.fluid}
@@ -35,4 +34,4 @@ const RecommendedPostsWidget = () => {
   }
 }
 
-export default RecommendedPostsWidget
+export default RandomPostsWidget

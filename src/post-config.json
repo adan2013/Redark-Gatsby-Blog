@@ -1,9 +1,10 @@
 {
-  "recommended": [
-    "article-3",
-    "article-4",
-    "article-5",
-    "welcome-to-gatsby"
+  "recommendationLimit": 0,
+  "recommendedPosts": [
+    "najlepsza-przegladarka-internetowa-chrome-opera",
+    "zalety-korzystania-z-dysku-w-chmurze",
+    "twitch-samsung-smart-tv"
+
   ],
   "categories": [
     "Diagnostyka",

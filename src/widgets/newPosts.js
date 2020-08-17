@@ -1,38 +1,15 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React, { useContext } from 'react'
+import DataContext from '../components/dataContext'
+
 import Widget from './widget'
 import WidgetPostBlock from '../components/widgetPostBlock'
 
-const query = graphql`
-  query widgetNewPostsQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
-    ) {
-      nodes {
-        frontmatter {
-          title
-          slug
-          categories
-          image {
-            childImageSharp {
-              fluid(maxWidth: 800, maxHeight: 370) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
 const NewPostsWidget = () => {
-  const queryData = useStaticQuery(query)
+  const data = useContext(DataContext)
   return(
     <Widget title={"Nowe wpisy"}>
       {
-        queryData.allMdx.nodes.map(({ frontmatter: { slug, image, title, categories } }) => (
+        data.allMdx.nodes.slice(0, 3).map(({ frontmatter: { slug, image, title, categories } }) => (
           <WidgetPostBlock key={slug}
                      slug={slug}
                      image={image.childImageSharp.fluid}
