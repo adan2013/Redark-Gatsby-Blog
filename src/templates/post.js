@@ -34,7 +34,7 @@ const Post = ({data}) => {
       <SEO title={data.mdx.frontmatter.title}/>
       <h1>{data.mdx.frontmatter.title}</h1>
       <SubTitle>
-        <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date)}
+        <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date, true)}
         <FontAwesomeIcon icon={faComment} />0
         <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
       </SubTitle>
