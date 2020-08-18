@@ -73,7 +73,7 @@ const ShareThisPost = ({slug}) => {
       <Container>
         {
           config.map(item => (
-            <Item style={{backgroundColor: item.color}}>
+            <Item key={item.text} style={{backgroundColor: item.color}}>
               <a href={item.link + slug}
                  title={item.text}
                  target={'_blank'}
