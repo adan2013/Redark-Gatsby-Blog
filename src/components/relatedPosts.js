@@ -36,6 +36,7 @@ const maxInRow = 3
 const RelatedPosts = ({metadata}) => {
   const posts = useContext(DataContext).allMdx.nodes
   const postsInCategory = posts.filter(value => value.frontmatter.categories.filter(x => metadata.categories.includes(x)).length > 0)
+                               .filter(value => !metadata.relatedPosts.includes(value.frontmatter.slug))
   const selectedPosts = []
   metadata.relatedPosts.forEach(item => {
     const related = posts.find(value => value.frontmatter.slug === item)
@@ -43,7 +44,7 @@ const RelatedPosts = ({metadata}) => {
   })
   for(let i = 0; i < maxInRow; i++) {
     if(selectedPosts.length >= maxInRow) break;
-    if(posts.length > 0){
+    if(postsInCategory.length > 0) {
       const random = Math.floor(Math.random() * postsInCategory.length)
       selectedPosts.push(postsInCategory.splice(random, 1)[0])
     }else{
