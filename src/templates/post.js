@@ -16,6 +16,7 @@ import siteConfig from '../site-config.json'
 import TagExplorer from "../components/tagExplorer"
 import ShareThisPost from "../components/shareThisPost"
 import UserFeedback from "../components/userFeedback"
+import RelatedPosts from "../components/relatedPosts"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -54,6 +55,7 @@ const Post = ({data}) => {
       </PageContent>
       <ShareThisPost slug={data.mdx.frontmatter.slug} />
       <UserFeedback/>
+      <RelatedPosts metadata={data.mdx.frontmatter} />
       <Disqus config={disqusConfig} />
     </Layout>
   )
@@ -68,6 +70,7 @@ export const result = graphql`
           date
           categories
           tags
+          relatedPosts
           image {
             childImageSharp {
               fluid(maxWidth: 800, maxHeight: 370) {
