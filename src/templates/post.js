@@ -15,6 +15,7 @@ import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 import siteConfig from '../site-config.json'
 import TagExplorer from "../components/tagExplorer"
 import ShareThisPost from "../components/shareThisPost"
+import UserFeedback from "../components/userFeedback"
 
 const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
@@ -52,6 +53,7 @@ const Post = ({data}) => {
         <TagExplorer tags={data.mdx.frontmatter.tags} />
       </PageContent>
       <ShareThisPost slug={data.mdx.frontmatter.slug} />
+      <UserFeedback/>
       <Disqus config={disqusConfig} />
     </Layout>
   )

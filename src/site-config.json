@@ -16,18 +16,21 @@
   ],
   "social": [
     {
+      "portal": "Facebook",
       "name": "Facebook (redarkpl)",
       "link": "https://www.facebook.com/redarkpl",
       "icon": "fb",
       "color": "#3b5999"
     },
     {
+      "portal": "Twitter",
       "name": "Twitter (REDARKpl)",
       "link": "https://twitter.com/REDARKpl",
       "icon": "tt",
       "color": "#55acee"
     },
     {
+      "portal": "Instagram",
       "name": "Instagram (redark.pl)",
       "link": "https://www.instagram.com/redark.pl/",
       "icon": "ig",
