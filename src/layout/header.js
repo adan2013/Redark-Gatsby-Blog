@@ -42,8 +42,15 @@ const HeaderImageWrapper = styled.div`
   }
   
   @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
-    max-width: 40%;
-    padding: 12px;
+    max-width: 50%;
+    height: 40px;
+    padding: 10px 15px;
+    
+    .gatsby-image-wrapper {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 `
 
