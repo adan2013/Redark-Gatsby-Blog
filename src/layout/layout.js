@@ -11,6 +11,7 @@ import Header from "./header"
 import Sidebar from "./sidebar"
 import Footer from "./footer"
 import CookiePopup from "../components/cookiesPopup"
+import { TopBanner, SidebarBanner } from "../components/banner"
 
 const PageContainer = styled.div`
     background-color: #fff;
@@ -72,8 +73,18 @@ const Layout = ({ children, hideSidebar, hideNewPosts }) => {
           <GlobalStyle/>
           <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
           <ContentContainer>
-            <ContentColumn>{children}</ContentColumn>
-            {!hideSidebar && <SidebarColumn><Sidebar hideNewPosts={hideNewPosts}/></SidebarColumn>}
+            <ContentColumn>
+              <TopBanner/>
+              {children}
+            </ContentColumn>
+            {
+              !hideSidebar
+              &&
+              <SidebarColumn>
+                <Sidebar hideNewPosts={hideNewPosts}/>
+                <SidebarBanner/>
+              </SidebarColumn>
+            }
           </ContentContainer>
           <Footer/>
         </PageContainer>

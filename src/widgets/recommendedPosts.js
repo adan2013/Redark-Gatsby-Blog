@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import DataContext from '../components/dataContext'
 import Widget from './widget'
 import WidgetPostBlock from '../components/widgetPostBlock'
-import postConfig from '../post-config.json'
+import siteConfig from '../site-config.json'
 
 const RecommendedPostsWidget = () => {
   const data = useContext(DataContext)
-  const allPosts = data.allMdx.nodes.filter(post => postConfig.recommendedPosts.indexOf(post.frontmatter.slug) >= 0)
+  const allPosts = data.allMdx.nodes.filter(post => siteConfig.recommendation.posts.indexOf(post.frontmatter.slug) >= 0)
   const recommended = []
-  for(let i = 0; i < postConfig.recommendationLimit; i++) {
+  for(let i = 0; i < siteConfig.recommendation.limit; i++) {
     if(allPosts.length > 0){
       const random = Math.floor(Math.random() * allPosts.length)
       recommended.push(allPosts.splice(random, 1)[0])
@@ -18,7 +18,7 @@ const RecommendedPostsWidget = () => {
   }
   if(recommended.length > 0) {
     return(
-      <Widget title={postConfig.recommendationLimit > 1 ? `Polecane wpisy` : `Polecany wpis`}>
+      <Widget title={siteConfig.recommendation.limit > 1 ? `Polecane wpisy` : `Polecany wpis`}>
         {
           recommended.map(({ frontmatter: { slug, image, title, categories } }) => (
             <WidgetPostBlock key={slug}

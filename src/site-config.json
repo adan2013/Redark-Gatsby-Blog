@@ -1,5 +1,19 @@
 {
   "disqusUrl": "https://redark.pl",
+  "banner": {
+    "top": false,
+    "sidebar": false,
+    "topLink": "",
+    "sidebarLink": ""
+  },
+  "recommendation": {
+    "limit": 0,
+    "posts": [
+      "najlepsza-przegladarka-internetowa-chrome-opera",
+      "zalety-korzystania-z-dysku-w-chmurze",
+      "twitch-samsung-smart-tv"
+    ]
+  },
   "mainMenu": [
     { "text": "Aktualności", "link": "/" },
     { "text": "Komputery", "link": "/skladanie-pc",
