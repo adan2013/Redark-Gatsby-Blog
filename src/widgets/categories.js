@@ -12,7 +12,7 @@ const List = styled.ul`
 `
 
 const ListItem = styled.li`
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   
   a {
     text-decoration: none;

@@ -1,5 +1,6 @@
 {
   "light": {
+    "darkMode": false,
     "mobileBreakpoint": "880px",
     "compactMenuBreakpoint": "720px",
     "menuHeight": "45px",
@@ -41,9 +42,10 @@
     }
   },
   "dark": {
+    "darkMode": true,
     "general": {
       "background": "#2b2b2b",
-      "pageBackground": "#4b4b4b",
+      "pageBackground": "#2f2f2f",
       "mainColor": "#d40000",
       "textColor": "#fff",
       "subTextColor": "#cfcfcf"
@@ -53,11 +55,11 @@
       "textHover": "#fff"
     },
     "menu": {
-      "menuBarBg": "#4b4b4b",
-      "menuBarBorder": "#888888",
+      "menuBarBg": "#2f2f2f",
+      "menuBarBorder": "#444444",
       "mobileMenuButton": "#d40000",
       "normalText": "#fff",
-      "normalBg": "#2b2b2b",
+      "normalBg": "#3c3c3c",
       "hoverText": "#fff",
       "hoverBg": "#d40000",
       "darkenBorder": "#666666"
@@ -70,7 +72,7 @@
       "hoverColor": "#4b4b4b"
     },
     "footer": {
-      "background": "#4b4b4b",
+      "background": "#3c3c3c",
       "border": "#d40000",
       "text": "#fff"
     },

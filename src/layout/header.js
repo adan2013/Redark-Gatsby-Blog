@@ -1,13 +1,20 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
-import styled from "styled-components"
+import styled, { withTheme } from "styled-components"
 import Navigation from "./navigation"
 import ThemeSwitch from "./themeSwitch"
 
 const headerImageQuery = graphql`
   {
-    file(relativePath: { eq: "logo-header.png"}) {
+    light: file(relativePath: { eq: "logo-header.png"}) {
+      childImageSharp {
+        fluid(maxHeight: 90) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    dark: file(relativePath: { eq: "logo-header-dark.png"}) {
       childImageSharp {
         fluid(maxHeight: 90) {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -62,7 +69,7 @@ const Header = (props) => {
       <HeaderContainer>
         <Link to={'/'}>
           <HeaderImageWrapper>
-            <Image fluid={data.file.childImageSharp.fluid} />
+            <Image fluid={props.theme.darkMode ? data.dark.childImageSharp.fluid : data.light.childImageSharp.fluid} />
           </HeaderImageWrapper>
         </Link>
       </HeaderContainer>
@@ -72,4 +79,4 @@ const Header = (props) => {
   )
 }
 
-export default Header
+export default withTheme(Header)

@@ -15,7 +15,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   display: inline-block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   
   a {
     text-decoration: none;
