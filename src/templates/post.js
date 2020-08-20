@@ -22,7 +22,7 @@ const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
   font-size: 18px;
   margin: 10px 0;
-  color: #626262;
+  color: ${props => props.theme.general.subTextColor};
 
   svg {
     margin-left: 20px;

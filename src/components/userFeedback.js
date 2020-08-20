@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import socialIcon from "../utils/socialIcon"
 
 const Container = styled.div`
-  background-color: rgba(80,80,80,0.3);
+  background-color: ${props => props.theme.general.background};
   border: 5px rgba(120, 120, 120, 0.2) solid;
   padding: 20px 14px;
   margin: 10px 0;
@@ -23,14 +23,14 @@ const ExternalLink = styled.a`
   flex: 1;
   display: inline-block;
   margin: 2px;
-  color: #000;
+  color: ${props => props.theme.general.textColor};
   text-decoration: none;
   svg {
     font-size: 2.5em;
   }
   .item-name {
     margin-top: 4px;
-    color: #000;
+    color: ${props => props.theme.general.textColor};
     @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
       display: none;
     }

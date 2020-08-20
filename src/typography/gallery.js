@@ -25,6 +25,9 @@ const ImageWrapper = styled.div`
     max-width: 50vw;
     .gatsby-image-wrapper { border-width: 5px; }
   }
+  
+  a { border-bottom: none !important; }
+  a:hover { background-position: 0 0 !important; }
 `
 
 const Gallery = ({children, width}) => {

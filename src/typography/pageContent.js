@@ -14,20 +14,12 @@ const Content = styled.div`
   
   .gatsby-image-wrapper, .gatsby-resp-image-wrapper {
     max-width: min(90%, 500px);
-    /*width: auto;
-    height: auto;
-    max-height: 500px;*/
     display: block;
     margin: 15px auto;
     border: 10px #f0f0f0 solid;
     
-    a {
-      border-bottom: none !important;
-    }
-    
-    a:hover {
-      background-position: 0 0 !important;
-    }
+    a { border-bottom: none !important; }
+    a:hover { background-position: 0 0 !important; }
   }
 `
 

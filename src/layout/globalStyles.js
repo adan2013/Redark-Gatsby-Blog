@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from "styled-components"
 
 const HoverFillLinkStyle = css`
   a {
-    color: #000;
+    color: ${props => props.theme.general.textColor};
     text-decoration: none;
     padding: 2px 4px 2px 4px;
     border-bottom: 2px #d40000 solid;
@@ -21,7 +21,7 @@ const HoverFillLinkStyle = css`
 const HoverBottomLineLinkStyle = css`
   a {
     position: relative;
-    color: #000;
+    color: ${props => props.theme.general.textColor};
     text-decoration: none;
 
     &::before {
@@ -50,17 +50,18 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${props => props.theme.general.background};
     font-family: "Helvetica Neue", "Helvetica", "sans-serif";
     font-size: 14px;
+    color: ${props => props.theme.general.textColor};
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
+    color: ${props => props.theme.general.textColor};
     ${HoverFillLinkStyle}
   }
 
   h1 {
     font-family: 'Anton', 'sans-serif';
     font-size: 38px;
-    color: #000;
     border-bottom: 3px #d40000 solid;
     padding: 5px;
     margin: 0;

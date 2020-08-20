@@ -16,7 +16,6 @@ const ListItem = styled.li`
   
   a {
     text-decoration: none;
-    color: #000;
   }
 `
 

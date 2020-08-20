@@ -13,11 +13,11 @@ const Container = styled.div`
   border-radius: 4px;
   display: flex;
   flex-direction: row;
-  color: #000;
+  color: ${props => props.theme.general.textColor};
   transition: .3s;
   
   &:hover {
-    background-color: #c8c8c8;
+    background-color: ${props => props.theme.widget.hoverColor};
   }
 `
 

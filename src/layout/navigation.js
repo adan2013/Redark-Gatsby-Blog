@@ -47,6 +47,8 @@ const FirstLevelItem = styled.li`
   height: 100%;
   border-top: 1px ${props => props.theme.menu.darkenBorder} solid;
   border-left: 1px ${props => props.theme.menu.darkenBorder} solid;
+  
+  &:first-child { border-left: none; }
 
   &:hover > ul {
     display: inline;

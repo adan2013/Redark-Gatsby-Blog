@@ -19,7 +19,6 @@ const ListItem = styled.li`
   
   a {
     text-decoration: none;
-    color: #000;
     margin: 0 4px 3px 4px;
   }
 `

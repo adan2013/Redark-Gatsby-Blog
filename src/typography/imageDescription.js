@@ -8,7 +8,6 @@ const DescriptionWrapper = styled.div`
   font-style: italic;
   margin: 5px auto 10px auto;
   max-width: 450px;
-  color: #000;
 `
 
 const ImageDescription = ({children}) => (<DescriptionWrapper>{children}</DescriptionWrapper>)
