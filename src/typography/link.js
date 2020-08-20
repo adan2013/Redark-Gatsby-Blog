@@ -8,7 +8,7 @@ const Link = ({children, href, ...rest}) => {
     )
   }else{
     return (
-      <GatsbyLink to={href} {...rest} hello={1}>{children}</GatsbyLink>
+      <GatsbyLink to={href} {...rest}>{children}</GatsbyLink>
     )
   }
 }
