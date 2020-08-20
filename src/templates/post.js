@@ -49,7 +49,7 @@ const Post = ({data}) => {
     <Layout>
       <SEO title={data.mdx.frontmatter.title}
            description={data.mdx.excerpt}
-           image={data.mdx.frontmatter.image.childImageSharp.src}
+           image={data.mdx.frontmatter.image.childImageSharp.fluid.src}
            slug={data.mdx.frontmatter.slug}
            published={data.mdx.frontmatter.date}/>
       <h1>{data.mdx.frontmatter.title}</h1>
