@@ -6,6 +6,12 @@ module.exports = {
     author: `adan2013`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true
+      }
+    },
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
