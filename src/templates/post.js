@@ -47,7 +47,11 @@ const Post = ({data}) => {
 
   return(
     <Layout>
-      <SEO title={data.mdx.frontmatter.title}/>
+      <SEO title={data.mdx.frontmatter.title}
+           description={data.mdx.excerpt}
+           image={data.mdx.frontmatter.image.childImageSharp.src}
+           slug={data.mdx.frontmatter.slug}
+           published={data.mdx.frontmatter.date}/>
       <h1>{data.mdx.frontmatter.title}</h1>
       <SubTitle>
         <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date, true)}
@@ -90,6 +94,7 @@ export const result = graphql`
           }
         }
         body
+        excerpt
     }
   }
 `
