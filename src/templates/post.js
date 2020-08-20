@@ -32,6 +32,14 @@ const SubTitle = styled.div`
   }
 `
 
+const CommentsWrapper = styled.div`
+  #disqus_thread {
+    background-color: ${props => props.theme.comments.background};
+    padding: 12px 14px;
+    border-radius: 6px;
+  }
+`
+
 const Post = ({data}) => {
   const disqusConfig = {
     url: `${siteConfig.disqusUrl}/${data.mdx.frontmatter.slug}`
@@ -56,7 +64,9 @@ const Post = ({data}) => {
       <ShareThisPost slug={data.mdx.frontmatter.slug} />
       <UserFeedback/>
       <RelatedPosts metadata={data.mdx.frontmatter} />
-      <Disqus config={disqusConfig} />
+      <CommentsWrapper>
+        <Disqus config={disqusConfig} />
+      </CommentsWrapper>
     </Layout>
   )
 }

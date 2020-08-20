@@ -35,6 +35,9 @@
       "background": "#e5e5e5",
       "border": "#d40000",
       "text": "#000"
+    },
+    "comments": {
+      "background": "#fff"
     }
   },
   "dark": {
@@ -70,6 +73,9 @@
       "background": "#4b4b4b",
       "border": "#d40000",
       "text": "#fff"
+    },
+    "comments": {
+      "background": "#d0d0d0"
     }
   }
 }
