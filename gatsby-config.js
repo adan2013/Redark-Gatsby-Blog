@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://redark.pl`,
+    siteUrl: `https://beta.redark.pl`,
     title: `REDARK - Poradniki, Testy, Recenzje`,
     description: `Redark.pl`,
     author: `adan2013`,
