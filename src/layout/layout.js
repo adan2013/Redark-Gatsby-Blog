@@ -61,37 +61,43 @@ const getTheme = (darkMode) => {
 
 const Layout = ({ children, hideSidebar, hideNewPosts }) => {
   const [darkMode, setDarkMode] = useState(false)
+  const [themeLoaded, setThemeLoaded] = useState(false)
 
   useEffect(() => {
     setDarkMode(window.localStorage.getItem("dark-mode") === '1')
+    setThemeLoaded(true)
   }, [])
 
-  return (
-    <DataProvider>
-      <ThemeProvider theme={getTheme(darkMode)}>
-        <PageContainer>
-          <GlobalStyle/>
-          <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
-          <ContentContainer>
-            <ContentColumn>
-              <TopBanner/>
-              {children}
-            </ContentColumn>
-            {
-              !hideSidebar
-              &&
-              <SidebarColumn>
-                <Sidebar hideNewPosts={hideNewPosts}/>
-                <SidebarBanner/>
-              </SidebarColumn>
-            }
-          </ContentContainer>
-          <Footer/>
-        </PageContainer>
-        <CookiePopup/>
-      </ThemeProvider>
-    </DataProvider>
-  )
+  if(themeLoaded) {
+    return (
+      <DataProvider>
+        <ThemeProvider theme={getTheme(darkMode)}>
+          <PageContainer>
+            <GlobalStyle/>
+            <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
+            <ContentContainer>
+              <ContentColumn>
+                <TopBanner/>
+                {children}
+              </ContentColumn>
+              {
+                !hideSidebar
+                &&
+                <SidebarColumn>
+                  <Sidebar hideNewPosts={hideNewPosts}/>
+                  <SidebarBanner/>
+                </SidebarColumn>
+              }
+            </ContentContainer>
+            <Footer/>
+          </PageContainer>
+          <CookiePopup/>
+        </ThemeProvider>
+      </DataProvider>
+    )
+  }else{
+    return (<></>)
+  }
 }
 
 Layout.propTypes = {
