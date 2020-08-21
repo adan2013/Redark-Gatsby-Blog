@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title, image, slug, published }) {
-  const { site } = useStaticQuery(
+  const { site, defaultImage } = useStaticQuery(
     graphql`
       query {
         site {
@@ -22,12 +22,20 @@ function SEO({ description, lang, meta, title, image, slug, published }) {
             author
           }
         }
+        defaultImage: file(relativePath: { eq: "social-default.jpg"}) {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
       }
     `
   )
 
   const metaDescription = description || site.siteMetadata.description
   const publishedDate = published || new Date().toISOString()
+  const socialImg = `${site.siteMetadata.siteUrl}${image ? image : defaultImage.childImageSharp.fluid.src}`
 
   return (
     <Helmet
@@ -42,6 +50,10 @@ function SEO({ description, lang, meta, title, image, slug, published }) {
           content: metaDescription,
         },
         {
+          property: `og:site_name`,
+          content: 'REDARK.pl'
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -51,7 +63,7 @@ function SEO({ description, lang, meta, title, image, slug, published }) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${image}`
+          content: socialImg
         },
         {
           property: 'og:url',
@@ -83,7 +95,7 @@ function SEO({ description, lang, meta, title, image, slug, published }) {
         },
         {
           property: `twitter:image`,
-          content: `${site.siteMetadata.siteUrl}${image}`
+          content: socialImg
         },
       ].concat(meta)}
     />

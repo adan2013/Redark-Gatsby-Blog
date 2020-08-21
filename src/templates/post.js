@@ -52,19 +52,21 @@ const Post = ({data}) => {
            image={data.mdx.frontmatter.image.childImageSharp.fluid.src}
            slug={data.mdx.frontmatter.slug}
            published={data.mdx.frontmatter.date}/>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <SubTitle>
-        <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date, true)}
-        <FontAwesomeIcon icon={faComment} /><CommentCount config={disqusConfig} placeholder={'...'} />
-        <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
-      </SubTitle>
-      <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
-      <PageContent>
-        <ComponentProvider>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </ComponentProvider>
-        <TagExplorer tags={data.mdx.frontmatter.tags} />
-      </PageContent>
+      <article>
+        <h1>{data.mdx.frontmatter.title}</h1>
+        <SubTitle>
+          <FontAwesomeIcon icon={faCalendar} />{dateFormatter(data.mdx.frontmatter.date, true)}
+          <FontAwesomeIcon icon={faComment} /><CommentCount config={disqusConfig} placeholder={'...'} />
+          <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
+        </SubTitle>
+        <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
+        <PageContent>
+          <ComponentProvider>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </ComponentProvider>
+          <TagExplorer tags={data.mdx.frontmatter.tags} />
+        </PageContent>
+      </article>
       <ShareThisPost slug={data.mdx.frontmatter.slug} />
       <UserFeedback/>
       <RelatedPosts metadata={data.mdx.frontmatter} />
