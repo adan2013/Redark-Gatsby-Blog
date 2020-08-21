@@ -75,8 +75,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Redark`,
-        short_name: `redark`,
+        name: `REDARK`,
+        short_name: `Redark`,
         start_url: `/`,
         background_color: `#f2f2f2`,
         theme_color: `#d40000`,
