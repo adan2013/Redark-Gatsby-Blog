@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
-import styled, { ThemeProvider } from "styled-components"
-import themeConfig from "../theme-config.json"
+import styled from "styled-components"
 import { GlobalStyle } from "./globalStyles"
 
 import { DataProvider } from "../components/dataContext"
@@ -12,16 +11,6 @@ import Sidebar from "./sidebar"
 import Footer from "./footer"
 import CookiePopup from "../components/cookiesPopup"
 import { TopBanner, SidebarBanner } from "../components/banner"
-
-const PageCover = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 999;
-  background-color: #7f7f7f;
-`
 
 const PageContainer = styled.div`
   background-color: ${props => props.theme.general.pageBackground};
@@ -62,47 +51,30 @@ const SidebarColumn = styled.div`
     margin-top: 20px;    
   }
 `
-
-const getTheme = (darkMode) => {
-  let theme = themeConfig.light
-  if(darkMode) theme = { ...theme, ...themeConfig.dark }
-  return theme
-}
-
 const Layout = ({ children, hideSidebar, hideNewPosts }) => {
-  const [darkMode, setDarkMode] = useState(false)
-  const [pageLoaded, setPageLoaded] = useState(false)
-
-  useEffect(() => {
-    setDarkMode(window.localStorage.getItem("dark-mode") === '1')
-    setPageLoaded(true)
-  }, [])
 
   return (
     <DataProvider>
-      <ThemeProvider theme={getTheme(darkMode)}>
-        {!pageLoaded && <PageCover/>}
-        <PageContainer>
-          <GlobalStyle/>
-          <Header themeChanged={(darkMode) => setDarkMode(darkMode)}/>
-          <ContentContainer>
-            <ContentColumn>
-              <TopBanner/>
-              {children}
-            </ContentColumn>
-            {
-              !hideSidebar
-              &&
-              <SidebarColumn>
-                <Sidebar hideNewPosts={hideNewPosts}/>
-                <SidebarBanner/>
-              </SidebarColumn>
-            }
-          </ContentContainer>
-          <Footer/>
-        </PageContainer>
-        <CookiePopup/>
-      </ThemeProvider>
+      <PageContainer>
+        <GlobalStyle/>
+        <Header/>
+        <ContentContainer>
+          <ContentColumn>
+            <TopBanner/>
+            {children}
+          </ContentColumn>
+          {
+            !hideSidebar
+            &&
+            <SidebarColumn>
+              <Sidebar hideNewPosts={hideNewPosts}/>
+              <SidebarBanner/>
+            </SidebarColumn>
+          }
+        </ContentContainer>
+        <Footer/>
+      </PageContainer>
+      <CookiePopup/>
     </DataProvider>
   )
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
+import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode'
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
@@ -35,24 +36,13 @@ const ThemeSwitchContainer = styled.div`
   }
 `
 
-const ThemeSwitch = (props) => {
-  const [darkMode, setDarkMode] = useState(false)
-
-  useEffect(() => {
-    setDarkMode(window.localStorage.getItem("dark-mode") === '1')
-  }, [])
-
-  const changeTheme = () => {
-    const newState = !darkMode
-    setDarkMode(newState)
-    props.themeChanged(newState)
-    window.localStorage.setItem("dark-mode", newState ? '1' : '0')
-  }
+const ThemeSwitch = () => {
+  const theme = useContext(ThemeManagerContext)
 
   return (
-    <ThemeSwitchContainer onClick={changeTheme}>
-      <FontAwesomeIcon icon={darkMode ? faSun : faMoon}/>
-      <span className={"text"}>{darkMode ? ' Light mode' : ' Dark mode'}</span>
+    <ThemeSwitchContainer onClick={() => theme.toggleDark()}>
+      <FontAwesomeIcon icon={theme.isDark ? faSun : faMoon}/>
+      <span className={"text"}>{theme.isDark ? ' Light mode' : ' Dark mode'}</span>
     </ThemeSwitchContainer>
   )
 }

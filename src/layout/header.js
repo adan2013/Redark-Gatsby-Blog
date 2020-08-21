@@ -69,11 +69,11 @@ const Header = (props) => {
       <HeaderContainer>
         <Link to={'/'}>
           <HeaderImageWrapper>
-            <Image fluid={props.theme.darkMode ? data.dark.childImageSharp.fluid : data.light.childImageSharp.fluid} />
+            <Image fluid={props.theme.isDark ? data.dark.childImageSharp.fluid : data.light.childImageSharp.fluid} />
           </HeaderImageWrapper>
         </Link>
       </HeaderContainer>
-      <ThemeSwitch themeChanged={props.themeChanged} />
+      <ThemeSwitch/>
       <Navigation/>
     </RelativeBlock>
   )
