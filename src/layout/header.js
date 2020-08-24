@@ -7,17 +7,17 @@ import ThemeSwitch from "./themeSwitch"
 
 const headerImageQuery = graphql`
   {
-    light: file(relativePath: { eq: "logo-header.png"}) {
+    light: file(relativePath: { eq: "logo-header.png" }) {
       childImageSharp {
         fluid(maxHeight: 90) {
-          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
-    dark: file(relativePath: { eq: "logo-header-dark.png"}) {
+    dark: file(relativePath: { eq: "logo-header-dark.png" }) {
       childImageSharp {
         fluid(maxHeight: 90) {
-          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
