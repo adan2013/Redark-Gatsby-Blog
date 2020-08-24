@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
-import { ThemeManagerContext } from 'gatsby-styled-components-dark-mode'
-import styled from "styled-components"
+import React from 'react'
+import styled, { withTheme } from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
@@ -36,11 +35,9 @@ const ThemeSwitchContainer = styled.div`
   }
 `
 
-const ThemeSwitch = () => {
-  const theme = useContext(ThemeManagerContext)
-
+const ThemeSwitch = ({theme}) => {
   return (
-    <ThemeSwitchContainer onClick={() => theme.toggleDark()}>
+    <ThemeSwitchContainer onClick={theme.changeTheme}>
       <FontAwesomeIcon icon={theme.isDark ? faSun : faMoon}/>
       <span className={"text"}>{theme.isDark ? ' Light mode' : ' Dark mode'}</span>
     </ThemeSwitchContainer>
@@ -48,4 +45,4 @@ const ThemeSwitch = () => {
 }
 
 
-export default ThemeSwitch
+export default withTheme(ThemeSwitch)

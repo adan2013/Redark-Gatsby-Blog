@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { GlobalStyle } from "./globalStyles"
 
 import { DataProvider } from "../components/dataContext"
+import ThemeProvider from "./themeProvider"
 
 import Header from "./header"
 import Sidebar from "./sidebar"
@@ -55,26 +56,28 @@ const Layout = ({ children, hideSidebar, hideNewPosts }) => {
 
   return (
     <DataProvider>
-      <PageContainer>
-        <GlobalStyle/>
-        <Header/>
-        <ContentContainer>
-          <ContentColumn>
-            <TopBanner/>
-            {children}
-          </ContentColumn>
-          {
-            !hideSidebar
-            &&
-            <SidebarColumn>
-              <Sidebar hideNewPosts={hideNewPosts}/>
-              <SidebarBanner/>
-            </SidebarColumn>
-          }
-        </ContentContainer>
-        <Footer/>
-      </PageContainer>
-      <CookiePopup/>
+      <ThemeProvider>
+        <PageContainer>
+          <GlobalStyle/>
+          <Header/>
+          <ContentContainer>
+            <ContentColumn>
+              <TopBanner/>
+              {children}
+            </ContentColumn>
+            {
+              !hideSidebar
+              &&
+              <SidebarColumn>
+                <Sidebar hideNewPosts={hideNewPosts}/>
+                <SidebarBanner/>
+              </SidebarColumn>
+            }
+          </ContentContainer>
+          <Footer/>
+        </PageContainer>
+        <CookiePopup/>
+      </ThemeProvider>
     </DataProvider>
   )
 }

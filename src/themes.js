@@ -4,7 +4,7 @@ const common = {
   menuHeight: "45px"
 }
 
-const light = {
+const lightTheme = {
   ...common,
   general: {
     background: "#f2f2f2",
@@ -44,7 +44,7 @@ const light = {
   }
 }
 
-const dark = {
+const darkTheme = {
   ...common,
   general: {
     background: "#2b2b2b",
@@ -84,4 +84,4 @@ const dark = {
   }
 }
 
-module.exports = { light, dark }
+export { lightTheme, darkTheme }
