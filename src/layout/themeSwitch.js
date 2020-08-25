@@ -32,6 +32,11 @@ const ThemeSwitchContainer = styled.div`
     line-height: 26px;
     text-align: center;
     font-size: 22px;
+    border-color: transparent;
+    
+    &:hover {
+      border-color: transparent;    
+    }
   }
 `
 

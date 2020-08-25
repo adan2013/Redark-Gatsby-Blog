@@ -35,8 +35,7 @@ const RelativeBlock = styled.div`
 `
 
 const HeaderContainer = styled.header`
-  --test-var: 720px;
-  @media (max-width: var(--test-var)) {
+  @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
     border-bottom: 3px var(--menu-bar-border) solid;
     height: 60px;
   }

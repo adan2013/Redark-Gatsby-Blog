@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from '../themes'
+
+const breakpoints = {
+  mobileBreakpoint: "880px",
+  compactMenuBreakpoint: "720px",
+}
 
 const ThemeProvider = ({children}) => {
   let selectedTheme = false;
@@ -9,14 +13,10 @@ const ThemeProvider = ({children}) => {
   }
   const [darkMode, setDarkMode] = useState(selectedTheme)
 
-  let themeContext = {
+  const themeContext = {
+    ...breakpoints,
     isDark: darkMode,
     changeTheme: (newTheme) => setDarkMode(newTheme)
-  }
-  if(darkMode) {
-    themeContext = {...themeContext, ...darkTheme}
-  }else{
-    themeContext = {...themeContext, ...lightTheme}
   }
 
   return(
