@@ -14,7 +14,7 @@ import CookiePopup from "../components/cookiesPopup"
 import { TopBanner, SidebarBanner } from "../components/banner"
 
 const PageContainer = styled.div`
-  background-color: ${props => props.theme.general.pageBackground};
+  background-color: var(--lighten-bg);
   width: 100%;
   max-width: 1260px;
   min-height: 100vh;

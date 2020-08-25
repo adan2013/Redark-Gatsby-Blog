@@ -26,8 +26,7 @@ const headerImageQuery = graphql`
 
 const RelativeBlock = styled.div`
   position: relative;
-  background-color: ${props => props.theme.menu.menuBarBg};
-  
+  background-color: var(--menu-bar-bg);
   @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
     position: sticky;
     top: 0;
@@ -36,8 +35,9 @@ const RelativeBlock = styled.div`
 `
 
 const HeaderContainer = styled.header`
-  @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
-    border-bottom: 3px ${props => props.theme.menu.menuBarBorder} solid;
+  --test-var: 720px;
+  @media (max-width: var(--test-var)) {
+    border-bottom: 3px var(--menu-bar-border) solid;
     height: 60px;
   }
 `

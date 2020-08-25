@@ -2,22 +2,16 @@ import React, { useState } from 'react'
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from '../themes'
 
-const LOCAL_STORAGE_KEY = 'dark-mode'
-
 const ThemeProvider = ({children}) => {
-  const [darkMode, setDarkMode] = useState(false)
-
-  if(typeof window !== "undefined") {
-    const storage = window.localStorage.getItem(LOCAL_STORAGE_KEY) === '1'
-    if(storage !== darkMode) setDarkMode(!darkMode)
+  let selectedTheme = false;
+  if(typeof document !== 'undefined') {
+    selectedTheme = document.body.classList.contains('theme-dark')
   }
+  const [darkMode, setDarkMode] = useState(selectedTheme)
 
   let themeContext = {
     isDark: darkMode,
-    changeTheme: () => {
-      window.localStorage.setItem(LOCAL_STORAGE_KEY, !darkMode ? '1' : '0')
-      setDarkMode(state => !state)
-    }
+    changeTheme: (newTheme) => setDarkMode(newTheme)
   }
   if(darkMode) {
     themeContext = {...themeContext, ...darkTheme}

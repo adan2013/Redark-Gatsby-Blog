@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { HoverBottomLineLinkStyle } from "../layout/globalStyles"
 
 const PopupContainer = styled.div`
-  background-color: ${props => props.theme.general.background};
+  background-color: var(--darken-bg);
   box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
   border: 1px #a0a0a0 solid;
   border-radius: 4px;

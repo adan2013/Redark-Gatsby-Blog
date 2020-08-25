@@ -6,9 +6,9 @@ import { HoverBottomLineLinkStyle } from "./globalStyles"
 
 const FooterContainer = styled.footer`
   min-height: 100px;
-  background-color: ${props => props.theme.footer.background};
+  background-color: var(--footer-bg);
   margin-top: 30px;
-  border-top: 3px ${props => props.theme.footer.border} solid;  
+  border-top: 3px var(--footer-border) solid;  
 `
 
 const FooterRow = styled.div`
@@ -29,7 +29,7 @@ const FooterColumn = styled.div`
     li {
       margin-bottom: 10px;
       a {
-        color: ${props => props.theme.footer.text};
+        color: var(--footer-text);
         text-decoration: none;
       }
     }

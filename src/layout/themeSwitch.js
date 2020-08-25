@@ -8,15 +8,15 @@ const ThemeSwitchContainer = styled.div`
   top: 14px;
   right: 14px;
   display: inline-block;
-  border: 2px ${props => props.theme.themeSwitch.text} solid;
+  border: 2px var(--theme-switch) solid;
   border-radius: 5px;
-  color: ${props => props.theme.themeSwitch.text};
+  color: var(--theme-switch);
   padding: 8px 10px;
   cursor: pointer;
   
   &:hover {
-    border-color: ${props => props.theme.themeSwitch.textHover};
-    color: ${props => props.theme.themeSwitch.textHover};
+    border-color: var(--theme-switch-hover);
+    color: var(--theme-switch-hover);
   }
   
   @media (max-width: ${props => props.theme.mobileBreakpoint}) {
@@ -36,8 +36,21 @@ const ThemeSwitchContainer = styled.div`
 `
 
 const ThemeSwitch = ({theme}) => {
+  const toggle = () => {
+    const newTheme = !theme.isDark;
+    if(newTheme) {
+      document.body.classList.remove('theme-light');
+      document.body.classList.add('theme-dark');
+    }else{
+      document.body.classList.remove('theme-dark');
+      document.body.classList.add('theme-light');
+    }
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    theme.changeTheme(newTheme)
+  };
+
   return (
-    <ThemeSwitchContainer onClick={theme.changeTheme}>
+    <ThemeSwitchContainer onClick={toggle}>
       <FontAwesomeIcon icon={theme.isDark ? faSun : faMoon}/>
       <span className={"text"}>{theme.isDark ? ' Light mode' : ' Dark mode'}</span>
     </ThemeSwitchContainer>

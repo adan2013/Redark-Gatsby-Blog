@@ -23,7 +23,7 @@ const List = styled.div`
 const ItemList = styled(Link)`
   flex: 1;
   margin: 8px 0 0 5px;
-  color: ${props => props.theme.general.textColor};
+  color: var(--text-color);
   text-decoration: none;
   
   .post-title {

@@ -7,7 +7,7 @@ import config from "../site-config.json"
 
 const Nav = styled.nav`
   width: 100%;
-  min-height: ${props => props.theme.menuHeight};
+  min-height: var(--menu-item-height);
   
   @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
     display: none;
@@ -24,8 +24,8 @@ const FirstLevelMenu = styled.ul`
   margin: 0;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.menu.normalBg};
-  border-bottom: 3px ${props => props.theme.menu.hoverBg} solid;
+  background-color: var(--menu-normal-bg);
+  border-bottom: 3px var(--menu-hover-bg) solid;
   display: flex;
   flex-wrap: wrap;
     
@@ -45,8 +45,8 @@ const FirstLevelItem = styled.li`
   position: relative;
   float: left;
   height: 100%;
-  border-top: 1px ${props => props.theme.menu.darkenBorder} solid;
-  border-left: 1px ${props => props.theme.menu.darkenBorder} solid;
+  border-top: 1px var(--menu-border) solid;
+  border-left: 1px var(--menu-border) solid;
   
   &:first-child { border-left: none; }
 
@@ -57,20 +57,20 @@ const FirstLevelItem = styled.li`
   a {
     font-family: 'Anton', sans-serif;
     font-size: 20px;
-    color: ${props => props.theme.menu.normalText};
-    background-color: ${props => props.theme.menu.normalBg};
+    color: var(--menu-normal-text);
+    background-color: var(--menu-normal-bg);
     text-decoration: none;
     padding: 0 25px;
     display: block;
     height: 100%;
-    line-height: ${props => props.theme.menuHeight};
+    line-height: var(--menu-item-height);
     text-align: center;
     transition: .5s;
   }
   
   a:hover {
-    color: ${props => props.theme.menu.hoverText};
-    background-color: ${props => props.theme.menu.hoverBg};
+    color: var(--menu-hover-text);
+    background-color: var(--menu-hover-bg);
   }
   
   svg {
@@ -96,7 +96,7 @@ const FirstLevelItem = styled.li`
 const SecondLevelMenu = styled.ul`  
   position: absolute;
   z-index: 999;
-  top: ${props => props.theme.menuHeight};
+  top: var(--menu-item-height);
   left: 0;
   width: 100%;
   list-style: none;
@@ -112,17 +112,17 @@ const SecondLevelMenu = styled.ul`
 
 const SecondLevelItem = styled.li`
   position: relative;
-  height: ${props => props.theme.menuHeight};
-  border-top: 1px ${props => props.theme.menu.darkenBorder} solid;
-  border-left: 1px ${props => props.theme.menu.darkenBorder} solid;
-  border-right: 1px ${props => props.theme.menu.darkenBorder} solid;
+  height: var(--menu-item-height);
+  border-top: var(--menu-border) solid;
+  border-left: 1px var(--menu-border) solid;
+  border-right: 1px var(--menu-border) solid;
   
   &:first-child {
     border-top-width: 3px;
   }
   
   &:last-child {
-    border-bottom: 3px ${props => props.theme.menu.hoverBg} solid;
+    border-bottom: 3px var(--menu-hover-bg) solid;
   }
   
   @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
@@ -144,15 +144,15 @@ const MobileMenuButton = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  background-color: ${props => props.theme.menu.mobileMenuButton};
+  background-color: var(--main-color);
   color: #fff;
-  width: 60px;
-  height: 60px;
+  width: var(--menu-bar-height);
+  height: var(--menu-bar-height);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-left: 3px ${props => props.theme.menu.menuBarBorder} solid;
+  border-left: 3px var(--menu-bar-border) solid;
 `
 
 const Navigation = () => {

@@ -22,7 +22,7 @@ const SubTitle = styled.div`
   font-family: 'Anton', 'sans-serif';
   font-size: 18px;
   margin: 10px 0;
-  color: ${props => props.theme.general.subTextColor};
+  color: var(--sub-text-color);
 
   svg {
     margin-left: 20px;
@@ -34,7 +34,7 @@ const SubTitle = styled.div`
 
 const CommentsWrapper = styled.div`
   #disqus_thread {
-    background-color: ${props => props.theme.comments.background};
+    background-color: var(--comments-bg);
     padding: 12px 14px;
     border-radius: 6px;
   }

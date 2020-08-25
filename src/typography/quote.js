@@ -8,7 +8,7 @@ const QuoteWrapper = styled.blockquote`
   padding: 0.25em 25px;
   line-height: 1.45;
   position: relative;
-  color: ${props => props.theme.general.subTextColor};
+  color: var(--sub-text-color);
   border-left: none;
 
   &::before {
