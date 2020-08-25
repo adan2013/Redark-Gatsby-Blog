@@ -23,12 +23,16 @@ const bannerImageQuery = graphql`
   }
 `
 
-const TopBanner = () => {
+const Banner = ({top}) => {
   const data = useStaticQuery(bannerImageQuery)
-  if(siteConfig.banner.top && data.top) {
+  const img = top ? data.top : data.sidebar
+  const showBanner = top ? siteConfig.banner.top : siteConfig.banner.sidebar
+  const tagetLink = top ? siteConfig.banner.topLink : siteConfig.banner.sidebarLink
+  const maxSize = top ? '800px' : '350px'
+  if(img && showBanner) {
     return(
-      <GatsbyLink href={siteConfig.banner.topLink}>
-        <Image fluid={data.top.childImageSharp.fluid} style={{maxWidth: '800px', margin: '0 auto'}} />
+      <GatsbyLink href={tagetLink}>
+        <Image fluid={img.childImageSharp.fluid} style={{maxWidth: maxSize, margin: '0 auto'}} />
       </GatsbyLink>
     )
   }else{
@@ -36,17 +40,12 @@ const TopBanner = () => {
   }
 }
 
+const TopBanner = () => {
+  return <Banner top={true}/>
+}
+
 const SidebarBanner = () => {
-  const data = useStaticQuery(bannerImageQuery)
-  if(siteConfig.banner.sidebar && data.sidebar) {
-    return(
-      <GatsbyLink href={siteConfig.banner.sidebarLink}>
-        <Image fluid={data.sidebar.childImageSharp.fluid} style={{maxWidth: '350px', margin: '0 auto'}} />
-      </GatsbyLink>
-    )
-  }else{
-    return(<></>)
-  }
+  return <Banner top={false}/>
 }
 
 export { TopBanner, SidebarBanner }
