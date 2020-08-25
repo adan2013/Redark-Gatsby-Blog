@@ -5,6 +5,18 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
     <head>
+
+      <script key='google-gtag' async src="https://www.googletagmanager.com/gtag/js?id=UA-121555061-1"/>
+      <script key='gtag-redark' dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-121555061-1');
+        `
+      }}
+      />
+
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
