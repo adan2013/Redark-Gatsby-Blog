@@ -1,0 +1,46 @@
+---
+title: ""
+slug: ""
+date: "2020-01-01"
+image: "./images/image.jpg"
+categories: []
+tags: []
+relatedPosts: []
+---
+
+-------------------------------------------------------------------
+BLOCKS:
+
+<InfoBlock></InfoBlock>
+<Quote source=''></Quote>
+<WarningBlock></WarningBlock>
+-------------------------------------------------------------------
+BUTTONS:
+
+<ActionButton to=''></ActionButton>
+<DownloadButton file='' text=''></DownloadButton>
+-------------------------------------------------------------------
+IMAGES:
+
+<Gallery width=''></Gallery>
+<GifViewer></GifViewer>
+<ImageDescription></ImageDescription>
+-------------------------------------------------------------------
+LAYOUT:
+
+<LayoutContainer>
+    <LayoutColumn>
+    </LayoutColumn>
+</LayoutContainer>
+-------------------------------------------------------------------
+LISTS:
+
+<GoodList></GoodList>
+<BadList></BadList>
+<StarList></StarList>
+<OkList></OkList>
+-------------------------------------------------------------------
+VIDEOS:
+
+<VideoViewer file=''></VideoViewer>
+<YouTube id='' title=''></YouTube>

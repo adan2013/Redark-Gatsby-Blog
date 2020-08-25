@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const QuoteWrapper = styled.blockquote`
@@ -39,5 +40,9 @@ const Quote = ({children, source}) => (
     {source && <cite>{source}</cite>}
   </QuoteWrapper>
 )
+
+Quote.propTypes = {
+  source: PropTypes.string
+}
 
 export default Quote
