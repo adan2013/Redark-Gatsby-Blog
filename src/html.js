@@ -16,7 +16,7 @@ export default function HTML(props) {
     <body {...props.bodyAttributes}>
 
     <script
-      key="maximeheckel-theme"
+      key='theme-detector'
       dangerouslySetInnerHTML={{
         __html: `(function() {
                 try {

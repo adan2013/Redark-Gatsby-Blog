@@ -13,7 +13,7 @@ const Page = () => (
       <ul>
         <li><Link to={`/category/skladanie-pc`}>Składanie PC</Link> – seria zawierająca poradniki dotyczące procesu składania własnego komputera, a także wszelkie informacje objaśniające jego budowę oraz działanie</li>
         <li><Link to={`/category/podzespoly-i-urzadzenia`}>Podzespoły i urządzenia</Link> – seria zawiera objaśnienia parametrów podzespołów komputerowych oraz artykuły pomagające w wyborze pozostałych urządzeń (nie tylko do komputera)</li>
-        <li><Link to={`/kompendium-wiedzy`}>KOMPendium wiedzy</Link> – seria zawierająca artykuły przekazujące podstawową wiedzę na temat komputerów i innych urządzeń komputerowych</li>
+        <li><Link to={`/category/kompendium-wiedzy`}>KOMPendium wiedzy</Link> – seria zawierająca artykuły przekazujące podstawową wiedzę na temat komputerów i innych urządzeń komputerowych</li>
       </ul>
 
       <h2>Serie poboczne</h2>
