@@ -49,6 +49,13 @@
       "link": "https://www.instagram.com/redark.pl/",
       "icon": "ig",
       "color": "#e44459"
+    },
+    {
+      "portal": "YouTube",
+      "name": "YouTube (REDARKpl)",
+      "link": "https://www.youtube.com/channel/UCN7miP290Sbv8e2xT2kjfHQ",
+      "icon": "yt",
+      "color": "#ff0000"
     }
   ],
   "footer": [
