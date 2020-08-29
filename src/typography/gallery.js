@@ -6,7 +6,6 @@ import Image from 'gatsby-image'
 import GifViewer from './gifViewer'
 
 const GalleryWrapper = styled.div`
-  margin-bottom: 10px;
   a { border-bottom: none; display: block }
   a:hover { background-position: 0 0; }
 `

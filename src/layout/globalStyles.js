@@ -73,6 +73,7 @@ const GlobalStyle = createGlobalStyle`
         --footer-border: #d40000;
         --footer-text: #000;
         --comments-bg: #fff;
+        --image-border: #f0f0f0;
     }
     
     &.theme-dark {
@@ -99,6 +100,7 @@ const GlobalStyle = createGlobalStyle`
         --footer-border: #d40000;
         --footer-text: #fff;
         --comments-bg: #d0d0d0;
+        --image-border: #555555;
     }
   
     margin: 0;

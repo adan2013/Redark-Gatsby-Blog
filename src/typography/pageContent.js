@@ -16,7 +16,7 @@ const Content = styled.div`
     max-width: min(90%, 500px);
     display: block;
     margin: 15px auto;
-    border: 10px #f0f0f0 solid;
+    border: 10px var(--image-border) solid;
     
     a { border-bottom: none !important; }
     a:hover { background-position: 0 0 !important; }
