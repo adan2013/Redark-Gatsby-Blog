@@ -12,7 +12,7 @@ const TagWrapper = styled.div`
   
   a:hover {
     background-position: 0 0 !important;
-    color: #000;
+    color: var(--text-color);
   }
   
   a::before {
