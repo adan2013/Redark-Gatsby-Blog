@@ -59,7 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             },
           })
         })
-        reporter.info(`category browser created: ${slugify(category, {lower: true})} (posts: ${postsByCategory.data.allMdx.nodes.length}, pages: ${numPages})`)
+        reporter.info(`category: "${slugify(category, {lower: true})}" (posts: ${postsByCategory.data.allMdx.nodes.length}, pages: ${numPages})`)
       }
     });
   }
@@ -99,7 +99,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             },
           })
         })
-        reporter.info(`tag browser created: ${slugify(tag, {lower: true})} (posts: ${postsByTag.data.allMdx.nodes.length}, pages: ${numPages})`)
+        reporter.info(`tag: "${slugify(tag, {lower: true})}" (posts: ${postsByTag.data.allMdx.nodes.length}, pages: ${numPages})`)
       }
     });
   }
@@ -134,7 +134,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
-  reporter.info(`post browser created! Number of posts: ${posts.data.allMdx.nodes.length} Number of pages: ${numPages}`)
+  reporter.info(`post browser (posts: ${posts.data.allMdx.nodes.length}, pages: ${numPages})`)
 
   //POST PAGES
   posts.data.allMdx.nodes.forEach(post => {
