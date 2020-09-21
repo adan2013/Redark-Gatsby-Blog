@@ -33,7 +33,7 @@ const List = styled.ul`
 /* eslint-disable */
 const getMailText = () => (
   <>
-    <a href={'mailto:redarkpl'+'@'+'gmail'+'.com'}>{'redarkpl'+'@'+'gmail'+'.com'}</a>
+    <a href={'mail'+'to:'+'redark'+'pl'+'@'+'gmail'+'.com'}>{'redarkpl'+'@'+'gmail'+'.com'}</a>
   </>
 )
 /* eslint-enable */
@@ -47,7 +47,7 @@ const Page = () => {
       <h1>Kontakt</h1>
       <PageContent>
         <h2>Dane kontaktowe</h2>
-        Kontakt z osobami odpowiedzialnymi za rozwój serwisu możliwy jest poprzez pocztę elektroniczną oraz za pomocą podanych poniżej mediów społecznościowych. Wszelkie potrzebne odnośniki znajdują się poniżej:
+        Kontakt z osobą odpowiedzialną za rozwój serwisu możliwy jest za pomocą poczty elektronicznej lub podanych poniżej mediów społecznościowych. Wszelkie potrzebne odnośniki znajdują się poniżej:
         <List>
           {visible && <li>{getMailText()}</li>}
           {!visible && <li><button onClick={() => setVisible(true)}>(kliknij tutaj, aby pokazać adres e-mail)</button></li>}
