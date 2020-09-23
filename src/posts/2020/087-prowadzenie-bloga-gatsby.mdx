@@ -1,0 +1,108 @@
+---
+title: "Prowadzenie bloga Gatsby od kuchni"
+slug: "prowadzenie-bloga-gatsby"
+date: "2020-10-28"
+image: "./images/085.jpg"
+categories: ["Newsy"]
+tags: []
+relatedPosts: []
+---
+
+Minął już jakiś czas od oficjalnego uruchomienia [nowej wersji serwisu Redark przy użyciu Gatsby'ego](/zegnaj-wordpressie). Sytuacja z prowadzeniem bloga się już trochę uspokoiła, więc to dobry moment, aby podzielić się z Wami tym, jak teraz wygląda proces publikowania artykułów na stronie. Dodatkowo chciałbym przedstawić spisaną przeze mnie listę plusów i minusów obcowania z Gatsby'm w porównaniu do poprzedniego CMS'a, jakim był oczywiście WordPress.
+
+## Jak przechowywanie są dane witryny?
+
+WordPress do swojego działania wymaga dwóch rzeczy: konta FTP na serwerze hostingowym oraz bazy danych MySQL. Po utworzeniu i skonfigurowaniu tych rzeczy, system był samowystarczalny i gotowy do działania. W przypadku Gatsby'ego jest trochę inaczej. Po pierwsze nie ma tutaj żadnej bazy danych. Po drugie konto FTP przechowuje jedynie gotowe wygenerowane pliki HTML, które nie nadają się do edycji. Cały kod źródłowy strony (czyli to na czym pracuję) jest trzymany w zewnętrznym repozytorium Gita. W moim przypadku repozytorium to jest trzymane w serwisie GitHub. Uznałem, że kiszenie całego kodu tylko dla siebie do niczego nie prowadzi, dlatego z tego miejsca pragnę też poinformować, że postanowiłem zrobić z Redarka projekt open source. Oznacza to, że za pomocą linku zamieszczonego poniżej możecie przejść do oficjalnego repozytorium kodu tego bloga i przejrzeć cały jego kod źródłowy.
+
+<ActionButton to='https://github.com/adan2013/Redark-Gatsby-Blog'>Redark Gatsby Blog - GitHub</ActionButton>
+
+<InfoBlock>Git oraz GitHub są to podstawowe narzędzia każdego dewelopera. Nie będę się skupiał tutaj na opisywaniu ich działania, ponieważ nie jest to cel tego artykułu.</InfoBlock>
+
+No dobrze, mamy kod źródłowy strony, ale skoro Gatsby nie posiada bazy danych, to gdzie przechowywanie są artykuły? Tutaj można wyróżnić dwie taktyki. Pierwsza polega na trzymaniu treści artykułów razem z kodem źródłowym wewnątrz repozytorium Gita w postaci plików Markdown (opowiem o nich szczegółowo później). Drugi sposób wykorzystuje zewnętrzny headless CMS. Jest to oprogramowanie podobne do WordPressa, ale skupione tylko i wyłącznie na gromadzeniu danych, a nie ich prezentacji. Jest to więc taki WordPress bez motywu i tylko z panelem administracyjnym.
+
+Ja w Redarku zdecydowałem się na sposób nr 1 z dwóch powodów. Po pierwsze chciałem maksymalnie uniezależnić się od zewnętrznych serwisów. Wszystko miało być w jednym zależnym ode mnie miejscu. Po drugie blog posiada już tak dużo grafik i innych multimediów, że nie zmieściłby się w darmowym planie żadnego z dostępnych serwisów, a to mocno zwiększyłoby koszty utrzymania witryny.
+
+## Pisanie artykułów
+
+### Przechowywanie treści
+
+W pierwszym akapicie wspominałem o plikach Markdown. W skrócie są to zwykłe pliki tekstowe, które za pomocą prostych symboli pozwalają sformatować (nie ostylować!) pisany tekst. Zaletą pisania takim tekstem jest taka, że całkowicie oddzielamy treść oraz jej wyglądu na stronie. Pisząc artykuł nie określam wyglądu nagłówka lub obrazka. Stawiam jedynie symbol i on oznacza "to jest nagłówek". To, jak on będzie wyglądać na stronie, zależy już tylko i wyłącznie od strony, która wyświetla ten tekst.
+
+<!--parę przykładów Markdowna-->
+
+Wracając do tematu Redarka. Tak jak już wspominałem, treść artykułów przechowuje bezpośrednio w repozytorium Gita. Znajdziesz je w katalogu "src/posts". Dla przejrzystości podzieliłem artykuły na roczniki oraz zastosowałem numerację w nazwach ich plików. Mają one rozszerzenie ".mdx", ponieważ są to pliki Markdown wzbogacone o składnie JSX, a z kolei JSX jest to plik JavaScript wzbogacony o składnię HTML. Brzmi przeraźliwie? Nie ma się tu niczego bać. Oznacza to tyle, że wewnątrz plików MDX można stosować niestandardowe formatowanie tekstu lub reużywalne elementy jak np. przyciski. Zobaczcie na przykład poniżej:
+
+<!--screen treści tego artykułu z action button i info block oraz podgląd na żywo na stronie-->
+
+Chcąc dodać do artykułu, który czytasz, duży przycisk akcji, musiałem użyć znacznika "ActionButton", a do zrobienia niebieskiego bloku informacyjnego "InfoBlock". Jeśli jesteś ciekaw, jak działają te niestandardowe znaczniki, to ich kod znajdziesz w katalogu "src/typography". W plikach artykułów można znaleźć jeszcze jeden nietypowy element, który znajduje się zawsze na ich początku.
+
+<!--screen z meta danymi-->
+
+Są to tzw. meta-dane artykułu, czyli dodatkowe informacje potrzebne do działania witryny, ale nie wchodzące w treść postu. Są one rozpoczynane i kończone potrójnymi znakami myślnika. Moja strona wymaga następujących wartości:
+
+* **title** - tytuł artykułu (nie używam nagłówka pierwszego stopnia w treści artykułu),
+* **slug** - adres strony, pod którą będzie dostępny post,
+* **date** - data zapisana w formacie YYYY-MM-DD, która jest wyświetlana przy nagłówku artykułu,
+* **image** - ścieżka względna do pliku obrazka wyróżniającego,
+* **categories** - tablica z nazwami kategorii, do których należy post,
+* **tags** - analogicznie to, co z kategoriami,
+* **relatedPosts** - tablica artykułami do sekcji "zobacz również" znajdującej się pod artykułem (pozostałe "polecane artykuły" są wybierane automatycznie przez kod).
+
+Jak widzisz, jest to po prostu konfiguracja tego danego artykułu. W WordPressie można to by było wyklikać w odpowiednim panelu opcji, a tutaj muszę wkleić taki tekst z szablonu i go ręcznie uzupełnić.
+
+### Redagowanie treści
+
+Wiemy już, jak są przechowywane artykuły. Teraz opiszę trochę, jak przebiega proces ich redagowania. Pliki Markdown można tworzyć nawet za pomocą windowsowego notatnika. Ja do tego celu używam aplikacji Typora lub czasami środowiska programistycznego (WebStorm lub Visual Studio Code). Zaletą Typory jest to, że formatuje ona lekko pisany przez nas tekst. Jest on nadal zapisany w Markdownie bez styli, ale nagłówki są wyróżnione rozmiarem i krojem czcionki, a obrazki mają swój podgląd.
+
+<!--typora-->
+
+Dodatkowym atutem korzystania z takiej aplikacji jest sprawdzanie błędów pisowni. Typora obsługuje język polski i oferuje podstawową korektę tekstu. Tutaj niestety mam do czynienia z dużym minusem przejścia na Gatsby'ego. Pisząc artykuły w WordPressie w przeglądarce internetowej, nad moim tekstem pieczę sprawowała genialna wtyczka "LanguageTool". Jest to genialne narzędzie wyłapujące nie tylko błędy ortograficzne, ale i stylistyczne. Żadna inna aplikacja, z której korzystałem (nawet Microsoft Word), nie dorównała inteligencji tego rozszerzenia do przeglądarki.
+
+<!--sprawdzanie pisowni wordpress-->
+
+Tymczasowo problem ten rozwiązałem przeklejając artykuł kawałek po kawałki do edytora online dostępnego pod [tym adresem](https://languagetoolplus.com/). Jest to uciążliwe i nieintuicyjne, ale musi takie na razie być. Alternatywą są dostępne w przeglądarce edytory Markdowna, ale niestety albo nie działają one z LanguageTool albo dziwacznie obsługują niestandardowe znaczniki, które niedawno opisywałem. Najlepszym rozwiązaniem dla mnie, o którym w dodatku już myślałem, byłoby napisanie sobie dedykowanego edytora online. Niestety napisanie czegoś takiego wymagałoby bardzo dużo pracy, a nie mam na to czasu. Może kiedyś sobie taki sprawię, na razie korzystam z tego, co mam.
+
+## Sterowanie witryną
+
+Chciałbym powiedzieć jeszcze parę rzeczy na temat zarządzania witryną. Służą do tego dwa pliki znajdujące się w katalogu "src". Są nimi "site-config.json" oraz "post-config.json". Pierwszy z nich, jak sama nazwa wskazuje, dotyczy konfiguracji samej witryny. Znajdują się tam ustawienia takie jak:
+
+* **disqusUrl** - adres witryny, który jest zarejestrowany w serwisie Disqus (obsługa komentarzy),
+* **banner** - pozwala mi pokazywać, ukrywać i kontrolować banery promocyjne,
+* **recommendation** - sterowanie dodatkowym panelem w bocznej kolumnie, który pozwala mi pokazywać rekomendowane artykuły,
+* **mainMenu** - jest to hierarchia i zawartość głównego menu strony,
+* **social** - lista moich kont w social mediach, która jest wykorzystywana w panelu bocznym, stopce oraz na stronie "kontakt",
+* **footer** - zawartość list z linkami w stopce.
+
+Plik konfiguracyjny postów jest znacznie prostszy. Zawiera on jedynie listę kategorii oraz tagów, jakich używam w artykułach. Pozwala mi to na łatwe sprawdzenie nazw, jakich używanych już w witrynie. Dodatkowo skrypt budujący stronę (o nim za chwilę), dzięki tej liście, sprawdza czy w którymś artykule nie użyłem kategorii lub taga, który nie jest tutaj zadeklarowany. Zapobiega to tworzeniu się literówek, a tym samym bałaganu w artykułach.
+
+## Budowanie witryny
+
+Tak jak wspominałem [w pierwszym artykule](/zegnaj-wordpressie), strona napisana w Gatsby'm działa finalnie na gotowych, wyrenderowanych plikach HTML, co bardzo przyspiesza jej działanie oraz usprawnia indeksowanie w Google. Aby pliki źródłowe strony oraz pliki MDX z artykułami mogły zamienić się w pliki HTML, należy przeprowadzić budowanie wersji produkcyjnej. Nie będę teraz tłumaczył linijka po linijce tego skryptu, ale chciałbym pokazać, z jakimi zadaniami należy się zmierzyć, przygotowując taką witrynę. Ciekawych kodu zapraszam do pliku "gatsby-node.js" znajdującego się w głównym katalogu repozytorium.
+
+Do zbudowania takiej witryny należy napisać odpowiedni mini skrypt, który niejako otworzy każdy z tych artykułów i na podstawie zawartych w nim informacji utworzy jego podstronę. Następną rzeczą, jaką musi wykonać taki skrypt, to przygotowanie przeglądarek artykułów dla każdej kategorii oraz taga wraz z paginacją wyników. Dzięki temu na jednej stronie widoczne jest jednocześnie tylko 10 artykułów, a następne znajdują się na stronie nr 2, 3, 4 itd. Na koniec tworzona jest jeszcze przeglądarka wszystkich postów.
+
+<!--prezentacja przeglądarki artykułów wraz z paginacją-->
+
+Proces generowania podstron jest na bieżąco raportowany w oknie konsoli. Można tam podejrzeć nazwę kategorii lub taga, ilość znalezionych dla niego artykułów oraz ilość stron paginacji. W przypadku napotkania w artykule niezadeklarowanej w pliku "post-config.json" nazwy, skrypt wyświetli ostrzeżenie informujące o możliwości wystąpienia literówki.
+
+## Publikowanie zmian
+
+Wiesz już jak wygląda zarządzanie witryną oraz pisanie dla niej artykułów. Czas na ostatni krok, czyli publikacja tych zmian w Internecie. Po zakończeniu prac nad artykułem następuje commit wprowadzonych zmian, merge wszystkich wymaganych branchy oraz push tych zmian do serwisu GitHub. Oczywiście nie będę tłumaczył tutaj tej terminologii, ponieważ ten artykuł byłby pięć razy dłuższy. Po wysłaniu zmian na zdalne repozytorium są trzy możliwości. Pierwsza polega na ręcznym uruchomieniu komendy budującej stronę oraz wysłania plików na serwer FTP. W przypadku Redarka taka możliwość nie wchodziła w grę, ponieważ pełny build witryny oraz przesłanie wszystkich plików zajmuje około 60-70 minut.
+
+Drugą metodą jest skorzystanie z narzędzi CI/CD. Skrót CD odnosi się do terminu "Continuous Deployment". Jest to oprogramowanie, które po wykryciu nowych zmian w repozytorium automatycznie przeprowadza szereg skonfigurowanych wcześniej czynności prowadzących do wdrożenia nowej wersji strony na serwer docelowy. Ja w trakcie budowania witryny korzystałem z polskiego serwisu [Buddy Works](https://buddy.works/). Jest on bardzo intuicyjny, ponieważ cały proces konfiguracji narzędzia można wyklikać przy pomocy myszki. Dodatkową zaletą Buddy'ego jest to, że optymalizuje on proces budowania strony i wysyła na serwer FTP tylko te pliki, które uległy zmianie. To bardzo usprawnia pracę, przez co czas budowania Redarka spadł z 70 do 4 minut!
+
+<!--pipeline buddy works-->
+
+Niestety rozmiar serwisu ponownie przysporzył mi problemów. Ogromna ilość grafik sprawiła, że przestałem mieścić się w darmowym planie Buddy'ego i zostałem zmuszony z niego zrezygnować. Mimo to naprawdę polecam narzędzie, ponieważ ma ono ogromny potencjał. Chcących dowiedzieć się więcej o tym narzędziu zapraszam do [tego artykułu](https://devstyle.pl/2019/03/28/continuous-integration-delivery-deployment-buddy/).
+
+Pozostała więc trzecia opcja, która jest obecnie przeze mnie używana w Redarku. Pewna zasada programistów brzmi: "jeśli nie powstało narzędzie, które jest Ci potrzebne, to stwórz je samemu". Tak więc postąpiłem i stworzyłem uniwersalne narzędzie do zautomatyzowanego budowania stron opartych o Gatsby'ego oraz różnicowego wysyłania ich na serwer. Tak samo, jak kod bloga, tak i ten jest dostępny publicznie na platformie GitHub. Link do repozytorium znajdziecie poniżej:
+
+<ActionButton to='https://github.com/adan2013/Gatsby-FTP-Deployment'>Gatsby FTP Deployment - GitHub</ActionButton>
+
+Skrypt automatycznie pobiera zmiany z GitHuba, buduje wersje produkcyjną, porównuje jej pliki z poprzednią wersją i wysyła jedynie zmodyfikowane jej elementy. Na koniec wysyła dodatkowo e-mail do właściciela witryny z dokładnym raportem przeprowadzonych czynności. Może nie jest to tak przyjemne i komfortowe jak gotowe CI/DI, ale działa i aktualizuje witrynę w 2-3 minuty :)
+
+<!--screen z maila-->
+
+## Zalety i wady względem WordPressa
+
+abc
