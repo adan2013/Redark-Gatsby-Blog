@@ -103,6 +103,64 @@ Skrypt automatycznie pobiera zmiany z GitHuba, buduje wersje produkcyjną, poró
 
 <!--screen z maila-->
 
-## Zalety i wady względem WordPressa
+## Co lepsze: Gatsby czy WordPress?
 
-abc
+Czas więc odpowiedzieć na pytanie: czy Gatsby jest lepszy od WordPressa do prowadzenia własnego bloga? Zacznijmy od plusów.
+
+### Git - pełna kopia bezpieczeństwa z historią zmian
+
+Dzięki temu, że mój blog znajduje się w repozytorium Gita, nie muszę się martwić o robinie kopii bezpieczeństwa, co w przypadku WordPressa było bardzo wskazane. Dzięki Gitowi mam dane odseparowane od witryny, bezpiecznie trzymane na serwerach giganta jakim jest GitHub oraz Microsoft - jego obecny właściciel. W dodatku mam pełną kontrolę nad zmianami, jakie wprowadzam w blogu i nawet za 5 lat będę w stanie przywrócić Redarka do początkowego stanu.
+
+### Brak możliwości włamania się na stronę
+
+WordPress z racji swojej popularności jest łakomym kąskiem dla hackerów, którzy próbują co chwilę łamać jego zabezpieczenia, by przejąć kontrolę nad czyjąś witryną. Sprawę bardzo ułatwiały dziesiątki różnej jakości wykonania wtyczki, które miał zainstalowany użytkownik. To one często pozwalały wejść do panelu administratora. Gdy Redark pracował na WordPressie miał dodane chociażby dwuetapowe uwierzytelnienie z Google Authenticator'em, a i tak bałem się, że komuś uda się go kiedyś zawirusować.
+
+W Gatsby'm sytuacja jest kompletnie odwrotna. Redark jest teraz statyczną stroną i posiada żadnego panelu logowania, panelu administratora czy jakichkolwiek wrażliwych danych. Sprawia to, że **Redark jest obecnie w 100% odporny na ataki hackerskie**. Jedyny sposób to włamać się bezpośrednio do hostingu, a to już nie jest takie proste. Mogę teraz spać spokojnie bez potrzeby codziennego aktualizowania zainstalowanych wtyczek. Teraz to ja decyduje, kiedy chcę zainstalować aktualizację, a kiedy nie.
+
+### Większa kontrola nad treścią i wyglądem strony
+
+Nawet posiadając własny motyw w WordPressie nie miałem pełnej kontroli nad sposobem działania pewnych elementów. Dla przykładu chciałem żeby pod treścią artykułu widget "udostępnij artykuł" był przed widgetem "zobacz więcej". Niestety WordPress nie umożliwia kontrolowania kolejności działania wtyczek, a jedynie umożliwia zainstalowanie kolejnej szemranej wtyczki, która niby ma dodać takową funkcjonalność. Aż mnie ciarki przechodzą na tę myśl. W Gatsby'm mam pełną kontrolę nad tym, co robię. Każdy element, każdy tekst widoczny na ekranie to moje dzieło. Są pewne elementy, którymi ciężko w Gatsby'm operować, ale to już opiszę w wadach tego rozwiązania.
+
+### Brak absolutnego linkowania
+
+WordPress miał tę ogromną wadę, że stosował linkowanie absolutne, czyli każdy link, przycisk lub zdjęcie kierowało na adres https... i tak dalej. Powoduje to to, że jakakolwiek próba ruszenia WordPressa z pierwotnej domeny, jest drogą przez mękę. Trzeba kombinować, modyfikować pliki, instalować durne pluginy, a nawet modyfikować bazę danych profesjonalną metodą "Ctrl+F". Doświadczyłem tego dwa razy na Redarku. Pierwsze, gdy migrowałem z niezabezpieczonego http na szyfrowany https. Drugi raz, to gdy chciałem postawić sobie na komputerze kopię witryny do testów i ulepszania mojego autorskiego motywu. Co ciekawe myślicie, że co? Zmieniłem adres redark.pl na localhost i po sprawie? Oj nie ma tak łatwo! Musiałem na sztywno ustawić w nim mój wewnętrzny adres IP komputera! Inaczej nie był bym w stanie testować działania witryny na moim telefonie. A teraz kwintesencja całej sytuacji. Skoro miałem na sztywno zapisany adres IP w witryny, to musiałem skonfigurować wszystkie routery, z którymi łączyłem się z Internetem, aby korzystały z tej samej adresacji oraz przypisywały mi zawsze ten sam adres IP. To wszystko przez to, że WordPress używa adresowania absolutnego!
+
+A co robi Gatsby? Pracuje na linkach relacyjnych, więc mogę go dowolnie przenosić między domenami i wszystko będzie działać. Nowa domena? Spoko, nie ma problemu. Migracja serwisu? Tylko mnie przekopiuj. Serwer testowy w domu? Minuta i gotowe. Czyż to nie jest cudowne?
+
+### Decentralizacja danych
+
+Czas na wady Gatsby'ego. Stosowanie go wymaga na administratorze zdecentralizowania swoich danych. Hosting z FTP to jedno, ale dochodzi jeszcze repozytorium, jakiś headless CMS oraz narzędzie CI/CD. WordPress miał to do siebie, że wszystko działo się w obrębie hostingu i nie trzeba było się bawić z takie integracje. Dla jednych to będzie zaleta, a dla innych wada. Niemniej jednak warto to zaznaczyć.
+
+### Potrzeba budowania strony
+
+Gatsby dzięki pracy na statycznych gotowych plikach jest super szybki. Niestety coś za coś. Potrzeba ponownego budowania strony po każdej zmianie nie jest z pewnością komfortowa. Jesteśmy zmuszeni robić to ręcznie lub wykorzystać gotowe narzędzie CI/CD, co albo nie jest tanie, albo nie jest łatwe.
+
+### Trudniejsze redagowanie tekstów
+
+Tutaj taka zbiorcza wada poświęcona pisaniu artykułów. Są one tworzone w prostym edytorze tekstu, który nie jest tak intuicyjny i przyjemny jak Gutenberg w WordPressie. Oczywiście ma to swoje zalety, np. brak narzuconego stylowania elementów, ale patrząc ogólnie - jest trudniej. Trzeba zapamiętać składnie Markdowna (choć nie jest skomplikowana), a także ręcznie dbać o zapis meta danych na początku artykułu. Mocną wadą (przynajmniej dla mnie) jest brak omawianej wcześniej wtyczki do Chrome'a do sprawdzania pisowni w języku polskim. W Gutenbergu działała ona wyśmienicie, a teraz muszę ręcznie przeklejać tekst kawałek po kawałku, aby nie przekroczyć limitu słów.
+
+### SEO na własną rękę
+
+Każdy użytkownik WordPressa zna wtyczkę Yoast SEO. Choć lubi ona przysparzać problemów, to jest ona niezastąpiona jeśli chodzi o optymalizację strony pod kątem wyszukiwarek internetowych. W przypadku Gatsby'ego otrzymujemy na start jedynie malutki komponent, który pokazuje nam, jak możemy obsłużyć SEO w naszym projekcie. Jego rozbudowa leży jednak po naszej stronie. Wymaga to zaznajomienia się z zasadami indeksowania chociażby Google'a oraz stosowania różnej maści testerów online. Obsługa chociażby obrazków wyróżniających artykuły, to moja robota. Bez tego, po udostępnieniu artykułu w socialach, wyskakiwałby szary prostokąt oznaczający brak grafiki. Jednym słowem: jak sobie pościelesz tak się wyśpisz.
+
+<InfoBlock>Wiele testerów SEO jest płatna, ale da się znaleźć darmowe mniej szczegółowe raporty, które pozwolą na podstawowe przygotowanie witryny pod wyszukiwarki.</InfoBlock>
+
+### Możliwość zwiększenia kosztów prowadzenia serwisu
+
+Tak jak już pewnie zauważyliście w trakcie czytania tego artykułu, podczas przechodzenia na Gatsby'ego często spotykałem się z barierą płatnego planu któregoś z narzędzi. Niestety, ale wykorzystanie tej technologii ciągnie za sobą potrzebę korzystania z dodatkowych serwisów i narzędzi takich jak GitHub, headless CMS czy CI/CD. W przypadku bardziej rozbudowanych portali darmowe plany mogą nie wystarczyć, a to może znacząco zwiększyć koszt utrzymania interesu. Ja jak widzicie po odrobinie kombinatoryki i wykorzystaniu swoich programistycznych umiejętności uniknąłem wydatków. Niemniej jednak prowadzenie witryny w WordPressie było znacznie prostsze i nie wymagało takiej gimnastyki.
+
+### Gatsby też nie jest idealny
+
+Na koniec pozostawiłem trzy poważne problemy, które wynikają już tylko i wyłącznie ze strony Gatsby'ego. Po pierwsze jego cache, który jest wykorzystywany do przyspieszenia budowania strony, często się psuje i zaczyna robić bardzo dziwne rzeczy. Dzieje się to najczęściej podczas dodawania lub usuwania grafik w trakcie działania serwera deweloperskiego. W takim przypadku trzeba usunąć cache i przebudować cały projekt, a to na moim komputerze zajmuje do kilkunastu minut. Twórcy Gatsby'ego na pewno muszą popracować nad jego stabilnością.
+
+Drugą rzeczą są jego obrazki, które przez swoją "specjalność" w postaci konturów SVG nijak nie słuchają się CSS-owych stylów. Po prostu cały dzień można zmarnować na szukaniu sposobu, aby któryś z obrazków wyglądał tak jak chcemy. Największym problemem jest ograniczenie wysokości obrazka wraz z zachowaniem jego proporcji. W Internecie znajdziecie miliony osób, które proszą o pomoc z ich ostylowaniem.
+
+Trzecim problemem są omawiane już niestandardowe znaczniki w plikach MDX. Choć jak widzicie udało mi się je stworzyć, to napsuły mi one solidnie krwi. Cały problem polega na tym, że tekst znajdujący się w znaczniku przestaje być już Markdownem i nie mogę np. użyć kursywy w "InfoBlock-u" (przykład poniżej). W przypadku galerii zostałem zmuszony zrobić dziwaczną sztuczkę programistyczną i ręcznie interpretować składnie Markdowna, aby zamienić ją na właściwe obrazki.
+
+<InfoBlock>To jest zwykły tekst, *a ten tekst powinien być napisany kursywą, a nie jest!* Zamiast tego ma gwiazdki na początku i końcu, które nie zostały zinterpretowane.</InfoBlock>
+
+<!--pokazać działanie interpretacji galerii?-->
+
+## Podsumowanie
+
+To by było na tyle. Mam nadzieję, że wytłumaczyłem Wam choć trochę, jak wygląda prowadzenie bloga w Gatsby'm. Nadal podtrzymuje zdanie, że WordPress to dobre narzędzie, ponieważ zdejmuje z użytkownika wiele ciężaru i postawienie na nim strony jest bardzo proste. Natomiast osobom odważnym, które mają już dość prowadzenia na nim witryny, serdecznie polecam Gatsby'ego. Jeśli mielibyście jeszcze jakieś pytania dotyczące obsługi Gatsby'ego lub migracji z WordPressa, zapraszam do sekcji komentarzy lub na jeden z moich social mediów. Linki do nich znajdziecie w stopce lub na [stronie kontaktowej](/kontakt). Do usłyszenia :)
