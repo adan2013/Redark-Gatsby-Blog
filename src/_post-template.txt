@@ -2,7 +2,7 @@
 title: ""
 slug: ""
 date: "2020-01-01"
-image: "./images/image.jpg"
+image: "../default.jpg"
 categories: []
 tags: []
 relatedPosts: []
