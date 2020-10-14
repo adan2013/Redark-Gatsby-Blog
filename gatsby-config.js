@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://beta.redark.pl`,
+    siteUrl: `https://redark.pl`,
     title: `REDARK - Poradniki, Testy, Recenzje`,
     description: `Witryna poświęcona tematyce IT zawierająca poradniki oraz recenzje sprzętu elektronicznego`,
     author: `adan2013`,
