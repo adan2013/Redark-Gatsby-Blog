@@ -18,7 +18,7 @@ const Page = () => (
         <li>Administratorem oraz głównym redaktorem treści publikowanych na tej witrynie jest Daniel Alberski posługujący się nickiem "adan2013"</li>
         <li>Regulamin obejmuje każdego odwiedzającego witrynę, Użytkownik zobowiązany jest do przestrzegania wszystkich postanowień w nim zawartych</li>
         <li>Administrator zastrzega sobie prawo do dokonywania zmian w treści tego regulaminu</li>
-        <li>Regulamin serwisu jest dostępny pod adresem <Link to="/regulamin-witryny/">www.redark.pl/regulamin-witryny/</Link></li>
+        <li>Regulamin serwisu jest dostępny pod adresem <Link to="/regulamin-witryny">www.redark.pl/regulamin-witryny/</Link></li>
       </ol>
 
       <h2>Prawa autorskie</h2>

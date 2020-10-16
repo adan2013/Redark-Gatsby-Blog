@@ -8,40 +8,40 @@ const list = [
   {
     title: 'Rozdział I. Trochę teorii',
     items: [
-      ['Komputer w różnej formie. Jakie są alternatywy dla klasycznego peceta?', '/komputer-w-roznej-formie/'],
-      ['Z czego składa się stanowisko komputerowe? Elementy podstawowe i dodatkowe', '/elementy-stanowiska-komputerowego/'],
-      ['Kablologia: przewody wewnątrz jednostki centralnej', '/kablologia-przewody-jednostki-centralnej/'],
-      ['Kablologia: jak połapać się w pajęczynie kabli za biurkiem', '/kablologia-pajeczyna-za-biurkiem/'],
-      ['Kablologia: złącza USB', '/kablologia-zlacza-usb/'],
-      ['Anatomia jednostki centralnej. Co za co odpowiada?', '/budowa-i-dzialanie-komputera/']
+      ['Komputer w różnej formie. Jakie są alternatywy dla klasycznego peceta?', '/komputer-w-roznej-formie'],
+      ['Z czego składa się stanowisko komputerowe? Elementy podstawowe i dodatkowe', '/elementy-stanowiska-komputerowego'],
+      ['Kablologia: przewody wewnątrz jednostki centralnej', '/kablologia-przewody-jednostki-centralnej'],
+      ['Kablologia: jak połapać się w pajęczynie kabli za biurkiem', '/kablologia-pajeczyna-za-biurkiem'],
+      ['Kablologia: złącza USB', '/kablologia-zlacza-usb'],
+      ['Anatomia jednostki centralnej. Co za co odpowiada?', '/budowa-i-dzialanie-komputera']
     ]
   },
   {
     title: 'Rozdział II. Planowanie konfiguracji sprzętowej',
     items: [
-      ['Do czego potrzebny jest mi komputer? Określanie potrzeb i wymagań', '/okreslanie-potrzeb-i-wymagan/'],
-      ['Wnętrze obudowy – tyle tam tego, czyli od czego zacząć dobierać podzespoły', '/od-czego-zaczac-dobieranie-podzespolow/'],
-      ['By wszystko do siebie pasowało, czyli sprawdzamy kompatybilność podzespołów', '/jak-sprawdzic-kompatybilnosc-podzespolow-komputera/']
+      ['Do czego potrzebny jest mi komputer? Określanie potrzeb i wymagań', '/okreslanie-potrzeb-i-wymagan'],
+      ['Wnętrze obudowy – tyle tam tego, czyli od czego zacząć dobierać podzespoły', '/od-czego-zaczac-dobieranie-podzespolow'],
+      ['By wszystko do siebie pasowało, czyli sprawdzamy kompatybilność podzespołów', '/jak-sprawdzic-kompatybilnosc-podzespolow-komputera']
     ]
   },
   {
     title: 'Rozdział III. Montaż komputera',
     items: [
-      ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie/'],
-      ['Składanie PC: Przygotowujemy obudowę i płytę główną', '/skladanie-pc-przygotowujemy-obudowe-i-plyte-glowna/'],
-      ['Składanie PC: Montaż procesora wraz z chłodzeniem', '/skladanie-pc-montaz-procesora-i-chlodzenia/'],
-      ['Składanie PC: Instalujemy kości pamięci RAM', '/skladanie-pc-instalujemy-kosci-pamieci-ram/'],
-      ['Składanie PC: Montaż zasilacza i płyty głównej w obudowie', '/skladanie-pc-montaz-zasilacza-i-plyty-glownej/'],
-      ['Składanie PC: Dokładamy dyski na dane, kartę graficzną oraz napęd optyczny', '/skladanie-pc-dyski-karta-graficzna-naped-optyczny/'],
-      ['Składanie PC: Podłączanie i układanie kabli w obudowie', '/skladanie-pc-podlaczanie-i-ukladanie-kabli-w-obudowie/']
+      ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
+      ['Składanie PC: Przygotowujemy obudowę i płytę główną', '/skladanie-pc-przygotowujemy-obudowe-i-plyte-glowna'],
+      ['Składanie PC: Montaż procesora wraz z chłodzeniem', '/skladanie-pc-montaz-procesora-i-chlodzenia'],
+      ['Składanie PC: Instalujemy kości pamięci RAM', '/skladanie-pc-instalujemy-kosci-pamieci-ram'],
+      ['Składanie PC: Montaż zasilacza i płyty głównej w obudowie', '/skladanie-pc-montaz-zasilacza-i-plyty-glownej'],
+      ['Składanie PC: Dokładamy dyski na dane, kartę graficzną oraz napęd optyczny', '/skladanie-pc-dyski-karta-graficzna-naped-optyczny'],
+      ['Składanie PC: Podłączanie i układanie kabli w obudowie', '/skladanie-pc-podlaczanie-i-ukladanie-kabli-w-obudowie']
     ]
   },
   {
     title: 'Rozdział IV. Testy i konfiguracja maszyny',
     items: [
-      ['Pierwsze uruchomienie. Uda się czy nie? Diagnostyka awarii', '/pierwsze-uruchomienie-komputera-diagnostyka-awarii/'],
-      ['Windows kontra Linux. Jaki system operacyjny wybrać?', '/windows-konta-linux-jaki-system-operacyjny-wybrac/'],
-      ['Instalacja systemów Windows oraz Linux krok po kroku', '/instalacja-systemow-windows-oraz-linux-krok-po-kroku/']
+      ['Pierwsze uruchomienie. Uda się czy nie? Diagnostyka awarii', '/pierwsze-uruchomienie-komputera-diagnostyka-awarii'],
+      ['Windows kontra Linux. Jaki system operacyjny wybrać?', '/windows-konta-linux-jaki-system-operacyjny-wybrac'],
+      ['Instalacja systemów Windows oraz Linux krok po kroku', '/instalacja-systemow-windows-oraz-linux-krok-po-kroku']
     ]
   }
 ]

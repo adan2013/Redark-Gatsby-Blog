@@ -12,7 +12,7 @@ const Page = () => (
       Korzystanie z serwisu jest równoznaczne z akceptacją postanowień zawartych w <Link to="/regulamin-witryny">regulaminie</Link>, a także oznacza wyrażenie zgody na przetwarzanie danych osobowych na warunkach opisanych w <Link to="/polityka-prywatnosci">polityce prywatności</Link>.
 
       <h2>Kim jesteśmy</h2>
-      Witryna dostępna jest pod adresem <Link to="/">www.redark.pl</Link>, autorem i głównym redaktorem artykułów publikowanych w witrynie jest Daniel Alberski posługujący się pseudonimem "adan2013". Kontakt możliwy za pośrednictwem adresu mailowego oraz mediów społecznościowych wymienionych <Link to="/kontakt/">w zakładce "Kontakt"</Link>.
+      Witryna dostępna jest pod adresem <Link to="/">www.redark.pl</Link>, autorem i głównym redaktorem artykułów publikowanych w witrynie jest Daniel Alberski posługujący się pseudonimem "adan2013". Kontakt możliwy za pośrednictwem adresu mailowego oraz mediów społecznościowych wymienionych <Link to="/kontakt">w zakładce "Kontakt"</Link>.
 
       <h2>Jakie dane zbieramy i dlaczego je zbieramy</h2>
       Wszelkie dane zbierane przez witrynę internetową służą tylko i wyłącznie do zapewnienia prawidłowego działania witryny. Są to m.in. pliki cookies (małe pliki tekstowe przechowywane na komputerze użytkownika) przechowujące dane wymagane do prawidłowego działania Wordpressa (systemu CMS, na którym postawiona jest witryna) oraz rozszerzeń w nim zainstalowanych. Drugim typem danych przechowywanych na serwerze są anonimowe dane statystyczne (dzięki nim możliwy jest dalszy rozwój treści oraz wykrywanie tematów o których chcieliby przeczytać użytkownicy) oraz dane niezbędne do zachowania bezpieczeństwa witryny, które zostaną dokładniej omówione w dalszej części tego dokumentu.
