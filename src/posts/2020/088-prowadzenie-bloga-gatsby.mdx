@@ -8,33 +8,33 @@ tags: []
 relatedPosts: []
 ---
 
-Minął już jakiś czas od oficjalnego uruchomienia [nowej wersji serwisu Redark działającego przy użyciu technologii Gatsby'ego](/zegnaj-wordpressie). Sytuacja z prowadzeniem bloga już się trochę uspokoiła, więc to dobry moment, aby podzielić się z Wami tym, jak wygląda teraz proces publikowania artykułów. Dodatkowo przedstawię spisaną przeze mnie listę plusów i minusów pracy z Gatsby'm w porównaniu do mojego poprzedniego CMS'a, czyli WordPress'a.
+Minął już jakiś czas od oficjalnego uruchomienia [nowej wersji serwisu Redark działającej przy użyciu technologii Gatsby'ego](/zegnaj-wordpressie). Sytuacja z prowadzeniem bloga już się wyklarowała, więc to dobry moment, aby podzielić się z Wami tym, jak teraz wygląda proces publikowania artykułów. Dodatkowo przedstawię sporządzoną przeze mnie listę plusów i minusów pracy z Gatsby'm w porównaniu do mojego poprzedniego CMS'a, czyli WordPress'a.
 
-## Jak przechowywanie są dane witryny?
+## Jak przechowywane są dane witryny?
 
-WordPress do swojego działania wymaga dwóch rzeczy: konta FTP na serwerze hostingowym oraz bazy danych MySQL. Po utworzeniu i skonfigurowaniu tych dwóch elementów, system był już samowystarczalny i gotowy do działania. W przypadku Gatsby'ego jest trochę inaczej. Po pierwsze nie ma tutaj żadnej bazy danych. Po drugie konto FTP przechowuje jedynie gotowe wygenerowane pliki HTML, które nie nadają się do wygodnej edycji. Cały kod źródłowy strony (czyli to na czym pracuję) jest trzymany w zewnętrznym repozytorium Gita. W moim przypadku repozytorium to jest trzymane na serwerach serwisu GitHub. Uznałem, że kiszenie całego tego kodu tylko dla siebie do niczego nie prowadzi, dlatego z tego miejsca pragnę też poinformować, że **postanowiłem zrobić z Redarka projekt open source**. Oznacza to, że za pomocą linku zamieszczonego poniżej możecie przejść do oficjalnego repozytorium tego bloga i przejrzeć cały jego kod źródłowy. Od deski do deski.
+WordPress do swojego działania wymaga dwóch rzeczy: konta FTP na serwerze hostingowym oraz bazy danych MySQL. Po utworzeniu i skonfigurowaniu tych dwóch elementów, system jest już samowystarczalny i gotowy do działania. W przypadku Gatsby'ego jest trochę inaczej. Po pierwsze nie ma tutaj żadnej bazy danych. Po drugie konto FTP przechowuje jedynie gotowe wygenerowane pliki HTML, które nie nadają się do wygodnej edycji. Cały kod źródłowy strony (czyli to na czym pracuję) jest trzymany w zewnętrznym repozytorium Gita. W moim przypadku repozytorium jest trzymane na serwerach serwisu GitHub. Uznałem, że kiszenie całego kodu tylko dla siebie do niczego nie prowadzi, dlatego z tego miejsca pragnę też poinformować, że **postanowiłem zrobić z Redarka projekt open source**. Oznacza to, że za pomocą linku zamieszczonego poniżej możecie przejść do oficjalnego repozytorium tego bloga i przejrzeć cały jego kod źródłowy. Od deski do deski.
 
 <ActionButton to='https://github.com/adan2013/Redark-Gatsby-Blog'>Redark Gatsby Blog - GitHub</ActionButton>
 
-<InfoBlock>Git oraz GitHub są to podstawowe narzędzia pracy każdego dewelopera (programisty). Nie będę się skupiał tutaj na opisywaniu ich działania, ponieważ nie jest to cel tego artykułu.</InfoBlock>
+<InfoBlock>Git oraz GitHub są to podstawowe narzędzia pracy każdego dewelopera (programisty), lecz nie będę się skupiał tutaj na opisywaniu ich działania, ponieważ nie to jest celem tego artykułu.</InfoBlock>
 
 No dobrze, mamy kod źródłowy strony, ale skoro Gatsby nie posiada bazy danych, to gdzie przechowywanie są artykuły? Tutaj można wyróżnić dwie taktyki. Pierwsza polega na trzymaniu treści artykułów razem z kodem źródłowym wewnątrz repozytorium Gita w postaci plików Markdown (opowiem o nich szczegółowo później). Drugi sposób wykorzystuje zewnętrzny headless CMS. Jest to oprogramowanie podobne do WordPressa, ale skupione tylko i wyłącznie na gromadzeniu danych, a nie ich prezentacji. Jest to więc taki WordPress bez motywu, posiadający jedynie panel administracyjny.
 
-Ja w Redarku zdecydowałem się na sposób nr 1. Po pierwsze chciałem maksymalnie uniezależnić się od zewnętrznych serwisów. Wszystko miało być w jednym zależnym ode mnie miejscu. Po drugie blog posiada już tak dużo grafik i innych multimediów, że nie zmieściłby się w darmowym planie żadnego z dostępnych serwisów headless CMS, a to mocno zwiększyłoby koszty utrzymania witryny.
+W Redarku zdecydowałem się na sposób nr 1. Po pierwsze chciałem maksymalnie uniezależnić się od zewnętrznych serwisów. Wszystko miało być w jednym miejscu, nad którym sprawowałbym kontrolę. Po drugie blog posiada już tak dużo grafik i innych multimediów, że nie zmieściłby się w darmowym planie żadnego z dostępnych serwisów headless CMS, a to mocno zwiększyłoby koszty utrzymania witryny.
 
 ## Pisanie artykułów
 
 ### Przechowywanie treści
 
-W pierwszym akapicie wspominałem o plikach Markdown. Opisując je w skrócie są to zwykłe pliki tekstowe, które za pomocą prostych symboli pozwalają sformatować (nie ostylować!) pisany tekst. **Zaleta pisania tekstów w takich plikach jest taka, że całkowicie oddzielamy treść oraz jej wyglądu na stronie**. Pisząc artykuł nie określam wyglądu nagłówka lub obrazka. Stawiam jedynie symbol, który jedynie mówi "to jest nagłówek". To, jak on będzie wyglądać na stronie, zależy już tylko i wyłącznie od strony, która wyświetla ten tekst.
+W pierwszym akapicie wspominałem o plikach Markdown. W skrócie są to zwykłe pliki tekstowe, które za pomocą prostych symboli pozwalają sformatować (nie mylić z ostylować!) pisany tekst. **Zaleta pisania tekstów w takich plikach jest taka, że całkowicie oddzielamy treść od jej wyglądu na stronie**. Pisząc artykuł nie określam wyglądu nagłówka lub obrazka. Stawiam jedynie symbol, który jedynie mówi "to jest nagłówek". To, jak on będzie wyglądać na stronie, zależy już tylko i wyłącznie od strony, która wyświetla ten tekst.
 
 <!--parę przykładów Markdowna-->
 
-Wracając do tematu Redarka. Tak jak już wspominałem, treść artykułów przechowuje bezpośrednio w repozytorium Gita. Znajdziesz je w katalogu *"src/posts"*. Dla przejrzystości podzieliłem artykuły na roczniki oraz zastosowałem numerację w nazwach ich plików. Mają one rozszerzenie ".mdx", ponieważ są to pliki Markdown wzbogacone o składnie JSX, a z kolei JSX jest to plik JavaScript wzbogacony o składnię HTML. Brzmi przeraźliwie? Nie ma się tu niczego bać. Oznacza to tyle, że wewnątrz plików MDX można stosować niestandardowe formatowanie tekstu lub reużywalne elementy jak np. przyciski. Zobaczcie przykład poniżej:
+Wracając do Redarka. Tak jak już wspominałem, treść artykułów przechowuje bezpośrednio w repozytorium Gita. Znajdziesz je w katalogu *"src/posts"*. Dla przejrzystości podzieliłem artykuły na roczniki oraz zastosowałem numerację w nazwach ich plików. Mają one rozszerzenie ".mdx", ponieważ są to pliki Markdown wzbogacone o składnie JSX, a z kolei JSX jest to plik JavaScript wzbogacony o składnię HTML. Brzmi przerażająco? Nie ma się tu niczego bać. Oznacza to tyle, że wewnątrz plików MDX można stosować niestandardowe formatowanie tekstu lub reużywalne elementy jak np. przyciski. Zobaczcie przykład poniżej:
 
 <!--screen treści tego artykułu z action button i info block oraz podgląd na żywo na stronie-->
 
-Chcąc dodać do artykułu, który czytasz, duży przycisk akcji, musiałem użyć znacznika *"ActionButton"*, a do zrobienia niebieskiego bloku informacyjnego *"InfoBlock"*. Jeśli jesteś ciekaw, jak działają te niestandardowe znaczniki, to ich kod znajdziesz w katalogu *"src/typography"*. W plikach artykułów można znaleźć jeszcze jeden nietypowy element, który znajduje się zawsze na ich początku.
+Chcąc dodać do artykułu, który czytasz, duży przycisk akcji, musiałem użyć znacznika *"ActionButton"*, a do zrobienia niebieskiego bloku informacyjnego znacznika *"InfoBlock"*. Jeśli jesteś ciekaw, jak działają te niestandardowe znaczniki, to ich kod znajdziesz w katalogu *"src/typography"*. W plikach artykułów można znaleźć jeszcze jeden nietypowy element, który znajduje się zawsze na ich początku.
 
 <!--screen z meta danymi-->
 
@@ -45,10 +45,10 @@ Są to tzw. meta-dane artykułu, czyli dodatkowe informacje potrzebne do prawid�
 * **date** - data zapisana w formacie YYYY-MM-DD oznaczająca datę publikacji,
 * **image** - ścieżka względna do pliku obrazka wyróżniającego,
 * **categories** - tablica z nazwami kategorii, do których należy post,
-* **tags** - analogicznie to samo, co z kategoriami,
+* **tags** - analogicznie do kategorii,
 * **relatedPosts** - tablica artykułami do sekcji "zobacz również" znajdującej się pod artykułem (pozostałe "polecane artykuły" są automatycznie wybierane i losowane przez kod strony).
 
-Jak widzisz, jest to po prostu konfiguracja tego danego artykułu. W WordPressie można to by było wyklikać w odpowiednim panelu opcji, a tutaj muszę wkleić taki tekst z szablonu i ręcznie go uzupełnić.
+Jak widzisz, jest to po prostu konfiguracja danego artykułu. W WordPressie można to by było wyklikać w odpowiednim panelu opcji, a tutaj muszę wkleić taki tekst z szablonu i ręcznie go uzupełnić.
 
 ### Redagowanie treści
 
@@ -60,16 +60,16 @@ Dodatkowym atutem korzystania z takiej aplikacji jest sprawdzanie błędów piso
 
 <!--sprawdzanie pisowni wordpress-->
 
-Tymczasowo problem ten rozwiązałem przeklejając artykuł kawałek po kawałki do edytora online dostępnego pod [tym adresem](https://languagetoolplus.com/). Jest to uciążliwe i nieintuicyjne, ale musi na razie takie być. Alternatywą są dostępne w przeglądarce edytory Markdowna, ale niestety albo nie działają one z LanguageTool albo dziwacznie obsługują niestandardowe znaczniki, które opisywałem wcześniej. Pakiet biurowy Google posiada integrację z LanguageTool, ale ciężko jest w nim pisać bez użycia styli, w zwykłym pliku tekstowym. Najlepszym rozwiązaniem dla mnie, byłoby napisanie sobie dedykowanego edytora online. Niestety napisanie czegoś takiego wymagałoby bardzo dużo pracy, a nie mam na to czasu. Może kiedyś sobie taki sprawię, ale na razie korzystam z tego, co mam.
+Tymczasowo problem ten rozwiązałem przeklejając artykuł kawałek po kawałki do edytora online dostępnego pod [tym adresem](https://languagetoolplus.com/). Jest to uciążliwe i nieintuicyjne, ale na razie musi takie być. Alternatywą są dostępne w przeglądarce edytory Markdowna, ale niestety albo nie działają one z LanguageTool albo dziwacznie obsługują niestandardowe znaczniki, które opisywałem wcześniej. Pakiet biurowy Google posiada integrację z LanguageTool, ale ciężko jest w nim pisać bez użycia styli, w zwykłym pliku tekstowym. Najlepszym rozwiązaniem dla mnie, byłoby napisanie dedykowanego edytora online. Niestety wymagałoby to bardzo dużo pracy, a obecnie nie mam aż tyle wolnego czasu. Może kiedyś sprawię sobie taki, ale póki co korzystam z tego, co mam.
 
 ## Sterowanie witryną
 
-Teraz jeszcze parę rzeczy na temat zarządzania witryną. Służą do tego dwa pliki znajdujące się w katalogu *"src"*. Są nimi *"site-config.json"* oraz *"post-config.json"*. Pierwszy z nich, jak sama nazwa wskazuje, dotyczy konfiguracji samej witryny. Znajdują się tam ustawienia takie jak:
+Kolej na parę rzeczy na temat zarządzania witryną. Służą do tego dwa pliki znajdujące się w katalogu *"src"*. Są nimi *"site-config.json"* oraz *"post-config.json"*. Pierwszy z nich, jak sama nazwa wskazuje, dotyczy konfiguracji samej witryny. Znajdują się tam ustawienia takie jak:
 
 * **disqusUrl** - adres witryny, który jest zarejestrowany w serwisie Disqus (obsługa komentarzy),
 * **banner** - pozwala mi pokazywać, ukrywać i kontrolować banery promocyjne,
 * **recommendation** - sterowanie dodatkowym panelem w bocznej kolumnie, który pozwala mi pokazywać rekomendowane artykuły,
-* **mainMenu** - jest to hierarchia i zawartość głównego menu strony,
+* **mainMenu** - hierarchia i zawartość głównego menu strony,
 * **social** - lista moich kont w social mediach, która jest wykorzystywana w panelu bocznym, stopce oraz na stronie "kontakt",
 * **footer** - zawartość stopki strony.
 
@@ -91,7 +91,7 @@ Proces generowania podstron jest na bieżąco raportowany w oknie konsoli. Mogę
 
 ## Publikowanie zmian
 
-Wiesz już, jak wygląda zarządzanie witryną oraz pisanie dla niej artykułów. Czas na ostatni krok, czyli publikacje tych zmian w Internecie. Po zakończeniu prac nad artykułem następuje commit wprowadzonych zmian, merge wszystkich wymaganych branchy do mastera oraz push wszystkich zmian do serwisu GitHub. Oczywiście posługuję się tutaj terminologią charakterystyczną dla Gita i nie będę tłumaczył jej znaczenia, ponieważ ten artykuł byłby pięć razy dłuższy. Po wysłaniu zmian na zdalne repozytorium istnieją trzy możliwości. Pierwsza polega na ręcznym uruchomieniu komendy budującej stronę oraz wysłaniu gotowych plików na serwer FTP. W przypadku Redarka taka możliwość nie wchodziła w rachubę, ponieważ pełny build witryny oraz przesłanie wszystkich plików na serwer zajmuje około 60-70 minut. Zdecydowanie zbyt długo.
+Wiesz już, jak wygląda zarządzanie witryną oraz pisanie dla niej artykułów. Czas na ostatni krok, czyli publikacje tych zmian w Internecie. Po zakończeniu prac nad artykułem następuje commit wprowadzonych zmian, merge wszystkich wymaganych branchy do mastera oraz push wszystkich zmian do serwisu GitHub. Oczywiście posługuję się tutaj terminologią charakterystyczną dla Gita i nie będę tłumaczył jej znaczenia, bo wówczas ten artykuł byłby pięć razy dłuższy. Po wysłaniu zmian na zdalne repozytorium istnieją trzy możliwości. Pierwsza polega na ręcznym uruchomieniu komendy budującej stronę oraz wysłaniu gotowych plików na serwer FTP. W przypadku Redarka taka możliwość nie wchodziła w rachubę, ponieważ pełny build witryny oraz przesłanie wszystkich plików na serwer zajmuje około 60-70 minut. Zdecydowanie zbyt długo.
 
 Drugą metodą jest skorzystanie z narzędzi CI/CD. Skrót CD odnosi się do terminu "Continuous Deployment", który można przetłumaczyć jako "narzędzie do automatycznego publikowania nowych wersji oprogramowania". Oprogramowanie to, po wykryciu nowych zmian w repozytorium, automatycznie przeprowadza szereg skonfigurowanych wcześniej czynności prowadzących do wdrożenia nowej wersji strony na serwer docelowy. Ja w trakcie budowania witryny testowej korzystałem z polskiego serwisu [Buddy Works](https://buddy.works/). Jest on bardzo intuicyjny, ponieważ cały proces konfiguracji narzędzia można wyklikać przy pomocy myszki bez zagłębiania się w zaawansowane techniczne niuanse. Dodatkową zaletą Buddy'ego jest to, że optymalizuje on proces budowania strony i wysyła na serwer FTP tylko te pliki, które faktycznie uległy zmianie. To bardzo usprawnia pracę, przez co czas budowania Redarka spadł z 70 do 4 minut!
 
@@ -109,7 +109,7 @@ Skrypt automatycznie pobiera zmiany z GitHuba, buduje wersje produkcyjną, poró
 
 ## Co lepsze: Gatsby czy WordPress?
 
-Czas więc odpowiedzieć na pytanie: czy Gatsby jest lepszy od WordPressa do prowadzenia własnego bloga? Zacznijmy od plusów.
+Czas więc odpowiedzieć na pytanie: czy do prowadzenia własnego bloga Gatsby jest lepszy od WordPressa? Zacznijmy od plusów.
 
 ### Git - pełna kopia bezpieczeństwa z historią zmian
 
@@ -119,7 +119,7 @@ Dzięki temu, że mój blog znajduje się teraz w repozytorium Gita, nie muszę 
 
 WordPress z racji swojej popularności jest łakomym kąskiem dla hackerów, którzy próbują co chwilę złamać jego zabezpieczenia, by przejąć kontrolę nad czyjąś witryną. Sprawę bardzo ułatwiają dziesiątki różnej jakości wykonania wtyczki, które zainstalował użytkownik. To one często pozwalają hackerom wejść do panelu administratora. Gdy Redark pracował na WordPressie miał dodane dwuetapowe uwierzytelnienie z Google Authenticator'em oraz jeszcze kilka innych zabezpieczeń, a i tak bałem się, że któregoś dnia, uda się komuś go zawirusować.
 
-W Gatsby'm sytuacja jest kompletnie odwrotna. Redark jest teraz statyczną stroną i nie posiada żadnego panelu logowania, panelu administratora czy jakichkolwiek wrażliwych danych. Sprawia to, że **Redark jest obecnie w 100% odporny na ataki hackerskie**. Jedyny teraz sposób to włamać się bezpośrednio do hostingu, a to już nie jest takie proste. Mogę teraz nareszcie spać spokojnie.
+W Gatsby'm sytuacja jest zupełnie odwrotna. Redark jest teraz statyczną stroną i nie posiada żadnego panelu logowania, panelu administratora czy jakichkolwiek wrażliwych danych. Sprawia to, że **Redark jest obecnie w 100% odporny na ataki hackerskie**. Jedyny teraz sposób to włamać się bezpośrednio do hostingu, a to już nie jest takie proste. Mogę teraz nareszcie spać spokojnie.
 
 ### Większa kontrola nad treścią i wyglądem strony
 
@@ -147,13 +147,13 @@ Tutaj taka zbiorcza wada poświęcona pisaniu artykułów. Są one tworzone w pr
 
 ### SEO na własną rękę
 
-Każdy użytkownik WordPress'a zna wtyczkę Yoast SEO. Choć lubi ona przysparzać problemów, to jest niezastąpiona jeśli chodzi o optymalizację strony pod kątem wyszukiwarek internetowych. W przypadku Gatsby'ego otrzymujemy na start jedynie malutki komponent, który pokazuje nam, jak możemy obsłużyć SEO w naszym projekcie. Jego rozbudowa leży jednak po naszej stronie. Wymaga to zaznajomienia się z zasadami działania indeksatorów Google'a oraz stosowania różnej maści testerów online. Obsługa chociażby obrazków wyróżniających artykuły, to moja robota. Gdybym tego nie napisał, to po udostępnieniu artykułu w socialach, wyskakiwałby szary prostokąt oznaczający brak grafiki. Jednym słowem: jak sobie pościelesz tak się wyśpisz.
+Każdy użytkownik WordPress'a zna wtyczkę Yoast SEO. Choć lubi ona przysparzać problemów, to jest niezastąpiona jeśli chodzi o optymalizację strony pod kątem wyszukiwarek internetowych. W przypadku Gatsby'ego otrzymujemy na start jedynie malutki komponent, który pokazuje nam, jak możemy obsłużyć SEO w naszym projekcie. Jego rozbudowa leży jednak po naszej stronie. Wymaga to zaznajomienia się z zasadami działania indeksatorów Google'a oraz stosowania różnej maści testerów online. Obsługa chociażby obrazków wyróżniających artykuły, to moja robota. Gdybym tego nie napisał, to po udostępnieniu artykułu w socialach, wyskakiwałby szary prostokąt oznaczający brak grafiki. Jednym słowem: jak sobie pościelisz, tak się wyśpisz.
 
 <InfoBlock>Wiele testerów SEO jest płatna, ale da się znaleźć darmowe mniej szczegółowe raporty, które pozwolą na podstawowe przygotowanie witryny pod wyszukiwarki.</InfoBlock>
 
 ### Możliwość zwiększenia kosztów prowadzenia serwisu
 
-Tak jak już pewnie zauważyliście w trakcie czytania tego artykułu, podczas przechodzenia na Gatsby'ego często spotykałem się z barierą płatnego planu któregoś z narzędzi. Niestety, ale wykorzystanie tej technologii ciągnie za sobą potrzebę korzystania z dodatkowych serwisów i narzędzi takich jak GitHub, headless CMS czy CI/CD. W przypadku bardziej rozbudowanych portali, darmowe plany mogą nie wystarczyć, a to może znacząco zwiększyć koszt utrzymania interesu. Ja jak widzicie po odrobinie kombinatoryki i wykorzystaniu swoich programistycznych umiejętności uniknąłem dodatkowych wydatków. Niemniej jednak prowadzenie witryny w WordPressie było znacznie prostsze i nie wymagało takiej gimnastyki.
+Tak jak już pewnie zauważyliście w trakcie czytania tego artykułu, podczas przechodzenia na Gatsby'ego często spotykałem się z barierą płatnego planu któregoś z narzędzi. Niestety, ale wykorzystanie tej technologii ciągnie za sobą potrzebę korzystania z dodatkowych serwisów i narzędzi takich jak GitHub, headless CMS czy CI/CD. W przypadku bardziej rozbudowanych portali, darmowe plany mogą nie wystarczyć, a to może znacząco zwiększyć koszt utrzymania interesu. Ja, po odrobinie kombinatoryki i wykorzystaniu swoich programistycznych umiejętności, uniknąłem dodatkowych wydatków. Niemniej jednak prowadzenie witryny w WordPressie było znacznie prostsze i nie wymagało takiej gimnastyki w celu uniknięcia dodatkowych kosztów.
 
 ### Gatsby też nie jest idealny
 
@@ -169,4 +169,5 @@ Trzecim problemem są omawiane już niestandardowe znaczniki w plikach MDX. Cho�
 
 ## Podsumowanie
 
-To by było na tyle. Mam nadzieję, że wytłumaczyłem Wam choć trochę, jak wygląda prowadzenie bloga w Gatsby'm. Nadal podtrzymuje zdanie, że WordPress to dobre narzędzie, ponieważ zdejmuje z użytkownika wiele ciężaru i postawienie na nim strony jest bardzo proste. Natomiast osobom odważnym, które mają już dość prowadzenia na nim witryny, a znają się na programowaniu, serdecznie polecam Gatsby'ego. Jeśli mielibyście jeszcze jakieś pytania dotyczące obsługi Gatsby'ego lub migracji z WordPress'a, zapraszam do sekcji komentarzy pod postem lub na jeden z moich social mediów. Linki do nich znajdziecie w stopce lub na [stronie kontaktowej](/kontakt). Do usłyszenia :)
+To by było na tyle. Mam nadzieję, że choć teochę wytłumaczyłem, jak wygląda prowadzenie bloga w Gatsby'm. Nadal podtrzymuje zdanie, że WordPress to dobre narzędzie, ponieważ zdejmuje z użytkownika wiele ciężaru i postawienie na nim strony jest bardzo proste. Natomiast osobom odważnym, które mają już dość prowadzenia na nim witryny, a znają się na programowaniu, serdecznie polecam Gatsby'ego. Jeśli mielibyście jeszcze jakieś pytania dotyczące obsługi Gatsby'ego lub migracji z WordPress'a, zapraszam do sekcji komentarzy pod postem lub na jeden z moich social mediów. Linki do nich znajdziecie w stopce lub na [stronie kontaktowej](/kontakt). Do usłyszenia :)
+
