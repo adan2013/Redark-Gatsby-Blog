@@ -89,7 +89,7 @@ export const result = graphql`
           relatedPosts
           image {
             childImageSharp {
-              fluid(maxWidth: 800, maxHeight: 370) {
+              fluid(maxWidth: 800, maxHeight: 370, quality: 90) {
                 ...GatsbyImageSharpFluid_tracedSVG
               }
             }
