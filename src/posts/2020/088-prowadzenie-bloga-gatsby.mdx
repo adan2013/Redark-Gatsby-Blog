@@ -2,7 +2,7 @@
 title: "Prowadzenie bloga Gatsby od kuchni"
 slug: "prowadzenie-bloga-gatsby"
 date: "2020-10-22"
-image: "../default.jpg"
+image: "./images/088.jpg"
 categories: ["Newsy"]
 tags: ["internet", "oprogramowanie", "redark", "wordpress", "gatsby"]
 relatedPosts: ["zegnaj-wordpressie"]
@@ -11,6 +11,10 @@ relatedPosts: ["zegnaj-wordpressie"]
 Minął już jakiś czas od oficjalnego uruchomienia [nowej wersji serwisu Redark działającej przy użyciu technologii Gatsby'ego](/zegnaj-wordpressie). Sytuacja z prowadzeniem bloga już się wyklarowała, więc to dobry moment, aby podzielić się z Wami tym, jak teraz wygląda proces publikowania artykułów. Dodatkowo przedstawię sporządzoną przeze mnie listę plusów i minusów pracy z Gatsby'm w porównaniu do mojego poprzedniego CMS'a, czyli WordPress'a.
 
 ## Jak przechowywane są dane witryny?
+
+![redark webstorm](images/webstorm_redark.jpg)
+
+<ImageDescription>Środowisko programistyczne WebStorm - moje nowe centrum dowodzenia</ImageDescription>
 
 WordPress do swojego działania wymaga dwóch rzeczy: konta FTP na serwerze hostingowym oraz bazy danych MySQL. Po utworzeniu i skonfigurowaniu tych dwóch elementów system jest już samowystarczalny i gotowy do działania. W przypadku Gatsby'ego jest trochę inaczej. Po pierwsze nie ma tutaj żadnej bazy danych. Po drugie konto FTP przechowuje jedynie gotowe wygenerowane pliki HTML, które nie nadają się do wygodnej edycji. Cały kod źródłowy strony (czyli to na czym pracuję) jest trzymany w zewnętrznym repozytorium Gita. W moim przypadku repozytorium jest trzymane na serwerach serwisu GitHub. Uznałem, że kiszenie całego kodu tylko dla siebie do niczego nie prowadzi, dlatego z tego miejsca pragnę też poinformować, że **postanowiłem zrobić z Redarka projekt open source**. Oznacza to, że za pomocą linku zamieszczonego poniżej możecie przejść do oficjalnego repozytorium tego bloga i przejrzeć cały jego kod źródłowy. Od deski do deski.
 
@@ -50,7 +54,7 @@ Są to tzw. meta-dane artykułu, czyli dodatkowe informacje potrzebne do prawid�
 * **image** - ścieżka względna do pliku obrazka wyróżniającego,
 * **categories** - tablica z nazwami kategorii, do których należy post,
 * **tags** - analogicznie do kategorii,
-* **relatedPosts** - tablica artykułami do sekcji "zobacz również" znajdującej się pod artykułem (pozostałe "polecane artykuły" są automatycznie wybierane i losowane przez kod strony).
+* **relatedPosts** - tablica z artykułami do sekcji "zobacz również" znajdującej się pod artykułem (pozostałe "polecane artykuły" są automatycznie wybierane i losowane przez kod strony).
 
 Jak widzisz, jest to po prostu konfiguracja danego artykułu. W WordPressie można to by było wyklikać w odpowiednim panelu opcji, a tutaj muszę wkleić taki tekst z szablonu i ręcznie go uzupełnić.
 
@@ -62,7 +66,7 @@ Wiemy już, jak są przechowywane artykuły. Teraz opiszę trochę, jak przebieg
 
 <ImageDescription>Edytor Typora</ImageDescription>
 
-Dodatkowym atutem korzystania z takiej aplikacji jest sprawdzanie błędów pisowni. Typora obsługuje język polski i oferuje podstawową korektę tekstu. Tutaj niestety mam do czynienia z dużym minusem przejścia na Gatsby'ego. Pisząc artykuły w WordPressie w przeglądarce internetowej, nad moim tekstem pieczę sprawowała genialna wtyczka "LanguageTool". Jest to genialne narzędzie wyłapujące nie tylko błędy ortograficzne, ale i stylistyczne. Żadna inna aplikacja, z której korzystałem (nawet Microsoft Word), nie dorównała inteligencji tego rozszerzenia.
+Dodatkowym atutem korzystania z takiej aplikacji jest sprawdzanie błędów pisowni. Typora obsługuje język polski i oferuje podstawową korektę tekstu. Tutaj niestety mam do czynienia z dużym minusem przejścia na Gatsby'ego. Pisząc artykuły w WordPressie w przeglądarce internetowej, nad moim tekstem pieczę sprawowała wtyczka "LanguageTool". Jest to genialne narzędzie wyłapujące nie tylko błędy ortograficzne, ale i stylistyczne. Żadna inna aplikacja, z której korzystałem (Microsoft Word jest w tym bardzo słaby), nie dorównała inteligencji tego rozszerzenia.
 
 ![language tool w gutenbergu](images/language_tool_redark.jpg)
 
@@ -83,6 +87,10 @@ Kolej na parę rzeczy na temat zarządzania witryną. Służą do tego dwa pliki
 
 Plik konfiguracyjny postów jest znacznie prostszy. Zawiera on jedynie listę kategorii oraz tagów, jakich używam w artykułach. Pozwala mi to na łatwe sprawdzenie nazw, jakich używałem już podczas pisania poprzednich artykułów. Dodatkowo skrypt budujący stronę (o nim za chwilę), dzięki tej liście, sprawdza, czy w którymś artykule nie użyłem kategorii lub taga, który nie jest tutaj zadeklarowany. Zapobiega to tworzeniu się literówek oraz bałaganu w hierarchii artykułów.
 
+![ostrzeżenie o literówce w tagu](images/tagi_redark.jpg)
+
+<ImageDescription>Ostrzeżenie o wykryciu niezadeklarowanego taga w artykule</ImageDescription>
+
 ## Budowanie witryny
 
 Tak jak wspominałem [w pierwszym artykule](/zegnaj-wordpressie), strona napisana w Gatsby'm działa finalnie na gotowych, wyrenderowanych plikach HTML, co bardzo przyspiesza jej działanie oraz usprawnia indeksowanie w Google. Aby pliki źródłowe strony oraz pliki MDX z artykułami mogły zamienić się w pliki HTML, należy przeprowadzić budowanie wersji produkcyjnej. Do definiowania sposobu budowania strony w Gatsby'm służy specjalny plik o nazwie *"gatsby-node.js"*, który znajduje się w głównym katalogu repozytorium.
@@ -101,7 +109,7 @@ Proces generowania podstron jest na bieżąco raportowany w oknie konsoli. Mogę
 
 ## Publikowanie zmian
 
-Wiesz już, jak wygląda zarządzanie witryną oraz pisanie dla niej artykułów. Czas na ostatni krok, czyli publikacje tych zmian w Internecie. Po zakończeniu prac nad artykułem następuje commit wprowadzonych zmian, merge wszystkich wymaganych branchy do mastera oraz push wszystkich zmian do serwisu GitHub. Oczywiście posługuję się tutaj terminologią charakterystyczną dla Gita i nie będę tłumaczył jej znaczenia, bo wówczas ten artykuł byłby pięć razy dłuższy. Po wysłaniu zmian na zdalne repozytorium istnieją trzy możliwości. Pierwsza polega na ręcznym uruchomieniu komendy budującej stronę oraz wysłaniu gotowych plików na serwer FTP. W przypadku Redarka taka możliwość nie wchodziła w rachubę, ponieważ pełny build witryny oraz przesłanie wszystkich plików na serwer zajmuje około 60-70 minut. Zdecydowanie zbyt długo.
+Wiesz już, jak wygląda zarządzanie witryną oraz pisanie dla niej artykułów. Czas na ostatni krok, czyli publikacje tych zmian w Internecie. Po zakończeniu prac nad artykułem następuje commit wprowadzonych zmian, merge wszystkich wymaganych branchy do mastera oraz push zmian do serwisu GitHub. Oczywiście posługuję się tutaj terminologią charakterystyczną dla Gita i nie będę tłumaczył jej znaczenia, bo wówczas ten artykuł byłby pięć razy dłuższy. Po wysłaniu zmian na zdalne repozytorium istnieją trzy możliwości. Pierwsza polega na ręcznym uruchomieniu komendy budującej stronę oraz wysłaniu gotowych plików na serwer FTP. W przypadku Redarka taka możliwość nie wchodziła w rachubę, ponieważ pełny build witryny oraz przesłanie wszystkich plików na serwer zajmuje około 60-70 minut. Zdecydowanie zbyt długo.
 
 Drugą metodą jest skorzystanie z narzędzi CI/CD. Skrót CD odnosi się do terminu "Continuous Deployment", który można przetłumaczyć jako "narzędzie do automatycznego publikowania nowych wersji oprogramowania". Oprogramowanie to, po wykryciu nowych zmian w repozytorium, automatycznie przeprowadza szereg skonfigurowanych wcześniej czynności prowadzących do wdrożenia nowej wersji strony na serwer docelowy. Ja w trakcie budowania witryny testowej korzystałem z polskiego serwisu [Buddy Works](https://buddy.works/). Jest on bardzo intuicyjny, ponieważ cały proces konfiguracji narzędzia można wyklikać przy pomocy myszki bez zagłębiania się w zaawansowane techniczne niuanse. Dodatkową zaletą Buddy'ego jest to, że optymalizuje on proces budowania strony i wysyła na serwer FTP tylko te pliki, które faktycznie uległy zmianie. To bardzo usprawnia pracę, przez co czas budowania Redarka spadł z 70 do 4 minut!
 
@@ -145,7 +153,7 @@ WordPress miał tę ogromną wadę, że stosował linkowanie absolutne, czyli ka
 
 Pewnie myślicie, że zmieniłem adres redark.pl na localhost, poprawiłem wszystkie linki we wszystkich artykułach i po sprawie? Oj nie ma tak łatwo! Musiałem na sztywno ustawić w adresie mój prywatny adres IP komputera! Inaczej nie byłbym w stanie testować działania witryny na moim telefonie. A teraz kwintesencja całej sytuacji. Skoro miałem na sztywno zapisany adres IP w adresie witryny, to musiałem skonfigurować wszystkie routery, z którymi łączyłem się z Internetem tak, aby korzystały z tej samej adresacji oraz przypisywały mi zawsze ten sam adres IP. Rozumiecie? Aby WordPress mógł mi działać poprawnie, musiałem bawić się ustawieniami routerów w domach! Przecież to jest absurd!
 
-A co robi Gatsby? Pracuje na linkach relacyjnych, więc mogę go dowolnie przenosić między domenami i wszystko będzie działać. Nowa domena? Spoko, nie ma problemu. Migracja serwisu? Tylko przekopiuj pliki. Serwer testowy w domu? Minutka i gotowe. Dlaczego WordPress nie może tak działać?!
+A co robi Gatsby? Pracuje na linkach relacyjnych, więc mogę go dowolnie przenosić między domenami i wszystko będzie działać. Nowa domena? Spoko, nie ma problemu. Migracja serwisu? Tylko przekopiuj pliki. Serwer testowy w domu? Minutka i gotowe. **Dlaczego WordPress nie może tak działać?!**
 
 ### Decentralizacja danych
 
