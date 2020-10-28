@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
 import DataContext from '../components/dataContext'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
@@ -87,10 +86,6 @@ const Gallery = ({children, width}) => {
       }
     </GalleryWrapper>
   )
-}
-
-Gallery.propTypes = {
-  width: PropTypes.number
 }
 
 export default Gallery
