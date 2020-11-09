@@ -46,6 +46,8 @@ const Title = styled.div`
   
   @media (max-width: ${props => props.theme.mobileBreakpoint}) {
     font-size: 20px;
+    padding: 12px;
+    width: calc(100% - 24px);
   }
 `
 
