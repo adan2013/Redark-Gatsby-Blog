@@ -30,7 +30,8 @@ const list = [
     editionsMessage: true,
     subTitle: 'Edycja 2020 - procesor AMD, gaming PC',
     items: [
-      ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie']
+      ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
+      ['Składanie PC: Montaż podzespołów na płycie głównej', '/skladanie-pc-2020-montaz-podzespolow-na-plycie-glownej']
     ],
     wipMessage: true
   },
