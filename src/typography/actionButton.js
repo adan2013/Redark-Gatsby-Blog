@@ -30,7 +30,7 @@ const ActionButtonWrapper = styled.div`
 const ActionButton = ({children, to, download}) => (
   <ActionButtonWrapper>
     {
-      to.substring(0, 4) === 'http' || download
+      (to && to.length >= 4 && to.substring(0, 4) === 'http') || download
       ?
         <a href={to} target={'_blank'} rel={'noopener noreferrer'} download={download}>{children}</a>
         :
