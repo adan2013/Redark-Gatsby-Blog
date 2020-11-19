@@ -12,7 +12,7 @@ const ActionButtonWrapper = styled.div`
     border: 3px #d40000 solid !important;
     border-radius: 10px;
     text-decoration: none;
-    width: 200px;
+    max-width: 250px;
     text-align: center;
     font-size: 1.1em;
     font-weight: bold;

@@ -35,7 +35,7 @@ const list = [
     wipMessage: true
   },
   {
-    subTitle: 'Edycja 2014 - procesor Intel, jednostka biurowa',
+    subTitle: 'Edycja 2014 - procesor Intel, jednostka biurowa (budżetowa), obudowa mini tower',
     items: [
       ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
       ['Składanie PC: Przygotowujemy obudowę i płytę główną', '/skladanie-pc-przygotowujemy-obudowe-i-plyte-glowna'],
@@ -81,15 +81,15 @@ const Page = () => (
       Poradnik będzie składał się z wielu artykułów, które zostaną pogrupowane na rozdziały, a ich tematyka będzie oferowała zarówno teorię wyjaśniającą podstawowe zagadnienia związane z działaniem komputera, jak i praktyczne poradniki pokazujące montaż komputera. Zapraszam.
 
       {
-        list.map(section => (
-          <section key={section.title}>
+        list.map((section, idx) => (
+          <section key={idx}>
             {section.title && <h2>{section.title}</h2>}
             {section.editionsMessage && <EditionsMessage/>}
-            {section.subTitle && <h3>{section.subTitle}</h3>}
+            {section.subTitle && <b>{section.subTitle}</b>}
+            {section.wipMessage && <WipMessage/>}
             <ol>
               {section.items.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
             </ol>
-            {section.wipMessage && <WipMessage/>}
           </section>
         ))
       }
