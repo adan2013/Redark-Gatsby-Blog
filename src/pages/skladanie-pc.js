@@ -107,7 +107,7 @@ const Page = () => (
   </Layout>
 )
 
-const EditionsMessage = () => <p>Poradnik posiada instrukcję montażu dwóch różnych komputerów. Zalecam skorzystanie z nowszej edycji i ewentualne rozszerzenie swojej wiedzy o zawartość starszej wersji poradnika.</p>
+const EditionsMessage = () => <p>Poradnik posiada instrukcję montażu dwóch różnych komputerów. Zalecam skorzystanie z nowszej edycji oraz ewentualne rozszerzenie swojej wiedzy o zawartość starszej wersji poradnika.</p>
 
 const WipMessage = () => <InfoBlock>Edycja 2020 jest w trakcie publikowania. Część artykułów może nie być jeszcze dostępna!</InfoBlock>
 
