@@ -3,6 +3,7 @@ import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import PageContent from "../typography"
 import { Link } from "gatsby"
+import InfoBlock from "../typography/infoBlock"
 
 const list = [
   {
@@ -26,6 +27,15 @@ const list = [
   },
   {
     title: 'Rozdział III. Montaż komputera',
+    editionsMessage: true,
+    subTitle: 'Edycja 2020 - procesor AMD, gaming PC',
+    items: [
+      ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie']
+    ],
+    wipMessage: true
+  },
+  {
+    subTitle: 'Edycja 2014 - procesor Intel, jednostka biurowa',
     items: [
       ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
       ['Składanie PC: Przygotowujemy obudowę i płytę główną', '/skladanie-pc-przygotowujemy-obudowe-i-plyte-glowna'],
@@ -73,10 +83,13 @@ const Page = () => (
       {
         list.map(section => (
           <section key={section.title}>
-            <h2>{section.title}</h2>
+            {section.title && <h2>{section.title}</h2>}
+            {section.editionsMessage && <EditionsMessage/>}
+            {section.subTitle && <h3>{section.subTitle}</h3>}
             <ol>
               {section.items.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
             </ol>
+            {section.wipMessage && <WipMessage/>}
           </section>
         ))
       }
@@ -93,5 +106,9 @@ const Page = () => (
     </PageContent>
   </Layout>
 )
+
+const EditionsMessage = () => <p>Poradnik posiada instrukcję montażu dwóch różnych komputerów. Zalecam skorzystanie z nowszej edycji i ewentualne rozszerzenie swojej wiedzy o zawartość starszej wersji poradnika.</p>
+
+const WipMessage = () => <InfoBlock>Edycja 2020 jest w trakcie publikowania. Część artykułów może nie być jeszcze dostępna!</InfoBlock>
 
 export default Page
