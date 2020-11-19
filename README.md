@@ -1,3 +1,5 @@
+![redark logo](src/images/logo-header.png)
+
 # Redark Gatsby Blog
 
 Redark is my own private blog dedicated to games and IT tematic. For first two years worked on WordPress. Blog theme and post content have been transferred by me to Gatsby technology. More information about this migration your can find in [this article](https://redark.pl/zegnaj-wordpressie).
