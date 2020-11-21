@@ -28,7 +28,7 @@ const list = [
   {
     title: 'Rozdział III. Montaż komputera',
     editionsMessage: true,
-    subTitle: 'Edycja 2020 - procesor AMD, gaming PC',
+    subTitle: 'Edycja 2020 - procesor AMD, chłodzenie wodne, gaming PC, obudowa midi tower z RGB',
     items: [
       ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
       ['Składanie PC: Montaż podzespołów na płycie głównej', '/skladanie-pc-2020-montaz-podzespolow-na-plycie-glownej'],
