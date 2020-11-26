@@ -6,7 +6,10 @@ const AdContainer = styled.div`
 
 `
 
-const adSenseInArticle = () => {
+const AdSenseInArticle = () => {
+  React.useEffect(() => {
+    if(typeof window !== "undefined") (window.adsbygoogle = window.adsbygoogle || []).push({})
+  })
   return(siteConfig.adSense && <AdContainer><GoogleTag/></AdContainer>)
 }
 
@@ -29,4 +32,4 @@ const GoogleTag = () => (
        data-ad-slot="9778734203" />
 )
 
-export default adSenseInArticle
+export default AdSenseInArticle
