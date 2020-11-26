@@ -24,6 +24,7 @@ export default function HTML(props) {
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <script data-ad-client="ca-pub-7672695014670144" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
       {props.headComponents}
     </head>
     <body {...props.bodyAttributes}>

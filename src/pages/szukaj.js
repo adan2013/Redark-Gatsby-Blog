@@ -13,7 +13,7 @@ const Page = () => (
     <SEO title={"Szukaj"}/>
     <h1>Szukaj</h1>
     <Helmet>
-      <script async src="https://cse.google.com/cse.js?cx=f819788bf799ec7f3" />
+      <script async src="https://cse.google.com/cse.js?cx=7d15a51de45c91772"/>
     </Helmet>
     <GoogleWrapper>
       <div className="gcse-search" />
