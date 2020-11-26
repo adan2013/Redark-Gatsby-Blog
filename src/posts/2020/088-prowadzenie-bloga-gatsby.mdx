@@ -26,6 +26,8 @@ No dobrze, mamy kod źródłowy strony, ale skoro Gatsby nie posiada bazy danych
 
 W Redarku zdecydowałem się na sposób nr 1. Po pierwsze chciałem maksymalnie uniezależnić się od zewnętrznych serwisów. Wszystko miało być w jednym miejscu, nad którym sprawowałbym kontrolę. Po drugie blog posiada już tak dużo grafik i innych multimediów, że nie zmieściłby się w darmowym planie żadnego z dostępnych serwisów headless CMS, a to mocno zwiększyłoby koszty utrzymania witryny.
 
+<AdSense/>
+
 ## Pisanie artykułów
 
 ### Przechowywanie treści
@@ -91,6 +93,8 @@ Plik konfiguracyjny postów jest znacznie prostszy. Zawiera on jedynie listę ka
 
 <ImageDescription>Ostrzeżenie o wykryciu niezadeklarowanego taga w artykule</ImageDescription>
 
+<AdSense/>
+
 ## Budowanie witryny
 
 Tak jak wspominałem [w pierwszym artykule](/zegnaj-wordpressie), strona napisana w Gatsby'm działa finalnie na gotowych, wyrenderowanych plikach HTML, co bardzo przyspiesza jej działanie oraz usprawnia indeksowanie w Google. Aby pliki źródłowe strony oraz pliki MDX z artykułami mogły zamienić się w pliki HTML, należy przeprowadzić budowanie wersji produkcyjnej. Do definiowania sposobu budowania strony w Gatsby'm służy specjalny plik o nazwie *"gatsby-node.js"*, który znajduje się w głównym katalogu repozytorium.
@@ -128,6 +132,8 @@ Skrypt automatycznie pobiera zmiany z GitHuba, buduje wersję produkcyjną, por�
 ![budowanie witryny](images/build_redark.jpg)
 
 <ImageDescription>Po prawej widok konsoli, a po lewej mail wysyłany po zakończeniu pracy skryptu</ImageDescription>
+
+<AdSense/>
 
 ## Co lepsze: Gatsby czy WordPress?
 
@@ -176,6 +182,8 @@ Każdy użytkownik WordPress'a zna wtyczkę Yoast SEO. Choć lubi ona przysparza
 ### Możliwość zwiększenia kosztów prowadzenia serwisu
 
 Tak jak już pewnie zauważyliście w trakcie czytania tego artykułu, podczas przechodzenia na Gatsby'ego często spotykałem się z barierą płatnego planu któregoś z narzędzi. Niestety, ale wykorzystanie tej technologii ciągnie za sobą potrzebę korzystania z dodatkowych serwisów i narzędzi takich jak GitHub, headless CMS czy CI/CD. W przypadku bardziej rozbudowanych portali darmowe plany mogą nie wystarczyć, a to może znacząco zwiększyć koszt utrzymania interesu. Ja, po odrobinie kombinatoryki i wykorzystaniu swoich programistycznych umiejętności, uniknąłem dodatkowych wydatków. Niemniej jednak prowadzenie witryny w WordPressie było znacznie prostsze i nie wymagało takiej gimnastyki w celu uniknięcia dodatkowych kosztów.
+
+<AdSense/>
 
 ### Gatsby też nie jest idealny
 

@@ -34,6 +34,8 @@ Hibernacja, tak samo jak uśpienie, powoduje przerwanie wszystkich działającyc
 
 W chwili standardowego wyłączania komputera system operacyjny kończy działanie wszystkich uruchomionych procesów oraz zamyka otwarte pliki. Tyczy się to również wszystkich aplikacji uruchomionych przez użytkownika, których niezapisane dane zostaną utracone.
 
+<AdSense/>
+
 ## Stany standardu ACPI
 
 Pewnie część z Was zaciekawiły skróty podane przeze mnie w nawiasach znajdujących się w nagłówkach. Są to skróty stanów pracy komputera według standardu ACPI. Dokument definiuje ich znacznie więcej, ale ja skupiłem się jedynie na tych najpopularniejszych i istotnych dla użytkownika. Osoby, które chcą poszerzyć wiedzę na ten temat, zachęcam do przejścia na [stronę Wikipedii](https://pl.wikipedia.org/wiki/ACPI).
@@ -69,6 +71,8 @@ Jak widać, mój komputer pracuje już bez przerwy już ponad 2 dni, a przecież
 ### Brak dostępu do danych z poziomu Linuxa
 
 Jeśli oprócz Windowsa posiadasz na swoim komputerze drugi system z rodziny Linux, pewna rzecz również przysporzy Ci problemów. Hybrydowe zamykanie Windowsa powoduje, że tzw. ["dirty bit" dysku](https://en.wikipedia.org/wiki/Dirty_bit) pozostaje aktywny po wyłączeniu komputera. Jest to specjalna flaga informująca komputer, czy dany dysk był modyfikowany i czy został poprawnie wyłączony. System Linux respektuje tę flagę, a co za tym idzie, nie pozwala na otwarcie partycji należącej do Windowsa. Reasumując: jeśli z poziomu Linuxa chcesz dostać się do partycji Windowsa, musisz wyłączyć hybrydowy start.
+
+<AdSense/>
 
 ## Sztuczki i ustawienia zasilania w Windowsie
 
