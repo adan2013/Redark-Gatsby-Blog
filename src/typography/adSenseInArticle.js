@@ -8,7 +8,7 @@ const AdContainer = styled.div`
 
 const AdSenseInArticle = () => {
   React.useEffect(() => {
-    if(typeof window !== "undefined") (window.adsbygoogle = window.adsbygoogle || []).push({})
+    if(siteConfig.adSense && typeof window !== "undefined") (window.adsbygoogle = window.adsbygoogle || []).push({})
   })
   return(
     siteConfig.adSense

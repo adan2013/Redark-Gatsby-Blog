@@ -9,6 +9,7 @@ import SEO from '../components/seo'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import dateFormatter from '../utils/dateFormatter'
 import categoryFormatter from '../utils/categoryFormatter'
+import AdBlockDetector from "../layout/adBlockDetector"
 import PageContent from '../typography/pageContent'
 import ComponentProvider from "../typography/componentProvider"
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
@@ -60,6 +61,7 @@ const Post = ({data}) => {
           <FontAwesomeIcon icon={faFolder} />{categoryFormatter(data.mdx.frontmatter.categories, false)}
         </SubTitle>
         <Image fluid={data.mdx.frontmatter.image.childImageSharp.fluid} />
+        <AdBlockDetector/>
         <PageContent>
           <ComponentProvider>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
