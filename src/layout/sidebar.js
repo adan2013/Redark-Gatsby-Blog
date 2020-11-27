@@ -5,6 +5,7 @@ import RandomPostsWidget from "../widgets/randomPosts"
 import CategoriesWidget from "../widgets/categories"
 import TagsWidget from "../widgets/tags"
 import SocialWidget from "../widgets/social"
+import AdSenseSidebar from "./adSenseSidebar"
 
 const Sidebar = ({hideNewPosts}) => {
 
@@ -16,6 +17,7 @@ const Sidebar = ({hideNewPosts}) => {
       <CategoriesWidget/>
       <TagsWidget/>
       <SocialWidget/>
+      <AdSenseSidebar/>
     </aside>
   )
 }

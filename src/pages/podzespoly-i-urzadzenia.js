@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import PageContent from "../typography"
 import { Link } from "gatsby"
 import ActionButton from "../typography/actionButton"
+import AdSenseInArticle from "../typography/adSenseInArticle"
 
 const list1 = [
   ['Chłodzenie', '/chlodzenie-komputera'],
@@ -38,6 +39,7 @@ const Page = () => (
       <ul>
         {list1.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
       </ul>
+      <AdSenseInArticle/>
       <h2>Peryferia komputerowe</h2>
       <ul>
         {list2.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}

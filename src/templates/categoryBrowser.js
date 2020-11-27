@@ -4,6 +4,8 @@ import Layout from '../layout/layout'
 import SEO from '../components/seo'
 import Pagination from '../components/pagination'
 import PostBlock from '../components/postBlock'
+import AdSenseInArticle from '../typography/adSenseInArticle'
+import siteConfig from '../site-config.json'
 
 const PostBrowser = ({data, pageContext}) => {
   return(
@@ -11,13 +13,16 @@ const PostBrowser = ({data, pageContext}) => {
       <SEO title={pageContext.category}/>
       <h1>{pageContext.category}</h1>
       {
-        data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }) => (
-          <PostBlock key={slug}
-                     slug={slug}
-                     image={image.childImageSharp.fluid}
-                     title={title}
-                     date={date}
-                     categories={categories} />
+        data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }, index) => (
+          <>
+            {siteConfig.adSense.inCategoryBrowser && index === Math.round(data.allMdx.nodes.length * 0.75) && <AdSenseInArticle/>}
+            <PostBlock key={slug}
+                       slug={slug}
+                       image={image.childImageSharp.fluid}
+                       title={title}
+                       date={date}
+                       categories={categories} />
+          </>
         ))
       }
       <Pagination link={pageContext.paginationLink}

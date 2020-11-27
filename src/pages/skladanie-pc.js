@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import PageContent from "../typography"
 import { Link } from "gatsby"
 import InfoBlock from "../typography/infoBlock"
+import AdSenseInArticle from "../typography/adSenseInArticle"
 
 const list = [
   {
@@ -76,6 +77,8 @@ const Page = () => (
 
       <h3>Czy na pewno stworzę dobrą konfigurację?</h3>
       Moim celem jest, aby ten kurs pozwalał na to. Jeśli jakaś kwestia została słabo omówiona lub widzisz jakiś niezrozumiały parametr urządzenia lub podzespołu zachęcam do zadawania pytań pod artykułami. Istnieje też możliwość skonfrontowania konfiguracji z opinią innych użytkowników, którzy składali już komputery i mają w tym doświadczenie. Tylko muszę ostrzec, aby podchodzić do takich rad z dystansem, ponieważ wiele osób pisze jedynie „wywal tą konfigurację do kosza i masz tu moją”, bo jak wiadomo co nasze, to najlepsze.
+
+      <AdSenseInArticle/>
 
       <h3>Czy mogę w komentarzach zaproponować zmianę w artykule?</h3>
       Oczywiście! Nie wiem wszystkiego i nie musisz się zgadzać z tym, co napiszę w poradniku. Jeśli masz uwagi do omówienia danego zagadnienia lub masz doświadczenie w tym temacie, chętnie posłucham tego, co masz do powiedzenia. Pamiętaj tylko o zachowaniu kultury dyskusji – na komentarze typu „zmień to, bo ja wiem lepiej” nie zamierzam reagować.

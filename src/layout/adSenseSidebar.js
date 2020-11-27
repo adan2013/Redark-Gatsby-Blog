@@ -6,24 +6,24 @@ const AdContainer = styled.div`
   
 `
 
-const AdSenseInArticle = () => {
+const AdSenseSidebar = () => {
   React.useEffect(() => {
-    if(siteConfig.adSense.inArticle && typeof window !== "undefined") {
+    if(siteConfig.adSense.inSidebar && typeof window !== "undefined") {
       try { (window.adsbygoogle = window.adsbygoogle || []).push({}) } catch (e) { console.log('AdSense error') }
     }
   })
   return(
-    siteConfig.adSense.inArticle
+    siteConfig.adSense.inSidebar
     &&
     <AdContainer>
       <ins className="adsbygoogle"
-           style={{display: 'block', textAlign: 'center'}}
-           data-ad-layout="in-article"
+           style={{display: 'block'}}
            data-ad-format="fluid"
+           data-ad-layout-key="-6p+de+59-24-8b"
            data-ad-client="ca-pub-7672695014670144"
-           data-ad-slot="9778734203" />
+           data-ad-slot="8267670972"/>
     </AdContainer>
   )
 }
 
-export default AdSenseInArticle
+export default AdSenseSidebar

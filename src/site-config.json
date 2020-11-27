@@ -1,6 +1,12 @@
 {
   "disqusUrl": "https://redark.pl",
-  "adSense": true,
+  "adSense": {
+    "inArticle": true,
+    "inSidebar": true,
+    "inPostBrowser": true,
+    "inCategoryBrowser": true,
+    "inTagBrowser": true
+  },
   "adBlockDetector": true,
   "banner": {
     "top": false,
