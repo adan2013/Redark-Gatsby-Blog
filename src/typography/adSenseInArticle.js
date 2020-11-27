@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import siteConfig from '../site-config.json'
 
 const AdContainer = styled.div`
-  
+  margin: 8px 0 5px 0;
 `
 
 const AdSenseInArticle = () => {
