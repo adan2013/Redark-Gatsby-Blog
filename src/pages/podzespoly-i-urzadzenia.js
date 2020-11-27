@@ -39,12 +39,12 @@ const Page = () => (
       <ul>
         {list1.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
       </ul>
-      <AdSenseInArticle/>
       <h2>Peryferia komputerowe</h2>
       <ul>
         {list2.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
       </ul>
       <ActionButton to={'/category/podzespoly-i-urzadzenia'}>Zobacz wszystkie</ActionButton>
+      <AdSenseInArticle/>
     </PageContent>
   </Layout>
 )

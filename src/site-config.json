@@ -5,7 +5,8 @@
     "inSidebar": true,
     "inPostBrowser": true,
     "inCategoryBrowser": true,
-    "inTagBrowser": true
+    "inTagBrowser": true,
+    "onMainPage": true
   },
   "adBlockDetector": true,
   "banner": {

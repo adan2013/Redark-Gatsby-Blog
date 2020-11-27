@@ -5,6 +5,8 @@ import SEO from "../components/seo"
 import PostBlock from "../components/postBlock"
 import ActionButton from "../typography/actionButton"
 import PageContent from "../typography"
+import siteConfig from "../site-config.json"
+import AdSenseInArticle from "../typography/adSenseInArticle"
 
 const Page = ({data}) => {
 
@@ -13,13 +15,16 @@ const Page = ({data}) => {
       <SEO title={"Nowe wpisy"}/>
       <h1>Nowe wpisy</h1>
       {
-        data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }) => (
-          <PostBlock key={slug}
-                     slug={slug}
-                     image={image.childImageSharp.fluid}
-                     title={title}
-                     date={date}
-                     categories={categories} />
+        data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }, index) => (
+          <>
+            {siteConfig.adSense.onMainPage && index === Math.round(data.allMdx.nodes.length * 0.75) && <AdSenseInArticle/>}
+            <PostBlock key={slug}
+                       slug={slug}
+                       image={image.childImageSharp.fluid}
+                       title={title}
+                       date={date}
+                       categories={categories} />
+          </>
         ))
       }
       <PageContent>
