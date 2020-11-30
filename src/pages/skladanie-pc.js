@@ -34,7 +34,8 @@ const list = [
       ['Nie rób tego na kolanie! Tworzymy domowe stanowisko monterskie', '/skladanie-pc-tworzymy-stanowisko-monterskie'],
       ['Składanie PC: Montaż podzespołów na płycie głównej', '/skladanie-pc-2020-montaz-podzespolow-na-plycie-glownej'],
       ['Składanie PC: Montaż chłodzenia wodnego oraz płyty głównej w obudowie', '/skladanie-pc-2020-montaz-chlodzenia-wodnego-i-plyty-glownej'],
-      ['Składanie PC: Montaż zasilacza oraz dysków na dane', '/skladanie-pc-2020-montaz-zasilacza-oraz-dysków-na-dane']
+      ['Składanie PC: Montaż zasilacza oraz dysków na dane', '/skladanie-pc-2020-montaz-zasilacza-oraz-dyskow-na-dane'],
+      ['Składanie PC: Podłączanie i układanie przewodów w obudowie', '/skladanie-pc-2020-podlaczanie-i-ukladanie-przewodow-w-obudowie']
     ],
     wipMessage: true
   },
