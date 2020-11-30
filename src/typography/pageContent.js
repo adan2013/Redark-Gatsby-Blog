@@ -15,7 +15,7 @@ const Content = styled.div`
   .gatsby-image-wrapper, .gatsby-resp-image-wrapper {
     max-width: min(90%, 500px);
     display: block;
-    margin: 15px auto;
+    margin: 10px auto 4px auto;
     border: 10px var(--image-border) solid;
     
     a { border-bottom: none !important; }
