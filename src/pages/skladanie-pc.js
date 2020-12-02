@@ -3,7 +3,6 @@ import Layout from "../layout/layout"
 import SEO from "../components/seo"
 import PageContent from "../typography"
 import { Link } from "gatsby"
-import InfoBlock from "../typography/infoBlock"
 import AdSenseInArticle from "../typography/adSenseInArticle"
 
 const list = [
@@ -35,9 +34,9 @@ const list = [
       ['Składanie PC: Montaż podzespołów na płycie głównej', '/skladanie-pc-2020-montaz-podzespolow-na-plycie-glownej'],
       ['Składanie PC: Montaż chłodzenia wodnego oraz płyty głównej w obudowie', '/skladanie-pc-2020-montaz-chlodzenia-wodnego-i-plyty-glownej'],
       ['Składanie PC: Montaż zasilacza oraz dysków na dane', '/skladanie-pc-2020-montaz-zasilacza-oraz-dyskow-na-dane'],
-      ['Składanie PC: Podłączanie i układanie przewodów w obudowie', '/skladanie-pc-2020-podlaczanie-i-ukladanie-przewodow-w-obudowie']
-    ],
-    wipMessage: true
+      ['Składanie PC: Podłączanie i układanie przewodów w obudowie', '/skladanie-pc-2020-podlaczanie-i-ukladanie-przewodow-w-obudowie'],
+      ['Składanie PC: Montaż karty graficznej oraz sieciowej', '/skladanie-pc-2020-montaz-karty-graficznej-oraz-sieciowej']
+    ]
   },
   {
     subTitle: 'Edycja 2014 - procesor Intel, jednostka biurowa (budżetowa), obudowa mini tower',
@@ -93,7 +92,6 @@ const Page = () => (
             {section.title && <h2>{section.title}</h2>}
             {section.editionsMessage && <EditionsMessage/>}
             {section.subTitle && <b>{section.subTitle}</b>}
-            {section.wipMessage && <WipMessage/>}
             <ol>
               {section.items.map(item => <li key={item[0]}><Link to={item[1]}>{item[0]}</Link></li>)}
             </ol>
@@ -115,7 +113,5 @@ const Page = () => (
 )
 
 const EditionsMessage = () => <p>Poradnik posiada instrukcję montażu dwóch różnych komputerów. Zalecam skorzystanie z nowszej edycji oraz ewentualne rozszerzenie swojej wiedzy o zawartość starszej wersji poradnika.</p>
-
-const WipMessage = () => <InfoBlock>Edycja 2020 jest w trakcie publikowania. Część artykułów może nie być jeszcze dostępna!</InfoBlock>
 
 export default Page
