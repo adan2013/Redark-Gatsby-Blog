@@ -43,8 +43,10 @@ const Gallery = ({children, width}) => {
       link: img.substring(linkStart + 1, linkEnd)
     }
   })
+
   const images = computedData.map(img => {
     let object = data.allFile.nodes.find(node => node.relativePath.indexOf(img.link) >= 0)
+    if(!object) console.error(`File "${img.link}" was not found!`)
     return {
       ...img,
       data: object
