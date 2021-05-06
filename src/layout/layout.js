@@ -11,7 +11,7 @@ import Header from "./header"
 import Sidebar from "./sidebar"
 import Footer from "./footer"
 import CookiePopup from "../components/cookiesPopup"
-import { TopBanner, SidebarBanner } from "../components/banner"
+import { TopBanner } from "../components/banner"
 
 const PageContainer = styled.div`
   background-color: var(--lighten-bg);
@@ -70,7 +70,6 @@ const Layout = ({ children, hideSidebar, hideNewPosts }) => {
               &&
               <SidebarColumn>
                 <Sidebar hideNewPosts={hideNewPosts}/>
-                <SidebarBanner/>
               </SidebarColumn>
             }
           </ContentContainer>

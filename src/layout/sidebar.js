@@ -6,6 +6,7 @@ import CategoriesWidget from "../widgets/categories"
 import TagsWidget from "../widgets/tags"
 import SocialWidget from "../widgets/social"
 import AdSenseSidebar from "./adSenseSidebar"
+import { SidebarBanner } from "../components/banner"
 
 const Sidebar = ({hideNewPosts}) => {
 
@@ -17,6 +18,7 @@ const Sidebar = ({hideNewPosts}) => {
       <CategoriesWidget/>
       <TagsWidget/>
       <SocialWidget/>
+      <SidebarBanner/>
       <AdSenseSidebar/>
     </aside>
   )
