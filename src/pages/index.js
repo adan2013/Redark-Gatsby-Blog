@@ -16,7 +16,7 @@ const Page = ({data}) => {
       <h1>Nowe wpisy</h1>
       {
         data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }, index) => (
-          <>
+          <React.Fragment key={slug}>
             {siteConfig.adSense.onMainPage && index === Math.round(data.allMdx.nodes.length * 0.75) && <AdSenseInArticle/>}
             <PostBlock key={slug}
                        slug={slug}
@@ -24,7 +24,7 @@ const Page = ({data}) => {
                        title={title}
                        date={date}
                        categories={categories} />
-          </>
+          </React.Fragment>
         ))
       }
       <PageContent>
