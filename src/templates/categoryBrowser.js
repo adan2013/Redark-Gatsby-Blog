@@ -14,7 +14,7 @@ const PostBrowser = ({data, pageContext}) => {
       <h1>{pageContext.category}</h1>
       {
         data.allMdx.nodes.map(({ frontmatter: { slug, image, title, date, categories } }, index) => (
-          <>
+          <React.Fragment key={slug}>
             {siteConfig.adSense.inCategoryBrowser && index === Math.round(data.allMdx.nodes.length * 0.75) && <AdSenseInArticle/>}
             <PostBlock key={slug}
                        slug={slug}
@@ -22,7 +22,7 @@ const PostBrowser = ({data, pageContext}) => {
                        title={title}
                        date={date}
                        categories={categories} />
-          </>
+          </React.Fragment>
         ))
       }
       <Pagination link={pageContext.paginationLink}
