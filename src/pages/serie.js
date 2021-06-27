@@ -18,6 +18,7 @@ const Page = () => (
 
       <h2>Serie poboczne</h2>
       <ul>
+        <li><Link to={`/category/diy`}>DIY</Link> – projekty DIY mojego autorstwa</li>
         <li><Link to={`/category/recenzje`}>Recenzje</Link> – seria zawierająca wszelkie recenzje produktów, które posiadam lub testowałem</li>
         <li><Link to={`/category/newsy`}>Newsy</Link> – zawiera wszystkie artykuły dotyczące aktualnych nowin ze świata IT</li>
       </ul>
