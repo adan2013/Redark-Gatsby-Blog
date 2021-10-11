@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import siteConfig from '../site-config.json'
 
@@ -25,8 +25,16 @@ const CloseButton = styled.div`
 const AdBlockDetector = () => {
   const [ADBdetected, setADBdetected] = useState(false)
   const [messageVisible, setMessageVisible] = useState(true)
+  const fakeAdBanner = useRef()
 
-  let fakeAdBanner
+  useEffect(() => {
+    fetch('https://www3.doubleclick.net', {
+      method: 'HEAD',
+      mode: 'no-cors',
+      cache: 'no-store',
+    }).catch(() => setADBdetected(true))
+  }, [])
+
   useEffect(() => {
     if(fakeAdBanner) setADBdetected(fakeAdBanner.offsetHeight === 0)
   }, [fakeAdBanner])
@@ -45,9 +53,10 @@ const AdBlockDetector = () => {
     )
   }else{
     return (
-      <div ref={ref => { fakeAdBanner = ref }}
-           style={{height: '1px', width: '1px', visiblity: 'none', pointerEvents: 'none'}}
-           className="adBanner" />
+      <div ref={fakeAdBanner}
+           style={{ height: '1px', width: '1px', visiblity: 'none', pointerEvents: 'none' }}
+           className='adBanner'
+      />
     )
   }
 }
