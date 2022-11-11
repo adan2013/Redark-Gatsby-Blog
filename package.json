@@ -18,7 +18,7 @@
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-manifest": "^2.4.14",
-    "gatsby-plugin-mdx": "^1.2.33",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-offline": "^3.2.13",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.14",
