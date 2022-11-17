@@ -6,13 +6,13 @@ export default function HTML(props) {
     <html {...props.htmlAttributes}>
     <head>
 
-      <script key='google-gtag' async src="https://www.googletagmanager.com/gtag/js?id=UA-121555061-1"/>
+      <script key='google-gtag' async src="https://www.googletagmanager.com/gtag/js?id=G-H457CQS81G"/>
       <script key='gtag-redark' dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'UA-121555061-1');
+          gtag('config', 'G-H457CQS81G');
         `
       }}
       />
