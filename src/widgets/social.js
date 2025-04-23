@@ -1,8 +1,8 @@
-import React from 'react'
-import Widget from './widget'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import config from '../site-config.json'
+import React from "react"
+import Widget from "./widget"
+import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import config from "../site-config.json"
 import socialIcon from "../utils/socialIcon"
 
 const SocialContainer = styled.div`
@@ -15,29 +15,28 @@ const SocialLink = styled.a`
   padding: 0 4px;
   border: 3px transparent solid;
   border-radius: 8px;
-  transition: .4s;
+  transition: 0.4s;
   &:hover {
-    border-color: #d40000
+    border-color: #d40000;
   }
 `
 
 const SocialWidget = () => {
-
-  return(
+  return (
     <Widget title={"Bądź na bieżąco!"}>
       <SocialContainer>
-        {
-          config.social.map(item => (
-            <SocialLink href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{color: item.color}}
-                        title={item.name}
-                        key={item.name}>
-              <FontAwesomeIcon icon={socialIcon(item.icon)} size={"5x"}/>
-            </SocialLink>
-          ))
-        }
+        {config.social.map(item => (
+          <SocialLink
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: item.color }}
+            title={item.name}
+            key={item.name}
+          >
+            <FontAwesomeIcon icon={socialIcon(item.icon)} size={"3x"} />
+          </SocialLink>
+        ))}
       </SocialContainer>
     </Widget>
   )

@@ -46,12 +46,12 @@ const HeaderImageWrapper = styled.div`
     max-width: min(662px, 100%);
     padding: 55px;
   }
-  
+
   @media (max-width: ${props => props.theme.compactMenuBreakpoint}) {
     max-width: 50%;
     height: 40px;
     padding: 10px 15px;
-    
+
     .gatsby-image-wrapper {
       position: absolute;
       top: 50%;
@@ -60,20 +60,26 @@ const HeaderImageWrapper = styled.div`
   }
 `
 
-const Header = (props) => {
+const Header = props => {
   const data = useStaticQuery(headerImageQuery)
 
   return (
     <RelativeBlock>
       <HeaderContainer>
-        <Link to={'/'}>
+        <Link to={"/"}>
           <HeaderImageWrapper>
-            <Image fluid={props.theme.isDark ? data.dark.childImageSharp.fluid : data.light.childImageSharp.fluid} />
+            <Image
+              fluid={
+                props.theme.isDark
+                  ? data.dark.childImageSharp.fluid
+                  : data.light.childImageSharp.fluid
+              }
+            />
           </HeaderImageWrapper>
         </Link>
       </HeaderContainer>
-      <ThemeSwitch/>
-      <Navigation/>
+      <ThemeSwitch />
+      <Navigation />
     </RelativeBlock>
   )
 }
