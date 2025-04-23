@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import Layout from "../layout/layout"
@@ -30,11 +30,11 @@ const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 15px 10px;
-  
+
   li {
     margin-bottom: 8px;
   }
-  
+
   button {
     background-color: #fff;
     border: 1px #d40000 solid;
@@ -42,8 +42,8 @@ const List = styled.ul`
     color: #d40000;
     padding: 5px 10px;
     cursor: pointer;
-    transition: .2s;
-    
+    transition: 0.2s;
+
     &:hover {
       background-color: #d40000;
       color: #fff;
@@ -54,7 +54,9 @@ const List = styled.ul`
 /* eslint-disable */
 const getMailText = () => (
   <>
-    <a href={'mail'+'to:'+'redark'+'pl'+'@'+'gmail'+'.com'}>{'redarkpl'+'@'+'gmail'+'.com'}</a>
+    <a href={"mail" + "to:" + "redark" + "pl" + "@" + "gmail" + ".com"}>
+      {"redarkpl" + "@" + "gmail" + ".com"}
+    </a>
   </>
 )
 /* eslint-enable */
@@ -62,37 +64,48 @@ const getMailText = () => (
 const Page = ({ data }) => {
   const [visible, setVisible] = useState(false)
 
-  return(
+  return (
     <Layout>
-      <SEO title={"Kontakt"}/>
+      <SEO title={"Kontakt"} />
       <h1>Kontakt</h1>
       <PageContent>
         <h2>O mnie</h2>
         <AboutMeContainer>
           <AboutMeImageColumn>
-            <Image fluid={data.file.childImageSharp.fluid} alt={'autor redark.pl'} />
+            <Image
+              fluid={data.file.childImageSharp.fluid}
+              alt={"autor redark.pl"}
+            />
           </AboutMeImageColumn>
           <AboutMeTextColumn>
-            Nazywam się Daniel Alberski.
-            Interesuje się elektroniką, a w szczególności
-            programowaniem. Redark jest miejscem, gdzie
-            mogę rozwijać swoje pasje i dzielić się swoją wiedzą
-            z innymi. Obecnie skupiam się na zbudowaniu
-            kompletnej bazy informacji o składaniu i naprawianiu
-            komputerów. Zajmuję się również recenzowaniem sprzętu
-            elektronicznego oraz gier komputerowych.
+            Cześć, nazywam się Daniel Alberski. Interesuję się elektroniką oraz
+            programowaniem. Obecnie moją główną pasją jest druk 3D oraz projekty
+            DIY. Redark jest miejscem, gdzie mogę rozwijać swoje pasje i dzielić
+            się swoją wiedzą z innymi. Publikuję poradniki, testy urządzeń i
+            narzędzi, a także dokumentuję własne projekty krok po kroku.
+            Wcześniej blog skupiał się na tematyce komputerowej – składaniu,
+            naprawie sprzętu oraz recenzjach elektroniki i gier.
           </AboutMeTextColumn>
         </AboutMeContainer>
         <h2>Kontakt i współpraca</h2>
-        Kontakt możliwy jest za pomocą poczty elektronicznej lub portali społecznościowych podanych poniżej. Osoby zainteresowane współpracą zapraszam do kontaktu mailowego w celu otrzymania oferty oraz statystyk witryny.
+        Kontakt możliwy za pomocą poczty elektronicznej lub portali
+        społecznościowych podanych poniżej.
         <List>
           {visible && <li>{getMailText()}</li>}
-          {!visible && <li><button onClick={() => setVisible(true)}>(kliknij tutaj, aby odsłonić adres e-mail)</button></li>}
-          {
-            siteConfig.social.map(item => (
-              <li key={item.name}><a href={item.link} target={"_blank"} rel="noreferrer">{item.name}</a></li>
-            ))
-          }
+          {!visible && (
+            <li>
+              <button onClick={() => setVisible(true)}>
+                (kliknij tutaj, aby odsłonić adres e-mail)
+              </button>
+            </li>
+          )}
+          {siteConfig.social.map(item => (
+            <li key={item.name}>
+              <a href={item.link} target={"_blank"} rel="noreferrer">
+                {item.name}
+              </a>
+            </li>
+          ))}
         </List>
       </PageContent>
     </Layout>

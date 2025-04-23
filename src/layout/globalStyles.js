@@ -78,13 +78,13 @@ const GlobalStyle = createGlobalStyle`
     
     &.theme-dark {
         --darken-bg: #2b2b2b;
-        --lighten-bg: #2f2f2f;
+        --lighten-bg: #181818;
         --main-color: #d40000;
         --text-color: #fff;
         --sub-text-color: #cfcfcf;
         --theme-switch: #a0a0a0;
         --theme-switch-hover: #fff;
-        --menu-bar-bg: #2f2f2f;
+        --menu-bar-bg: #181818;
         --menu-bar-border: #444444;
         --menu-normal-text: #fff;
         --menu-normal-bg: #3c3c3c;
@@ -122,7 +122,8 @@ const GlobalStyle = createGlobalStyle`
     border-bottom: 3px #d40000 solid;
     padding: 5px;
     margin: 0;
-    @media (max-width: ${props => props.theme.mobileBreakpoint}) { font-size: 26px; }
+    @media (max-width: ${props =>
+      props.theme.mobileBreakpoint}) { font-size: 26px; }
   }
   
   h2 {
